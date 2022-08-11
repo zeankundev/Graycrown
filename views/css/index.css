@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+}
+body {
+    background: var(--main-color);
+    color: var(--main-text);
+    font-family: 'Effra', system-ui;
+    user-select: none;
+}
+.menu-tab {
+    display: flex;
+    flex-direction: row;
+    background: var(--main-color);
+    color: var(--main-text);
+    /*-webkit-app-region: drag;*/
+}
+img {
+    width: 24px;
+}
+.tab {
+    padding: 10px;
+    -webkit-appearance: none;
+    border: none;
+    outline: none;
+    background: var(--main-color);
+}
+.tab:hover {
+    background: var(--main-color-hover);
+}
+.active {
+    background: #2e2e2e !important;
+    transition: all 0.3s ease-in-out;
+}
+
+.container {
+    background: var(--main-hover-color);
+    display: none;
+    padding: 20px;
+}
+.navbars {
+    margin-left: auto;
+    order: 2;
+}
+.navbutton {
+    padding: 10px;
+    -webkit-appearance: none;
+    outline: none;
+    border: none;
+    background: var(--main-color);
+}
+.navbutton:hover {
+    background: var(--main-hover-color) !important;
+}
+.container {
+    position: absolute;
+    top: 47px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+object, iframe {
+    width: 100%;
+    height: 100%;
+}
+.button {
+    background-color: var(--main-color);
+    color: var(--main-text);
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-family: 'Effra', system-ui;
+    cursor: pointer;
+}
+.game-display {
+    background: var(--main-color);
+    margin: 10px;
+    padding: 10px;
+    display: inline-block;
+    border-radius: 15px;
+}
+.game-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.play {
+    background-color: var(--play-color);
+    border: none;
+    display: inline-block;
+    font-family: 'Effra', system-ui;
+    padding: 10px;
+    border-radius: 15px;
+    color: var(--main-text);
+    width: 240px;
+    cursor: pointer;
+}
+.play:hover {
+    background-color: var(--play-color-hover);
+}
+.modal {
+    background-color: var(--main-color);
+    width: fit-content;
+    display: none;
+    position: absolute;
+    top: 3%;
+    left: 40%;
+    border-radius: 15px;
+    align-items: center;
+}
+select, input, textarea, #add-game-form button {
+    background-color: var(--main-color);
+    border: 1px solid var(--main-text);
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.close {
+    color: var(--main-text);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}

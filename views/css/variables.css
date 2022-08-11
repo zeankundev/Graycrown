@@ -1,0 +1,32 @@
+@font-face {
+    font-family: 'Effra';
+    src: url('../../assets/fonts/Effra_Trial_Rg.ttf');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Effra';
+    src: url('../../assets/fonts/Effra_Trial_It.ttf');
+    font-weight: 400;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Effra';
+    src: url('../../assets/fonts/Effra_Trial_Bd.ttf');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Effra';
+    src: url('../../assets/fonts/Effra_Trial_BdIt.ttf');
+    font-weight: 700;
+    font-style: italic;
+}
+:root {
+    --main-color: #1d1d1d;
+    --main-hover-color: #2e2e2e;
+    --main-selected-disabled-color: #3f3f3f;
+    --main-text: #fff;
+    --play-color: #16c716;
+    --play-color-hover: #2ae42a;
+}

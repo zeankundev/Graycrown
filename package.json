@@ -1,0 +1,48 @@
+{
+  "name": "graycrown",
+  "version": "0.5.0",
+  "description": "a simple game launcher",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "browser": {
+    "child_process": true
+  },
+  "keywords": [
+    "game",
+    "launcher",
+    "games"
+  ],
+  "author": "zeankun.dev <zeanfender11@gmail.com>",
+  "license": "GPL-3.0",
+  "build": {
+    "appId": "com.zeankundev.graycrown",
+    "productName": "Graycrown",
+    "copyright": "Copyright © 2022 zeankun.dev",
+    "icon": "build/icons/512x512.png",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": ["nsis", "portable"],
+      "publisherName": "zeankun.dev"
+    },
+    "linux": {
+      "target": ["deb", "rpm", "AppImage", "snap"],
+      "maintainer": "zeankun.dev",
+      "category": "Game",
+      "icon": "build/icons/512x512.png"
+    }
+  },
+  "devDependencies": {
+    "electron": "^4.2.12",
+    "electron-builder": "^20.44.4"
+  },
+  "dependencies": {
+    "electron-reloader": "^1.2.3",
+    "webpack": "^5.74.0"
+  }
+}

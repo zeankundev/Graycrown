@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="css/variables.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="menu-tab">
+            <button class="tab" onclick="openMenu(event, 'home')" id="home-tab"><img src="../assets/home_1024.png"></button>
+            <button class="tab"onclick="openMenu(event, 'library'); getGamesAlt()" id="library-tab"><img src="../assets/library_1024.png"></button>
+            <button class="tab" onclick="openMenu(event, 'store')" id="store-tab"><img src="../assets/news_1024.png"></button>
+            <button class="tab" onclick="openMenu(event, 'settings')" id="settings-tab"><img src="../assets/settings_1024.png"></button>
+            <div style="display: flex; -webkit-app-region: drag; width: 60%;"></div>
+            <ul class="navbars">
+                <button class="navbutton" id="downloads"><img src="../assets/download_1024.png"></button>
+                <button class="navbutton" id="minimize"><img src="../assets/minimize_1024.png"></button>
+                <button class="navbutton" id="maximize"><img src="../assets/maximize_1024.png" id="img-toggle"></button>
+                <button class="navbutton" id="close"><img src="../assets/close_1024.png"></button>
+            </ul>
+        </div>
+        <div class="container">
+            <div id="home" class="tabcontent">
+                <div class="home">
+                    <h1>Welcome back!</h1>
+                    <div id="game-list"></div>
+                </div>
+            </div>
+            <div id="library" class="tabcontent">
+                <div class="library">
+                    <h1>Library</h1>
+                    <div id="game-list-alt"></div>
+                </div>
+            </div>
+            <div id="store" class="tabcontent">
+                <div class="store">
+                    <h1>Store (WIP)</h1>
+                    <button class="button">Refresh Store</button>
+                </div>
+            </div>
+            <div id="settings" class="tabcontent">
+                <div class="settings">
+                    <h1>Settings</h1>
+                    <div id="settings-list">
+                        <button class="button" style="margin-top: 10px; margin-bottom: 10px;" id="games-open">Open games.json file</button>
+                    </div>
+                    <h2>Wine Settings (Linux only)</h2>
+                    <button class="button" style="margin-top: 10px; margin-bottom: 10px;" id="wine-cfg" onclick="spawnWine('cfg')">Wine configuration</button>
+                    <button class="button" style="margin-top: 10px; margin-bottom: 10px;" id="wine-tricks" onclick="spawnWine('tricks')">Winetricks</button>
+                </div>
+            </div>
+        </div>
+        <script src="../script/main.js"></script>
+    </body>
+</html>
