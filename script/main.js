@@ -8,6 +8,34 @@ const downloads = document.getElementById('downloads');
 const imageToggle = document.getElementById('img-toggle');
 const modal = document.getElementById('download-modal');
 const closeModal = document.getElementById('close-modal');
+// translation area
+const welcomeBack = document.getElementById('welcome-back');
+const library = document.getElementById('library');
+const store = document.getElementById('store');
+const settings = document.getElementById('settings');
+const wineSettings = document.getElementById('wine-settings');
+const downloadsText = document.getElementById('downloads-text');
+const noDownloads = document.getElementById('no-downloads');
+// end of translation area
+// fetch json of corresponding language
+window.onload = function() {
+    const lang = 'en';
+    // new lang make it lowercase
+    const langLower = lang.toLowerCase();
+    const path = `../language/${langLower}.json`;
+    fs.readFile(path, 'utf8', (err, data) => {
+        if (err) throw err;
+        const json = JSON.parse(data);
+        welcomeBack.innerHTML = json.translations.welcomeBack;
+        library.innerHTML = json.translations.library;
+        store.innerHTML = json.translations.store;
+        settings.innerHTML = json.translations.settings;
+        wineSettings.innerHTML = json.translations.wineSettings;
+        downloadsText.innerHTML = json.translations.downloadsText;
+        noDownloads.innerHTML = json.translations.noDownloads;
+    }
+    );
+}
 const getWin = () => remote.BrowserWindow.getFocusedWindow();
 var logic = 0;
 const closeWin = () => {

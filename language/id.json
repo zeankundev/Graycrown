@@ -1,0 +1,16 @@
+{
+    "code": "id",
+    "translations": {
+        "welcomeBack": "Selamat datang kembali!",
+        "library": "Perpustakaan",
+        "store": "Toko (DP)",
+        "settings": "Pengaturan",
+        "wineSettings": "Pengaturan Wine (Hanya untuk Linux)",
+        "downloads": "Unduhan",
+        "noDownloads": "Tidak ada unduhan. Coba lagi nanti.",
+        "play": "Mainkan",
+        "downloadAndInstall": "Unduh dan pasang",
+        "refreshStore": "Segarkan Toko",
+        "wineConfig": "Konfigurasi Wine"
+    }
+}

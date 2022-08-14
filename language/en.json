@@ -1,0 +1,16 @@
+{
+    "code": "en",
+    "translations": {
+        "welcomeBack": "Welcome back!",
+        "library": "Library",
+        "store": "Store (WIP)",
+        "settings": "Settings",
+        "wineSettings": "Wine Settings (Linux only)",
+        "downloads": "Downloads",
+        "noDownloads": "No downloads. Check back soon!",
+        "play": "Play",
+        "downloadAndInstall": "Download and Install",
+        "refreshStore": "Refresh Store",
+        "wineConfig": "Wine Configuration"
+    }
+}

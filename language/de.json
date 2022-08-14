@@ -1,0 +1,16 @@
+{
+    "code": "de",
+    "translations": {
+        "welcomeBack": "Willkomen zurück!",
+        "library": "Bibilothek",
+        "store": "Geschäft (IA)",
+        "settings": "Einstellungen",
+        "wineSettings": "Wine-Einstellungen (Nur Linux)",
+        "downloads": "Download",
+        "noDownloads": "Keine Downloads. Schau bald wieder vorbei!",
+        "play": "Spielen",
+        "downloadAndInstall": "Herunterladen und installieren",
+        "refreshStore": "Geschäft aktualisieren",
+        "wineConfig": "Wine-Konfiguration"
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "code": "jp",
+    "translations": {
+        "welcomeBack": "お帰りなさい！",
+        "library": "図書館",
+        "store": "ショップ（制作中）",
+        "settings": "設定",
+        "wineSettings": "ワインの設定 (Linux のみ)",
+        "downloads": "ダウンロード",
+        "noDownloads": "ダウンロードはありません。 すぐにもう一度確認してください",
+        "play": "遊ぶ",
+        "downloadAndInstall": "ダウンロードとインストール",
+        "refreshStore": "リフレッシュショップ",
+        "wineConfig": "ワイン構成"
+    }
+}
