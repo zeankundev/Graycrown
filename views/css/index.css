@@ -99,6 +99,35 @@ object, iframe {
 .play:hover {
     background-color: var(--play-color-hover);
 }
+.store-display {
+    background: var(--main-color);
+    margin: 10px;
+    padding: 10px;
+    display: inline-block;
+    border-radius: 15px;
+}
+.store-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.download {
+    background-color: var(--download-color);
+    border: none;
+    display: inline-block;
+    font-family: 'Effra', system-ui;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 15px;
+    color: var(--main-text);
+    width: 240px;
+    cursor: pointer;
+}
+.download:hover {
+    background-color: var(--download-color-hover);
+}
 .modal {
     background-color: var(--main-color);
     width: fit-content;

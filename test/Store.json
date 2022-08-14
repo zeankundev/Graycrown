@@ -1,5 +1,5 @@
 {
-    "items": [
+    "store": [
         {
             "id": "test",
             "name": "Hello World",

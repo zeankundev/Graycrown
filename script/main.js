@@ -92,7 +92,7 @@ openMenu(event, 'home')
                                 const { spawn } = require('child_process');
                                 const process = spawn(game.exec, game.args);
                                 process.on('error', (err) => {
-                                    console.log(err);
+                                    throw new Error(err)
                                 });
                             }
                             gameDisplay.appendChild(gameButton);
@@ -101,35 +101,6 @@ openMenu(event, 'home')
                     });
     }
     getGames();
-    // handle addGames()
-    function addGames() {
-        document.getElementById('add-game').style.display = "block";
-        document.getElementById('close').onclick = function() {
-            document.getElementById('add-game').style.display = "none";
-        }
-        document.getElementById('add-game-button').onclick = function() {
-            let gameID = document.getElementById('game-id').value;
-            let gameName = document.getElementById('game-name').value;
-            let binaryLocation = document.getElementById('binary-location').value;
-            let gameArgs = document.getElementById('game-args').value;
-            let gameIcon = document.getElementById('game-image').value;
-            let game = {
-                "id": gameID,
-                "name": gameName,
-                "exec": binaryLocation,
-                "args": gameArgs,
-                "icon": gameIcon
-            }
-            app.getPath('userData') + '/games.json'
-            let games = JSON.parse(fs.readFileSync("../test/games.json"));
-            console.log("OK: Finished parse")
-            games.games.push(game);
-            fs.writeFileSync("../test/games.json", JSON.stringify(games));
-            console.log("OK: Finished write")
-            // getGames();
-            // document.getElementById('add-game').style.display = "none";
-        }
-    }
     // check any changes on app.getPath('userData' + /games.json)
     // if changes, getGames()
     fs.watch(app.getPath('userData') + '/games.json', (event, filename) => {
@@ -153,19 +124,22 @@ openMenu(event, 'home')
         console.log("OK: e.currentTarget.className += \" active\"");
     }
     function fetchStores() {
-        fetch('../test/CoalStore.json')
+        fetch('../test/Store.json')
             .then(response => response.json())
             .then(data => {
                 let storeList = document.getElementById("store-list");
                 storeList.innerHTML = "";
-                data.stores.forEach(store => {
+                data.store.forEach(store => {
                     let storeDisplay = document.createElement("div");
                     storeDisplay.className = "store-display";
                     storeDisplay.innerHTML = `
                         <div class="store-title">${store.name}</div>
-                        <div class="store-description">${store.description}</div>
-                        <div class="store-price">${store.price}</div>
+                        <div class="store-description">${store.summary}</div>
                     `;
+                    let downButton = document.createElement("button");
+                    downButton.className = "download";
+                    downButton.innerHTML = "Download and install";
+                    storeDisplay.appendChild(downButton);
                     storeList.appendChild(storeDisplay);
                 });
             });
@@ -174,7 +148,7 @@ function spawnWine(processType) {
     const spawn = require('child_process').spawn;
     spawn('wine' + processType);
     // console.log the child_process output
-    process.stdout.on('data', (data) => {
+    spawn.stdout.on('data', (data) => {
         console.log(`stdout: ${data}`);
     });
 }

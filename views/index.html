@@ -9,7 +9,7 @@
         <div class="menu-tab">
             <button class="tab" onclick="openMenu(event, 'home')" id="home-tab"><img src="../assets/home_1024.png"></button>
             <button class="tab"onclick="openMenu(event, 'library'); getGamesAlt()" id="library-tab"><img src="../assets/library_1024.png"></button>
-            <button class="tab" onclick="openMenu(event, 'store')" id="store-tab"><img src="../assets/news_1024.png"></button>
+            <button class="tab" onclick="openMenu(event, 'store'); fetchStores()" id="store-tab"><img src="../assets/news_1024.png"></button>
             <button class="tab" onclick="openMenu(event, 'settings')" id="settings-tab"><img src="../assets/settings_1024.png"></button>
             <div style="display: flex; -webkit-app-region: drag; width: 60%;"></div>
             <ul class="navbars">
@@ -35,7 +35,8 @@
             <div id="store" class="tabcontent">
                 <div class="store">
                     <h1>Store (WIP)</h1>
-                    <button class="button">Refresh Store</button>
+                    <button class="button" onclick="fetchStores();">Refresh Store</button>
+                    <div id="store-list"></div>
                 </div>
             </div>
             <div id="settings" class="tabcontent">
