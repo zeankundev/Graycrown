@@ -85,6 +85,9 @@ object, iframe {
     margin-right: 10px;
     margin-bottom: 10px;
 }
+h1 {
+    display: inline;
+}
 .play {
     background-color: var(--play-color);
     border: none;
@@ -135,7 +138,9 @@ object, iframe {
     position: absolute;
     top: 3%;
     left: 40%;
+    padding: 10px;
     border-radius: 15px;
+    z-index: 9;
     align-items: center;
 }
 select, input, textarea, #add-game-form button {
@@ -150,5 +155,6 @@ select, input, textarea, #add-game-form button {
     float: right;
     font-size: 28px;
     font-weight: bold;
+    margin-left: 20px;
     cursor: pointer;
 }

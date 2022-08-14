@@ -4,7 +4,10 @@ const fs = require('fs');
 const close = document.getElementById('close');
 const minimize = document.getElementById('minimize');
 const maximize = document.getElementById('maximize');
-const imageToggle = document.getElementById('img-toggle')
+const downloads = document.getElementById('downloads');
+const imageToggle = document.getElementById('img-toggle');
+const modal = document.getElementById('download-modal');
+const closeModal = document.getElementById('close-modal');
 const getWin = () => remote.BrowserWindow.getFocusedWindow();
 var logic = 0;
 const closeWin = () => {
@@ -20,6 +23,19 @@ const maximizeWin = () => {
 minimize.addEventListener('click', minimizeWin);
 maximize.addEventListener('click', maximizeWin);
 close.addEventListener('click', closeWin);
+downloads.onclick = function() {
+    modal.style.display = "block";
+}
+closeModal.onclick = function() {
+    modal.style.display = "none";
+}
+// if it clicks anywhere out of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
 openMenu(event, 'home')
 // check available games in the games.json file
     /* json schema:
@@ -139,6 +155,31 @@ openMenu(event, 'home')
                     let downButton = document.createElement("button");
                     downButton.className = "download";
                     downButton.innerHTML = "Download and install";
+                    downButton.onclick = function() {
+                        fetch(store.download)
+                            .then(response => response.blob())
+                            .then(console.log("OK: Download started"))
+                            .then(blob => {
+                                if (!fs.existsSync(app.getPath('userData') + '/downloads')) {
+                                    fs.mkdirSync(app.getPath('userData') + '/downloads');
+                                }
+                                const url = window.URL.createObjectURL(blob);
+                                const a = document.createElement('a');
+                                a.href = url;
+                                a.download = store.download;
+                                a.click();
+                                window.URL.revokeObjectURL(url);
+                                console.log("OK: download complete");
+                                // save blob to userData/downloads
+                                // no /downloads folder yet, so create it
+                                // remove https and url, leaving only filename
+                                var filename = store.download.replace(/^.*[\\\/]/, '');
+                                fs.writeFile(app.getPath('userData') + '/downloads/' + filename, blob, (err) => {
+                                    if (err) throw err;
+                                    console.log("OK: Download saved to downloads");
+                                });
+                            });
+                    }
                     storeDisplay.appendChild(downButton);
                     storeList.appendChild(storeDisplay);
                 });
