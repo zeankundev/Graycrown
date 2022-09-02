@@ -6,8 +6,8 @@ const APP_ICON = path.join(__dirname, '/build/icons/512x512.png');
 
 app.on('ready', () => {
     const window = new BrowserWindow({
-        width: 1024,
-        height: 600,
+        width: 1036,
+        height: 609,
         title: 'Graycrown',
         frame: false,
         icon: APP_ICON,

@@ -14,6 +14,82 @@ body {
     color: var(--main-text);
     /*-webkit-app-region: drag;*/
 }
+#game_container {
+    float: left;
+    
+    border: 1px solid #CCC;
+    margin-bottom: 10px;
+    padding: 15px;
+  }
+  
+  .row
+  {
+    display: flex;
+  }
+  
+  .cell {
+    width: 35px;
+    height: 25px;
+    border: 1px solid #CCC;
+    padding: 10px 5px 5px 5px;
+  
+    background-color: var(--main-color);
+  
+    font-size: 16px;
+    text-align: center;
+    
+    cursor: pointer;
+    transition-property: background-color, box-shadow;
+    transition-duration: 1s;
+    transition-timing-function: ease-out;
+  }
+  
+  .cell::selection {
+    background: transparent;
+  }
+  .cell.revealed, .cell.flagged {
+    cursor: default;
+    background-image: url('../../assets/minesweeper_1024.png') !important;
+  }
+  .cell.revealed {
+    background-color: var(--main-color-hover);
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+  
+  
+  @each $name, $value in $cellColors {
+    .cell.adj-#{$name} {
+      color: #{$value};
+    }
+  }
+  
+  .cell.adj-M {
+    font-family: "FontAwesome";
+    background-color: #FFCCCC;
+    
+  }
+  
+  .cell.flagged {
+    font-family: "FontAwesome";
+    background-image: url('../../assets/minesweeper_1024.png') !important;
+  }
+  
+  .clearfix:after {
+    visibility: hidden;
+    display: block;
+    content: "";
+    clear: both;
+    height: 0;
+  }
+  .status_msg {
+    margin-bottom: 10px;
+  }
+  
+  input[type="number"] {
+    width: 28px;
+  }
 img {
     width: 24px;
 }
@@ -48,6 +124,19 @@ img {
     border: none;
     background: var(--main-color);
 }
+.notification {
+    background-color: var(--main-color);
+    text-align: center;
+    display: block;
+    margin-top: 15px;
+    animation: notif-popup 1s ease-out;
+    padding: 5px;
+    display: none;
+}
+@keyframes notif-popup {
+    0% {margin-top: -200px;}
+    100% {margin-top: 15px;}
+}
 .navbutton:hover {
     background: var(--main-hover-color) !important;
 }
@@ -57,6 +146,7 @@ img {
     right: 0;
     left: 0;
     bottom: 0;
+    z-index: -1;
 }
 object, iframe {
     width: 100%;

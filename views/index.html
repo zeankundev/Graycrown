@@ -3,7 +3,6 @@
     <head>
         <link rel="stylesheet" href="css/index.css">
         <link rel="stylesheet" href="css/variables.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <div class="menu-tab">
@@ -11,19 +10,28 @@
             <button class="tab"onclick="openMenu(event, 'library'); getGamesAlt()" id="library-tab"><img src="../assets/library_1024.png"></button>
             <button class="tab" onclick="openMenu(event, 'store'); fetchStores()" id="store-tab"><img src="../assets/news_1024.png"></button>
             <button class="tab" onclick="openMenu(event, 'settings')" id="settings-tab"><img src="../assets/settings_1024.png"></button>
-            <div style="display: flex; -webkit-app-region: drag; width: 60%;"></div>
+            <button class="tab" style="display: none;" onclick="openMenu(event, 'minesweeper')" id="minesweeper-tab"><img src="../assets/minesweeper_1024.png"></button>
+            <div style="display: flex; -webkit-app-region: drag; width: 54%;"></div>
             <ul class="navbars">
+                <button class="navbutton" id="secret"></button>
                 <button class="navbutton" id="downloads"><img src="../assets/download_1024.png"></button>
                 <button class="navbutton" id="minimize"><img src="../assets/minimize_1024.png"></button>
                 <button class="navbutton" id="maximize"><img src="../assets/maximize_1024.png" id="img-toggle"></button>
                 <button class="navbutton" id="close"><img src="../assets/close_1024.png"></button>
             </ul>
         </div>
+        <div class="notification" id="notif">
+            <b>Notification</b>
+            <br>
+            <p id="text">%TEXT%</p>
+        </div>
         <div class="container">
             <div id="home" class="tabcontent">
                 <div class="home">
                     <h1 id="welcome-back">Welcome back!</h1>
                     <div id="game-list"></div>
+		            <h2>How about trying this?</h2>
+		            <h4>Curated for you, these are the best HTML5 Games to play on Graycrown!</h4>
                 </div>
             </div>
             <div id="library" class="tabcontent">
@@ -50,6 +58,50 @@
                     <button class="button" style="margin-top: 10px; margin-bottom: 10px;" id="wine-tricks" onclick="spawnWine('tricks')">Winetricks</button>
                 </div>
             </div>
+            <div id="minesweeper" class="tabcontent">
+                <h1>Minesweeper</h1>
+                <br>
+                <div class="clearfix" style="display: inline;">
+                <div id="game_container">
+                    <!--placeholder for game -->
+                </div>
+                </div>
+
+                <div style="display: inline-flex !important;">
+                <div style="margin: 10px 0px;">
+                    F = Flagged, M = Mine, Left Click to reveal a cell, Right Click to flag a cell
+                </div>
+
+                <div class="status_msg">
+                    <strong>Mines Remaining:</strong> <span id="mine_count"></span>
+                </div>
+                <div class="status_msg">
+                    <strong>Moves Made:</strong> <span id="moves_made"></span>
+                </div>
+                <div class="status_msg">
+                    <strong>Game Status:</strong> <span id="game_status"></span>
+                </div>
+
+                <div style="margin: 10px 0px;">
+                    <input id="validate_button" type="button" class="button" value="Did I win?" />
+                </div>
+
+                    <div style="margin: 8px 0px; display: inline;">
+                        <label for="new_rows">Rows:</label>
+                        <input type="number" class="button" id="new_rows" placeholder="rows" value="8" />
+                        <label for="new_cols">Cols:</label>
+                        <input type="number" class="button" id="new_cols" placeholder="cols" value="8" />
+                        <label for="new_mines">Mines:</label>
+                        <input type="number" class="button" id="new_mines" placeholder="mines" value="10" />
+                        </div>
+                        <div style="font-size: 10pt;">*max size: 19 x 19</div>
+                        <input id="new_game_button" type="button" class="button" value="Create new game!" style="height: 50px !important;" />
+                        <div>
+                            <input id="cheat_button" type="button" class="button" value="Cheat!" />
+                            <div style="font-size: 10pt;">*grid layout printed to JS console</div>
+                        </div>
+                    </div>
+            </div>
         </div>
         <div class="modal" id="download-modal">
             <h1 id="downloads-text">Downloads</h1>
@@ -60,5 +112,6 @@
             </div>
         </div>
         <script src="../script/main.js"></script>
+        <script src="../script/minesweeper.js"></script>
     </body>
 </html>

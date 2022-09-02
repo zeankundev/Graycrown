@@ -6,12 +6,16 @@ const minimize = document.getElementById('minimize');
 const maximize = document.getElementById('maximize');
 const downloads = document.getElementById('downloads');
 const imageToggle = document.getElementById('img-toggle');
+const text = document.getElementById('text');
+const notif = document.getElementById('notif')
 const modal = document.getElementById('download-modal');
 const closeModal = document.getElementById('close-modal');
 // translation area
 const welcomeBack = document.getElementById('welcome-back');
 const library = document.getElementById('library');
 const store = document.getElementById('store');
+const easter = document.getElementById('secret');
+const minesweeper = document.getElementById('minesweeper-tab')
 const settings = document.getElementById('settings');
 const wineSettings = document.getElementById('wine-settings');
 const downloadsText = document.getElementById('downloads-text');
@@ -36,6 +40,32 @@ window.onload = function() {
     }
     );
 }
+function notifDisplay(txt) {
+    notif.style.display = 'block';
+    text.innerHTML = txt;
+    setTimeout(function(){
+        notif.style.display = 'none';
+    }, 4000)
+}
+var count = 0
+easter.onclick = function() {
+    count = count + 1
+    console.log('set count to: ' + count)
+    if ((count > 2) && (count < 10)) {
+        var more = 10 - count
+        notifDisplay('You are ' + more + ' clicks closer to the secret!')
+    }
+    if (count == 10) {
+        minesweeper.style.display = "block";
+        notifDisplay('A new game mode has been unlocked! Good luck!')
+    }
+    ha = setTimeout(lol, 2000)
+}
+function lol() {
+    count = 0
+    console.log('reset count to ' + count)
+}
+
 const getWin = () => remote.BrowserWindow.getFocusedWindow();
 var logic = 0;
 const closeWin = () => {
@@ -47,6 +77,7 @@ const minimizeWin = () => {
 const maximizeWin = () => {
     const win = getWin();
     win.isMaximized() ? win.unmaximize() : win.maximize();
+    win.isMaximized() ? imageToggle.setAttribute("src", "../assets/restore_down_1024.png") : imageToggle.setAttribute("src", "../assets/maximize_1024.png")
 }
 minimize.addEventListener('click', minimizeWin);
 maximize.addEventListener('click', maximizeWin);
