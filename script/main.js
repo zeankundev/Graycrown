@@ -1,10 +1,14 @@
 const remote = require('electron').remote;
 const app = remote.app;
 const fs = require('fs');
+const notifier = require('node-notifier');
+const download = require('download');
+const { url } = require('inspector');
 const close = document.getElementById('close');
 const minimize = document.getElementById('minimize');
 const maximize = document.getElementById('maximize');
 const downloads = document.getElementById('downloads');
+const titleText = document.getElementById('title-text')
 const imageToggle = document.getElementById('img-toggle');
 const text = document.getElementById('text');
 const notif = document.getElementById('notif')
@@ -40,9 +44,10 @@ window.onload = function() {
     }
     );
 }
-function notifDisplay(txt) {
+function notifDisplay(txt, title) {
     notif.style.display = 'block';
     text.innerHTML = txt;
+    titleText.innerHTML = title
     setTimeout(function(){
         notif.style.display = 'none';
     }, 4000)
@@ -53,11 +58,11 @@ easter.onclick = function() {
     console.log('set count to: ' + count)
     if ((count > 2) && (count < 10)) {
         var more = 10 - count
-        notifDisplay('You are ' + more + ' clicks closer to the secret!')
+        notifDisplay('You are ' + more + ' clicks closer to the secret!', 'Few clicks closer!')
     }
     if (count == 10) {
         minesweeper.style.display = "block";
-        notifDisplay('A new game mode has been unlocked! Good luck!')
+        notifDisplay('A new game mode has been unlocked! Good luck!', 'Yay!')
     }
     ha = setTimeout(lol, 2000)
 }
@@ -110,7 +115,7 @@ openMenu(event, 'home')
         ]
     }*/
     const exec = require('child_process').exec;
-    function getGames() {
+    /*function getGames() {
         fetch(app.getPath('userData') + '/games.json')
             .then(response => response.json())
             .then(data => {
@@ -134,15 +139,19 @@ openMenu(event, 'home')
                         const { spawn } = require('child_process');
                         const process = spawn(game.exec, game.args);
                         process.on('error', (err) => {
-                            console.log(err);
+                            notifDisplay(err, 'Failed to launch');
+                            notifier.notify({
+                                title: 'Failed to launch',
+                                message: err
+                            })
                         });
                     }
                     gameDisplay.appendChild(gameButton);
                     gameList.appendChild(gameDisplay);
                 });
             });
-        }
-            function getGamesAlt() {
+        }*/
+            function getGames() {
                 fetch(app.getPath('userData') + '/games.json')
                     .then(response => response.json())
                     .then(data => {
@@ -168,6 +177,7 @@ openMenu(event, 'home')
                                 const process = spawn(game.exec, game.args);
                                 process.on('error', (err) => {
                                     throw new Error(err)
+                                    notifDisplay(err, 'Failed to launch!')
                                 });
                             }
                             gameDisplay.appendChild(gameButton);
@@ -222,13 +232,11 @@ openMenu(event, 'home')
                                 if (!fs.existsSync(app.getPath('userData') + '/downloads')) {
                                     fs.mkdirSync(app.getPath('userData') + '/downloads');
                                 }
-                                const url = window.URL.createObjectURL(blob);
-                                const a = document.createElement('a');
-                                a.href = url;
-                                a.download = store.download;
-                                a.click();
-                                window.URL.revokeObjectURL(url);
-                                console.log("OK: download complete");
+                                const filePath = app.getPath('userData') + '/downloads';
+                                download(store.download, filePath)
+                                .then(() => {
+                                    console.log("OK: download complete");
+                                })
                                 // save blob to userData/downloads
                                 // no /downloads folder yet, so create it
                                 // remove https and url, leaving only filename

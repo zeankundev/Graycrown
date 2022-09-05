@@ -27,11 +27,19 @@
       "output": "dist"
     },
     "win": {
-      "target": ["nsis", "portable"],
+      "target": [
+        "nsis",
+        "portable"
+      ],
       "publisherName": "zeankun.dev"
     },
     "linux": {
-      "target": ["deb", "rpm", "AppImage", "snap"],
+      "target": [
+        "deb",
+        "rpm",
+        "AppImage",
+        "snap"
+      ],
       "maintainer": "zeankun.dev",
       "category": "Game",
       "icon": "./build/icons/512x512.png"
@@ -42,7 +50,9 @@
     "electron-builder": "^20.44.4"
   },
   "dependencies": {
+    "download": "^8.0.0",
     "electron-reloader": "^1.2.3",
+    "node-notifier": "^10.0.1",
     "webpack": "^5.74.0"
   }
 }

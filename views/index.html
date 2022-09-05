@@ -11,7 +11,7 @@
             <button class="tab" onclick="openMenu(event, 'store'); fetchStores()" id="store-tab"><img src="../assets/news_1024.png"></button>
             <button class="tab" onclick="openMenu(event, 'settings')" id="settings-tab"><img src="../assets/settings_1024.png"></button>
             <button class="tab" style="display: none;" onclick="openMenu(event, 'minesweeper')" id="minesweeper-tab"><img src="../assets/minesweeper_1024.png"></button>
-            <div style="display: flex; -webkit-app-region: drag; width: 54%;"></div>
+            <div style="display: flex; -webkit-app-region: drag; flex-grow: 1;"></div>
             <ul class="navbars">
                 <button class="navbutton" id="secret"></button>
                 <button class="navbutton" id="downloads"><img src="../assets/download_1024.png"></button>
@@ -21,7 +21,7 @@
             </ul>
         </div>
         <div class="notification" id="notif">
-            <b>Notification</b>
+            <b id="title-text">Notification</b>
             <br>
             <p id="text">%TEXT%</p>
         </div>
@@ -29,9 +29,11 @@
             <div id="home" class="tabcontent">
                 <div class="home">
                     <h1 id="welcome-back">Welcome back!</h1>
-                    <div id="game-list"></div>
+                    <br>
+                    <button class="button" onclick="openMenu(event, 'library')">Go to library!</button>
 		            <h2>How about trying this?</h2>
 		            <h4>Curated for you, these are the best HTML5 Games to play on Graycrown!</h4>
+                    <small>Note: these games are ABSOLUTELY doesn't belong to Graycrown. DLs are provided by AB Coal</small>
                 </div>
             </div>
             <div id="library" class="tabcontent">
@@ -56,6 +58,8 @@
                     <h2 id="wine-settings">Wine Settings (Linux only)</h2>
                     <button class="button" style="margin-top: 10px; margin-bottom: 10px;" id="wine-cfg" onclick="spawnWine('cfg')" id="wine-config">Wine configuration</button>
                     <button class="button" style="margin-top: 10px; margin-bottom: 10px;" id="wine-tricks" onclick="spawnWine('tricks')">Winetricks</button>
+                    <h2>Developer options</h2>
+                    <button class="button" onclick="window.open('child.html?url=zeankundev.github.io/forward', 'blank', 'width=933,height=600')">Test open child window</button>
                 </div>
             </div>
             <div id="minesweeper" class="tabcontent">

@@ -1,6 +1,39 @@
 * {
     margin: 0;
 }
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #e1e1e1;
+  border: 0px none #ffffff;
+  border-radius: 30px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #3f3f3f;
+}
+::-webkit-scrollbar-track {
+  background: #1d1d1d;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #1f1f1f;
+}
+::-webkit-scrollbar-track:active {
+  background: #2e2e2e;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
 body {
     background: var(--main-color);
     color: var(--main-text);
@@ -110,7 +143,6 @@ img {
 
 .container {
     background: var(--main-hover-color);
-    display: none;
     padding: 20px;
 }
 .navbars {
@@ -129,7 +161,7 @@ img {
     text-align: center;
     display: block;
     margin-top: 15px;
-    animation: notif-popup 1s ease-out;
+    animation: notif-popup 0.5s ease-out;
     padding: 5px;
     display: none;
 }
@@ -167,6 +199,11 @@ object, iframe {
     padding: 10px;
     display: inline-block;
     border-radius: 15px;
+}
+#game-list {
+    overflow-y: hidden;
+    overflow-x: scroll;
+    word-wrap: normal;
 }
 .game-title {
     font-size: 1.5em;
