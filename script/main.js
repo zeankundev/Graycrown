@@ -1,4 +1,4 @@
-const remote = require('electron').remote;
+const remote = require('@electron/remote');
 const app = remote.app;
 const fs = require('fs');
 const notifier = require('node-notifier');
@@ -184,7 +184,7 @@ openMenu(event, 'home')
                             gameList.appendChild(gameDisplay);
                         });
                     });
-    }
+            }
     getGames();
     // check any changes on app.getPath('userData' + /games.json)
     // if changes, getGames()
@@ -208,6 +208,33 @@ openMenu(event, 'home')
         document.getElementById(menu + '-tab').className = "tab active";
         console.log("OK: e.currentTarget.className += \" active\"");
     }
+    function recommendGames() {
+        fetch('../test/recommend.json')
+            .then(res => res.json())
+            .then(data => {
+                let rec = document.getElementById('recommend-list');
+                rec.innerHTML = '';
+                data.recommend.forEach(recommend => {
+                    let recommendDisplay = document.createElement('div');
+                    recommendDisplay.className = 'store-display';
+                    recommendDisplay.title = recommend.desc
+                    recommendDisplay.innerHTML = `
+                    <img style="width: 48px !important; height:48px !important; border-radius:15px;" src="${recommend.img}">
+                        <div class="store-title">${recommend.name}</div>
+
+                    `;
+                    let startBtn = document.createElement("button");
+                    startBtn.className = "download";
+                    startBtn.innerText = "Play!";
+                    startBtn.onclick = function() {
+                        window.open(`../views/child.html?url=${recommend.game}`, '_blank', `nodeIntegration=true,title=${recommend.name} - Graycrown`)
+                    }
+                    recommendDisplay.appendChild(startBtn)
+                    rec.appendChild(recommendDisplay)
+                })
+            })
+    }
+    recommendGames()
     function fetchStores() {
         fetch('../test/Store.json')
             .then(response => response.json())

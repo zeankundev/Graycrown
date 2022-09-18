@@ -46,10 +46,11 @@
     }
   },
   "devDependencies": {
-    "electron": "^4.2.12",
+    "electron": "^20.1.4",
     "electron-builder": "^20.44.4"
   },
   "dependencies": {
+    "@electron/remote": "^2.0.8",
     "download": "^8.0.0",
     "electron-reloader": "^1.2.3",
     "node-notifier": "^10.0.1",

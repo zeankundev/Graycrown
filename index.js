@@ -1,5 +1,4 @@
 const {app, BrowserWindow, ipcMain} = require('electron');
-const remote = require('electron').remote;
 const fs = require('fs');
 const path = require('path');
 const APP_ICON = path.join(__dirname, '/build/icons/512x512.png');
@@ -19,6 +18,8 @@ app.on('ready', () => {
             contextIsolation: false
         }
     });
+    require('@electron/remote/main').initialize()
+    require('@electron/remote/main').enable(window.webContents)
     try {
         require('electron-reloader')(module);
     } catch (e) {}
