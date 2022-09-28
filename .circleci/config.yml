@@ -25,7 +25,7 @@ jobs:
           command: npm run build
 
       - store_artifacts:
-          path: ~/repo/out/make
+          path: ~/repo/dist
   build-win:
     working_directory: ~/repo
     docker:
