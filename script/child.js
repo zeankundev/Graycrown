@@ -5,6 +5,7 @@ const close = document.getElementById('close');
 const minimize = document.getElementById('min');
 const maximize = document.getElementById('maximize');
 const back = document.getElementById('back');
+const res = params.get('url');
 const forward = document.getElementById('forward');
 const refresh = document.getElementById('refresh');
 const downloads = document.getElementById('downloads');
