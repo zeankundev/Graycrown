@@ -51,4 +51,4 @@ jobs:
           command: npm run win
 
       - store_artifacts:
-          path: ~/repo/out/make
+          path: ~/repo/dist
