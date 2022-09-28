@@ -23,31 +23,9 @@ jobs:
       - run:
           name: Generate Builds
           command: npm run build
-
-      - store_artifacts:
-          path: ~/repo/dist
-  build-win:
-    working_directory: ~/repo
-    docker:
-      - image: circleci/node:18.9.1
-    steps:
-      - checkout
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
+          
       - run:
-          name: Install dependencies
-          command: yarn
-      - run:
-          name: Install dpkg and fakeroot
-          command: |
-            sudo apt-get update -y
-            sudo apt-get install -y dpkg fakeroot
-      - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-          paths:
-            - ./node_modules
-      - run:
-          name: Generate Builds
+          name: Generate Windows binaries
           command: npm run win
 
       - store_artifacts:
