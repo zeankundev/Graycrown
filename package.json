@@ -2,6 +2,7 @@
   "name": "graycrown",
   "version": "0.5.0",
   "description": "a simple game launcher",
+  "homepage": "https://graycrown.hstn.me",
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
