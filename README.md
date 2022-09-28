@@ -19,4 +19,7 @@ Self-build the binaries? No problem! Run the `build` command instead!
 ```
 npm run build
 ```
+# pls fix!
+- Player window had issues with minimizing, maximizing and closing the player window
+
 # [Join the discussion on Discord. Click the heading to continue!](https://discord.gg/3ujWSgkawv)
