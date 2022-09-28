@@ -3,14 +3,14 @@ jobs:
   build:
     working_directory: ~/repo
     docker:
-      - image: circleci/node:11
+      - image: circleci/node:18
     steps:
       - checkout
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
       - run:
           name: Install dependencies
-          command: yarn
+          command: npm i
       - run:
           name: Install dpkg and fakeroot
           command: |
@@ -22,7 +22,7 @@ jobs:
             - ./node_modules
       - run:
           name: Generate Builds
-          command: yarn run build
+          command: npm run build
 
       - store_artifacts:
           path: ~/repo/out/make
@@ -48,7 +48,7 @@ jobs:
             - ./node_modules
       - run:
           name: Generate Builds
-          command: yarn run win
+          command: npm run win
 
       - store_artifacts:
           path: ~/repo/out/make
