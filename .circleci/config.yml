@@ -16,7 +16,6 @@ jobs:
           command: |
             sudo apt-get update -y
             sudo apt-get install -y dpkg fakeroot
-
       - save_cache:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
@@ -43,7 +42,6 @@ jobs:
           command: |
             sudo apt-get update -y
             sudo apt-get install -y dpkg fakeroot
-
       - save_cache:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
