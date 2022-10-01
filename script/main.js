@@ -209,25 +209,25 @@ openMenu(event, 'home')
         console.log("OK: e.currentTarget.className += \" active\"");
     }
     function recommendGames() {
-        fetch('../test/recommend.json')
+        fetch('https://bobuxstation.github.io/Coal-Web/games.json')
             .then(res => res.json())
             .then(data => {
                 let rec = document.getElementById('recommend-list');
                 rec.innerHTML = '';
-                data.recommend.forEach(recommend => {
+                data.items.forEach(items => {
                     let recommendDisplay = document.createElement('div');
-                    recommendDisplay.className = 'store-display';
-                    recommendDisplay.title = recommend.desc
+                    recommendDisplay.className = 'recommend-display';
+                    recommendDisplay.setAttribute('style', `background: url('${items.banner}') no-repeat; background-size: cover;`)
+                    recommendDisplay.title = items.info;
                     recommendDisplay.innerHTML = `
-                    <img style="width: 48px !important; height:48px !important; border-radius:15px;" src="${recommend.img}">
-                        <div class="store-title">${recommend.name}</div>
-
+                        <img style="width: 48px !important; height:48px !important; border-radius:15px;" src="${items.banner}">
+                        <div class="store-title">${items.name}</div>
                     `;
                     let startBtn = document.createElement("button");
                     startBtn.className = "download";
                     startBtn.innerText = "Play!";
                     startBtn.onclick = function() {
-                        window.open(`../views/child.html?url=${recommend.game}`, '_blank', `nodeIntegration=true,title=${recommend.name} - Graycrown`)
+                        window.open(`../views/child.html?url=${items.link}`, '_blank', `nodeIntegration=true,contextIsolation=false,frame=false,enableRemoteModule=true,title=${items.name} - Graycrown`)
                     }
                     recommendDisplay.appendChild(startBtn)
                     rec.appendChild(recommendDisplay)

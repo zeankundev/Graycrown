@@ -236,6 +236,14 @@ h1 {
     display: inline-block;
     border-radius: 15px;
 }
+.recommend-display {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+  background-blend-mode: multiply;
+  margin: 10px;
+  padding: 10px;
+  display: inline-block;
+  border-radius: 15px;
+}
 .store-title {
     font-size: 1.5em;
     font-weight: bold;
@@ -284,4 +292,11 @@ select, input, textarea, #add-game-form button {
     font-weight: bold;
     margin-left: 20px;
     cursor: pointer;
+}
+.store-bg {
+  filter: blur(4px);
+  background-size: cover;
+  width: 100%;
+  display: flex;
+  flex-grow: 1;
 }
