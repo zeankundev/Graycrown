@@ -2,11 +2,13 @@
   "name": "graycrown",
   "version": "0.5.0",
   "description": "a simple game launcher",
+  "homepage": "https://graycrown.hstn.me",
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-builder"
+    "build": "electron-builder",
+    "win": "electron-builder --win"
   },
   "browser": {
     "child_process": true
@@ -36,7 +38,6 @@
     "linux": {
       "target": [
         "deb",
-        "rpm",
         "AppImage",
         "snap"
       ],

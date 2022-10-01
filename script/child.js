@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const remote = require('@electron/remote/main');
 const electron = require('electron')
 const params = new URLSearchParams(location.search)
@@ -7,6 +8,9 @@ const notifier = require('node-notifier');
 const download = require('download');
 const { url } = require('inspector');
 const { webContents } = require('electron');
+=======
+const params = new URLSearchParams(location.search)
+>>>>>>> 4e75d8b7c3baacd7a0244b10acf2577f145d00b8
 const webView = document.getElementById('webview');
 const title = document.getElementById('title');
 const close = document.getElementById('close');
@@ -26,20 +30,6 @@ window.onload = function() {
     var url = webView.src;
     title.innerHTML = url
 }
-const closeWin = () => {
-    getWin().close();
-}
-const minimizeWin = () => {
-    getWin().minimize();
-}
-const maximizeWin = () => {
-    const win = getWin();
-    win.isMaximized() ? win.unmaximize() : win.maximize();
-    win.isMaximized() ? imageToggle.setAttribute("src", "../assets/restore_down_1024.png") : imageToggle.setAttribute("src", "../assets/maximize_1024.png")
-}
-minimize.addEventListener('click', minimizeWin);
-maximize.addEventListener('click', maximizeWin);
-close.addEventListener('click', closeWin);
 back.addEventListener('click', function(e) {
     e.preventDefault();
     webView.goBack();
