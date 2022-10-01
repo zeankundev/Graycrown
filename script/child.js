@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const remote = require('@electron/remote/main');
 const electron = require('electron')
 const params = new URLSearchParams(location.search)
@@ -8,9 +7,6 @@ const notifier = require('node-notifier');
 const download = require('download');
 const { url } = require('inspector');
 const { webContents } = require('electron');
-=======
-const params = new URLSearchParams(location.search)
->>>>>>> 4e75d8b7c3baacd7a0244b10acf2577f145d00b8
 const webView = document.getElementById('webview');
 const title = document.getElementById('title');
 const close = document.getElementById('close');
