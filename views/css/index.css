@@ -1,5 +1,70 @@
 * {
     margin: 0;
+    overflow: hidden;
+}
+@-webkit-keyframes slide-bottom {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+            opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(50px);
+            transform: translateY(50px);
+            opacity: 1;
+  }
+}
+@keyframes slide-bottom {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+            opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(50px);
+            transform: translateY(50px);
+            opacity: 1;
+  }
+}
+@-webkit-keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+  }
+}
+@keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+  }
+}
+@-webkit-keyframes scale-down-center {
+  0% {
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes scale-down-center {
+  0% {
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
 }
 ::-webkit-scrollbar {
   width: 5px;
@@ -37,6 +102,7 @@
 body {
     background: var(--main-color);
     color: var(--main-text);
+    cursor: url('../../assets/default.png'), default;
     font-family: 'Effra', system-ui;
     user-select: none;
 }
@@ -71,7 +137,7 @@ body {
     font-size: 16px;
     text-align: center;
     
-    cursor: pointer;
+    cursor: url('../../assets/pointer.png'), auto;
     transition-property: background-color, box-shadow;
     transition-duration: 1s;
     transition-timing-function: ease-out;
@@ -143,6 +209,7 @@ img {
 
 .container {
     background: var(--main-hover-color);
+    overflow-y: scroll;
     padding: 20px;
 }
 .navbars {
@@ -191,7 +258,7 @@ object, iframe {
     border-radius: 5px;
     padding: 10px;
     font-family: 'Effra', system-ui;
-    cursor: pointer;
+    cursor: url('../../assets/pointer.png'), auto;
 }
 .game-display {
     background: var(--main-color);
@@ -224,10 +291,14 @@ h1 {
     border-radius: 15px;
     color: var(--main-text);
     width: 240px;
-    cursor: pointer;
+    cursor: url('../../assets/pointer.png'), auto;
+    -webkit-animation: scale-down-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: scale-down-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 .play:hover {
     background-color: var(--play-color-hover);
+    -webkit-animation: scale-up-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: scale-up-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 .store-display {
     background: var(--main-color);
@@ -261,15 +332,21 @@ h1 {
     border-radius: 15px;
     color: var(--main-text);
     width: 240px;
-    cursor: pointer;
+    cursor: url('../../assets/pointer.png'), auto;
+    --webkit-animation: scale-down-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: scale-down-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 .download:hover {
     background-color: var(--download-color-hover);
+    -webkit-animation: scale-up-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: scale-up-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 .modal {
     background-color: var(--main-color);
     width: fit-content;
     display: none;
+    -webkit-animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	  animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     position: absolute;
     top: 3%;
     left: 40%;
@@ -291,7 +368,7 @@ select, input, textarea, #add-game-form button {
     font-size: 28px;
     font-weight: bold;
     margin-left: 20px;
-    cursor: pointer;
+    cursor: url('../../assets/pointer.png'), auto;
 }
 .store-bg {
   filter: blur(4px);

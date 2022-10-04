@@ -227,11 +227,14 @@ openMenu(event, 'home')
                     startBtn.className = "download";
                     startBtn.innerText = "Play!";
                     startBtn.onclick = function() {
-                        window.open(`../views/child.html?url=${items.link}`, '_blank', `nodeIntegration=true,contextIsolation=false,frame=false,enableRemoteModule=true,title=${items.name} - Graycrown`)
+                        window.open(`../views/child.html?url=${items.link}`, '_blank', `nodeIntegration=true,title=${items.name} - Graycrown`)
                     }
                     recommendDisplay.appendChild(startBtn)
                     rec.appendChild(recommendDisplay)
                 })
+            }).catch(function(e){
+                console.log(e);
+                document.getElementById('e').style.display = 'block';
             })
     }
     recommendGames()

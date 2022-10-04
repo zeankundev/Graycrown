@@ -31,10 +31,14 @@
                     <h1 id="welcome-back">Welcome back!</h1>
                     <br>
                     <button class="button" onclick="openMenu(event, 'library')">Go to library!</button>
+                    <button class="button" onclick="recommendGames()">Refresh recommendation list (if you reconnected to the internet)</button>
 		            <h2>How about trying this?</h2>
 		            <h4>Curated for you, these are the best HTML5 Games to play on Graycrown! They're from AB!</h4>
                     <small>Note: these games are ABSOLUTELY doesn't belong to Graycrown. DLs are provided by AB Coal</small>
-                    <div id="recommend-list"></div>
+                    <div id="recommend-list">
+                        <br>
+                        <p id="e" style="display: none;">You have no internet. Should the internet be reconnected again.</p>
+                    </div>
                 </div>
             </div>
             <div id="library" class="tabcontent">
