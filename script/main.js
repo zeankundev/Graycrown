@@ -1,9 +1,11 @@
 const remote = require('@electron/remote');
 const app = remote.app;
 const fs = require('fs');
+const Downloader = require('nodejs-file-downloader');
 const notifier = require('node-notifier');
 const download = require('download');
 const { url } = require('inspector');
+const path = require('path');
 const close = document.getElementById('close');
 const minimize = document.getElementById('minimize');
 const maximize = document.getElementById('maximize');
@@ -13,6 +15,7 @@ const imageToggle = document.getElementById('img-toggle');
 const text = document.getElementById('text');
 const notif = document.getElementById('notif')
 const modal = document.getElementById('download-modal');
+const downList = document.getElementById('download-list');
 const closeModal = document.getElementById('close-modal');
 // translation area
 const welcomeBack = document.getElementById('welcome-back');
@@ -176,7 +179,7 @@ openMenu(event, 'home')
                                 const { spawn } = require('child_process');
                                 const process = spawn(game.exec, game.args);
                                 process.on('error', (err) => {
-                                    throw new Error(err)
+                                    console.log(err)
                                     notifDisplay(err, 'Failed to launch!')
                                 });
                             }
@@ -254,28 +257,36 @@ openMenu(event, 'home')
                     let downButton = document.createElement("button");
                     downButton.className = "download";
                     downButton.innerHTML = "Download and install";
+                    if (!fs.existsSync(app.getPath('userData') + '/downloads')) {
+                        fs.mkdirSync(app.getPath('userData') + '/downloads');
+                    }
                     downButton.onclick = function() {
+                        downList.innerHTML = "";
+                        let downStatus = document.createElement('div')
+                        downStatus.innerHTML = `
+                            <hr>
+                            <h2>${store.name}</h2>
+                        `;
+                        let downProgress = document.createElement('p');
+                        downProgress.innerHTML = "";
                         fetch(store.download)
-                            .then(response => response.blob())
-                            .then(console.log("OK: Download started"))
-                            .then(blob => {
-                                if (!fs.existsSync(app.getPath('userData') + '/downloads')) {
-                                    fs.mkdirSync(app.getPath('userData') + '/downloads');
-                                }
-                                const filePath = app.getPath('userData') + '/downloads';
-                                download(store.download, filePath)
-                                .then(() => {
-                                    console.log("OK: download complete");
-                                })
-                                // save blob to userData/downloads
-                                // no /downloads folder yet, so create it
-                                // remove https and url, leaving only filename
-                                var filename = store.download.replace(/^.*[\\\/]/, '');
-                                fs.writeFile(app.getPath('userData') + '/downloads/' + filename, blob, (err) => {
-                                    if (err) throw err;
-                                    console.log("OK: Download saved to downloads");
+                            .then(async () => {
+                                const down = new Downloader({
+                                    url: store.download,
+                                    directory: path.join(app.getPath('userData'), '/downloads'),
+                                    onProgress: function (percent, chunk, remain) {
+                                        downProgress.innerHTML = `<b>Now downloading ${store.name}.</b>&nbsp;${percent}% | Bytes left: ${remain}`;
+                                    }
                                 });
+                                try {
+                                    await down.download();
+                                    notifDisplay(`Finished downloading ${store.name}`, 'Success');
+                                } catch (e) {
+                                    notifDisplay(e, 'Error. Cannot download');
+                                }
                             });
+                            downStatus.appendChild(downProgress);
+                            downList.appendChild(downStatus);
                     }
                     storeDisplay.appendChild(downButton);
                     storeList.appendChild(storeDisplay);

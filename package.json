@@ -52,9 +52,11 @@
   },
   "dependencies": {
     "@electron/remote": "^2.0.8",
+    "adm-zip": "^0.5.9",
     "download": "^8.0.0",
     "electron-reloader": "^1.2.3",
     "node-notifier": "^10.0.1",
+    "nodejs-file-downloader": "^4.10.2",
     "webpack": "^5.74.0"
   }
 }

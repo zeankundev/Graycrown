@@ -7,7 +7,7 @@
     <body>
         <div class="menu-tab">
             <button class="tab" onclick="openMenu(event, 'home')" id="home-tab"><img src="../assets/home_1024.png"></button>
-            <button class="tab"onclick="openMenu(event, 'library'); getGamesAlt()" id="library-tab"><img src="../assets/library_1024.png"></button>
+            <button class="tab"onclick="openMenu(event, 'library');" id="library-tab"><img src="../assets/library_1024.png"></button>
             <button class="tab" onclick="openMenu(event, 'store'); fetchStores()" id="store-tab"><img src="../assets/news_1024.png"></button>
             <button class="tab" onclick="openMenu(event, 'settings')" id="settings-tab"><img src="../assets/settings_1024.png"></button>
             <button class="tab" style="display: none;" onclick="openMenu(event, 'minesweeper')" id="minesweeper-tab"><img src="../assets/minesweeper_1024.png"></button>
@@ -113,7 +113,7 @@
             </div>
         </div>
         <div class="modal" id="download-modal">
-            <h1 id="downloads-text">Add a game</h1>
+            <h1 id="downloads-text">Downloads</h1>
             <span class="close" id="close-modal">&times;</span>
             <br>
             <div id="download-list">

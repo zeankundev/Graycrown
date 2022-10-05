@@ -5,6 +5,12 @@
             "name": "Hello World",
             "summary": "A test card for Graycrown store",
             "download": "https://wiki.teamfortress.com/w/images/c/c8/Eng_guzzle_06.wav"
+        },
+        {
+            "id": "test2",
+            "name": "Heavy ZIP test",
+            "summary": "ZIP test",
+            "download": "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-large-zip-file.zip"
         }
     ]
 }
