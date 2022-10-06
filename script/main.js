@@ -6,6 +6,7 @@ const notifier = require('node-notifier');
 const download = require('download');
 const { url } = require('inspector');
 const path = require('path');
+const { config } = require('process');
 const close = document.getElementById('close');
 const minimize = document.getElementById('minimize');
 const maximize = document.getElementById('maximize');
@@ -29,24 +30,25 @@ const downloadsText = document.getElementById('downloads-text');
 const noDownloads = document.getElementById('no-downloads');
 // end of translation area
 // fetch json of corresponding language
-window.onload = function() {
-    const lang = 'en';
+const lang = 'en';
+let play = null;
+let downAndI = null
     // new lang make it lowercase
-    const langLower = lang.toLowerCase();
-    const path = `../language/${langLower}.json`;
-    fs.readFile(path, 'utf8', (err, data) => {
-        if (err) throw err;
-        const json = JSON.parse(data);
-        welcomeBack.innerHTML = json.translations.welcomeBack;
-        library.innerHTML = json.translations.library;
-        store.innerHTML = json.translations.store;
-        settings.innerHTML = json.translations.settings;
-        wineSettings.innerHTML = json.translations.wineSettings;
-        downloadsText.innerHTML = json.translations.downloadsText;
-        noDownloads.innerHTML = json.translations.noDownloads;
-    }
-    );
-}
+    fetch(`../language/${lang}.json`)
+    .then((res) => res.json())
+    .then(data => {
+        document.getElementById('welcome-back').innerHTML = data.translations.welcomeBack
+        document.getElementById('library-text').innerHTML = data.translations.library
+        document.getElementById('store-text').innerHTML = data.translations.store
+        document.getElementById('settings-text').innerHTML = data.translations.settings
+        document.getElementById('wine-settings').innerHTML = data.translations.wineSettings
+        document.getElementById('wine-cfg').innerHTML = data.translations.wineConfig
+        play = data.translations.play
+        downAndI = data.translations.downloadAndInstall
+    })
+    .catch(e => {
+        console.log(e);
+    }) 
 function notifDisplay(txt, title) {
     notif.style.display = 'block';
     text.innerHTML = txt;
@@ -102,7 +104,46 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
-
+document.getElementById('add').onclick = function() {
+    document.getElementById('add-form').style.display = "block";
+}
+document.getElementById('close-modal-add').onclick = function() {
+    document.getElementById('add-form').style.display = "none";
+}
+// if it clicks anywhere out of the modal, close it
+window.onclick = function(event) {
+    if (event.target == document.getElementById('add-form')) {
+        document.getElementById('add-form').style.display = "none";
+    }
+}
+document.getElementById('submit').onclick = () => {
+        const configDir = app.getPath('userData');
+        let jsonData = require(configDir + '/games.json');
+        var obj = (jsonData);
+        if (document.getElementById("id").value == "") {
+            let id = "false";
+            obj['games'].push({
+                "name": document.getElementById('name').value,
+                "icon": document.getElementById('icon').value,
+                "exec": document.getElementById('exec').value
+              });
+        } else {
+              let id = document.getElementById("id").value;
+              obj['games'].push({
+                "id": document.getElementById('id').value,
+                "name": document.getElementById('name').value,
+                "icon": document.getElementById('icon').value,
+                "exec": document.getElementById('exec').value
+              });
+        }
+            jsonStr = JSON.stringify(obj);
+            console.log(jsonStr);
+            fs.writeFile(configDir + '/games.json', jsonStr, (err) => { 
+                if (err) { 
+                 console.log(err); 
+                }
+            });
+}
 openMenu(event, 'home')
 // check available games in the games.json file
     /* json schema:
@@ -173,7 +214,7 @@ openMenu(event, 'home')
                             `;
                             let gameButton = document.createElement("button");
                             gameButton.className = "play";
-                            gameButton.innerHTML = "Play";
+                            gameButton.innerHTML = play;
                             gameButton.onclick = function() {
                                 // downgraded to electron v4, now we can require child_process.
                                 const { spawn } = require('child_process');
@@ -228,7 +269,7 @@ openMenu(event, 'home')
                     `;
                     let startBtn = document.createElement("button");
                     startBtn.className = "download";
-                    startBtn.innerText = "Play!";
+                    startBtn.innerText = play;
                     startBtn.onclick = function() {
                         window.open(`../views/child.html?url=${items.link}`, '_blank', `nodeIntegration=true,title=${items.name} - Graycrown`)
                     }
@@ -246,7 +287,7 @@ openMenu(event, 'home')
             .then(response => response.json())
             .then(data => {
                 let storeList = document.getElementById("store-list");
-                storeList.innerHTML = "";
+                storeList.innerHTML = '';
                 data.store.forEach(store => {
                     let storeDisplay = document.createElement("div");
                     storeDisplay.className = "store-display";
@@ -256,7 +297,7 @@ openMenu(event, 'home')
                     `;
                     let downButton = document.createElement("button");
                     downButton.className = "download";
-                    downButton.innerHTML = "Download and install";
+                    downButton.innerHTML = downAndI;
                     if (!fs.existsSync(app.getPath('userData') + '/downloads')) {
                         fs.mkdirSync(app.getPath('userData') + '/downloads');
                     }
@@ -268,7 +309,7 @@ openMenu(event, 'home')
                             <h2>${store.name}</h2>
                         `;
                         let downProgress = document.createElement('p');
-                        downProgress.innerHTML = "";
+                        downProgress.innerHTML = "Waiting for download to start...";
                         fetch(store.download)
                             .then(async () => {
                                 const down = new Downloader({

@@ -14,6 +14,7 @@
             <div style="display: flex; -webkit-app-region: drag; flex-grow: 1;"></div>
             <ul class="navbars">
                 <button class="navbutton" id="secret"></button>
+                <button class="navbutton" id="add"><img src="../assets/close_1024.png" style="transform: rotate(45deg);"></button>
                 <button class="navbutton" id="downloads"><img src="../assets/download_1024.png"></button>
                 <button class="navbutton" id="minimize"><img src="../assets/minimize_1024.png"></button>
                 <button class="navbutton" id="maximize"><img src="../assets/maximize_1024.png" id="img-toggle"></button>
@@ -43,20 +44,20 @@
             </div>
             <div id="library" class="tabcontent">
                 <div class="library">
-                    <h1 id="library">Library</h1>
+                    <h1 id="library-text">Library</h1>
                     <div id="game-list-alt"></div>
                 </div>
             </div>
             <div id="store" class="tabcontent">
                 <div class="store">
-                    <h1 id="store">Store (WIP)</h1>
+                    <h1 id="store-text">Store (WIP)</h1>
                     <button class="button" onclick="fetchStores();" id="refresh-store">Refresh Store</button>
                     <div id="store-list"></div>
                 </div>
             </div>
             <div id="settings" class="tabcontent">
                 <div class="settings">
-                    <h1 id="settings">Settings</h1>
+                    <h1 id="settings-text">Settings</h1>
                     <div id="settings-list">
                         <button class="button" style="margin-top: 10px; margin-bottom: 10px;" id="games-open">Open games.json file</button>
                     </div>
@@ -65,6 +66,9 @@
                     <button class="button" style="margin-top: 10px; margin-bottom: 10px;" id="wine-tricks" onclick="spawnWine('tricks')">Winetricks</button>
                     <h2>Developer options</h2>
                     <button class="button" onclick="window.open('child.html?url=zeankundev.github.io/forward', 'blank', 'nodeIntegration=true,frame=false,width=933,height=600')">Test open child window</button>
+                    <br><br>
+                    <h1>Acknowledgements</h1>
+                    <p>Add Game Code taken from <a href="https://github.com/Bobuxstation/Coal-Launcher/blob/5c9f3a33a5dff4a5b2635e82d5dfe117baaf0ceb/add.html#L44" target="_blank">coal-Launcher</a> and taken with permission.</p>
                 </div>
             </div>
             <div id="minesweeper" class="tabcontent">
@@ -118,6 +122,26 @@
             <br>
             <div id="download-list">
                 <span id="no-downloads" id="no-downloads">No downloads. Check back soon!</span>
+            </div>
+        </div>
+        <div class="modal" id="add-form">
+            <h1>Add a game</h1>
+            <span class="close" id="close-modal-add">&times;</span>
+            <br>
+            <div id="add-in-form">
+                <label for="name">Game name: </label>
+                <input id="name" type="text" class="text" />
+                <br>
+                <label for="id">Game ID: </label>
+                <input id="id" type="text" class="text" />
+                <br>
+                <label for="icon">Icon: </label>
+                <input id="icon" type="text" class="text" />
+                <br>
+                <label for="exec">Game executable: </label>
+                <input id="exec" type="text" class="text" />
+                <br>
+                <button class="button" id="submit" onclick="submit()" style="align-self: center;">Done</button>
             </div>
         </div>
         <script src="../script/main.js"></script>

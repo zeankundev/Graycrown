@@ -7,10 +7,10 @@
             "download": "https://wiki.teamfortress.com/w/images/c/c8/Eng_guzzle_06.wav"
         },
         {
-            "id": "test2",
-            "name": "Heavy ZIP test",
-            "summary": "ZIP test",
-            "download": "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-large-zip-file.zip"
+            "id": "hl",
+            "name": "Half-Life",
+            "summary": "Half-Life game from Valve",
+            "download": "http://download2390.mediafire.com/xaxb6luq9k1g/hf4bzz66jlo3v3b/Half+Life.exe"
         }
     ]
 }

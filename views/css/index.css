@@ -244,6 +244,9 @@ img {
             opacity: 1;
   }
 }
+h1 {
+  font-family: "TF2", sans-serif
+}
 .navbutton:hover {
     background: var(--main-hover-color) !important;
 }
@@ -274,6 +277,14 @@ object, iframe {
     padding: 10px;
     display: inline-block;
     border-radius: 25px;
+}
+.text {
+  border: none;
+  background: var(--main-hover-color);
+  color: var(--main-text);
+  padding: 5px;
+  outline: none;
+  font-family: 'Effra', system-ui;
 }
 #game-list {
     overflow-y: hidden;
