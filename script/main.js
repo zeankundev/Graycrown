@@ -30,10 +30,11 @@ const downloadsText = document.getElementById('downloads-text');
 const noDownloads = document.getElementById('no-downloads');
 // end of translation area
 // fetch json of corresponding language
-const lang = 'en';
+let lang = 'en';
 let play = null;
 let downAndI = null
     // new lang make it lowercase
+const runFetch = () => {
     fetch(`../language/${lang}.json`)
     .then((res) => res.json())
     .then(data => {
@@ -43,12 +44,20 @@ let downAndI = null
         document.getElementById('settings-text').innerHTML = data.translations.settings
         document.getElementById('wine-settings').innerHTML = data.translations.wineSettings
         document.getElementById('wine-cfg').innerHTML = data.translations.wineConfig
+        document.getElementById('downloads-text').innerHTML = data.translations.downloads
+        document.getElementById('no-downloads').innerHTML = data.translations.noDownloads
+        document.getElementById('refresh-store').innerHTML = data.translations.refreshStore
+        document.getElementById('to-library').innerHTML = data.translations.toLibrary
+        document.getElementById('ref-internet').innerHTML = data.translations.refInternet
+        document.getElementById('rec-for-u').innerHTML = data.translations.recForU
         play = data.translations.play
         downAndI = data.translations.downloadAndInstall
     })
     .catch(e => {
         console.log(e);
-    }) 
+    })
+} 
+runFetch()
 function notifDisplay(txt, title) {
     notif.style.display = 'block';
     text.innerHTML = txt;

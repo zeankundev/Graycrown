@@ -11,6 +11,9 @@
         "play": "遊ぶ",
         "downloadAndInstall": "ダウンロードとインストール",
         "refreshStore": "リフレッシュショップ",
-        "wineConfig": "ワイン構成"
+        "wineConfig": "ワイン構成",
+        "toLibrary": "図書館に行こう！",
+        "refInternet": "インターネット接続を更新する",
+        "recForU": "あなたへのおすすめ"
     }
 }

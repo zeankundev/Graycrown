@@ -11,6 +11,9 @@
         "play": "Spielen",
         "downloadAndInstall": "Herunterladen und installieren",
         "refreshStore": "Geschäft aktualisieren",
-        "wineConfig": "Wine-Konfiguration"
+        "wineConfig": "Wine-Konfiguration",
+        "toLibrary": "Zum Bibilothek!",
+        "refInternet": "Internet-Verbindung aktualisieren",
+        "recForU": "Für dich empfohlen"
     }
 }

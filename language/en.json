@@ -11,6 +11,9 @@
         "play": "Play",
         "downloadAndInstall": "Download and Install",
         "refreshStore": "Refresh Store",
-        "wineConfig": "Wine Configuration"
+        "wineConfig": "Wine Configuration",
+        "toLibrary": "Go to library!",
+        "refInternet": "Refresh internet connection",
+        "recForU": "Recommended for you"
     }
 }

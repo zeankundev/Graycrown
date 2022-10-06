@@ -11,6 +11,9 @@
         "play": "Mainkan",
         "downloadAndInstall": "Unduh dan pasang",
         "refreshStore": "Segarkan Toko",
-        "wineConfig": "Konfigurasi Wine"
+        "wineConfig": "Konfigurasi Wine",
+        "toLibrary": "Ke perpustakaan",
+        "refInternet": "Segarkan sambungan internet",
+        "recForU": "Disarankan untuk Anda"
     }
 }
