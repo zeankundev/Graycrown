@@ -278,7 +278,7 @@ openMenu(event, 'home')
         console.log("OK: e.currentTarget.className += \" active\"");
     }
     function recommendGames() {
-        fetch('https://zeankundev.github.io/Coal-Web/games.json')
+        fetch('https://gray-crown.web.app/host/Game.json')
             .then(res => res.json())
             .then(data => {
                 let rec = document.getElementById('recommend-list');
@@ -309,7 +309,7 @@ openMenu(event, 'home')
     }
     recommendGames()
     function fetchStores() {
-        fetch('../test/Store.json')
+        fetch('https://gray-crown.web.app/host/Store.json')
             .then(response => response.json())
             .then(data => {
                 let storeList = document.getElementById("store-list");
