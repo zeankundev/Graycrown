@@ -239,7 +239,7 @@ openMenu(event, 'home')
                             `;
                             let gameButton = document.createElement("button");
                             gameButton.className = "play";
-                            gameButton.innerHTML = play;
+                            gameButton.innerHTML = `<b>${play}</b>`;
                             gameButton.onclick = function() {
                                 // downgraded to electron v4, now we can require child_process.
                                 const { spawn } = require('child_process');
@@ -278,7 +278,7 @@ openMenu(event, 'home')
         console.log("OK: e.currentTarget.className += \" active\"");
     }
     function recommendGames() {
-        fetch('https://bobuxstation.github.io/Coal-Web/games.json')
+        fetch('https://zeankundev.github.io/Coal-Web/games.json')
             .then(res => res.json())
             .then(data => {
                 let rec = document.getElementById('recommend-list');
@@ -294,7 +294,7 @@ openMenu(event, 'home')
                     `;
                     let startBtn = document.createElement("button");
                     startBtn.className = "download";
-                    startBtn.innerText = play;
+                    startBtn.innerHTML = `<b>${play}</b>`;
                     startBtn.onclick = function() {
                         if (items.link !== '') window.open(`../views/child.html?url=${items.link}`, '_blank', `nodeIntegration=true,title=${items.name} - Graycrown`);
                         else notifDisplay('Error 407: Missing link argument in JSON file', 'Failed to launch!') 
@@ -323,7 +323,7 @@ openMenu(event, 'home')
                     `;
                     let downButton = document.createElement("button");
                     downButton.className = "download";
-                    downButton.innerHTML = downAndI;
+                    downButton.innerHTML = `<b>${downAndI}</b>`;
                     if (!fs.existsSync(app.getPath('userData') + '/downloads')) {
                         fs.mkdirSync(app.getPath('userData') + '/downloads');
                     }

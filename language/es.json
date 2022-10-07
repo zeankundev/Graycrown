@@ -1,0 +1,19 @@
+{
+    "code": "es",
+    "translations": {
+        "welcomeBack": "¡Bienvenido de nuevo!",
+        "library": "Biblioteca",
+        "store": "Tienda (TEP)",
+        "settings": "Ajustes",
+        "wineSettings": "Ajustes de Wine (solo Linux)",
+        "downloads": "Descargas",
+        "noDownloads": "Sin descargas. ¡Vuelve a consultar pronto!",
+        "play": "Tocar",
+        "downloadAndInstall": "Descargar e instalar",
+        "refreshStore": "Actualizar tienda",
+        "wineConfig": "Configuración del Wine",
+        "toLibrary": "Ir a la biblioteca",
+        "refInternet": "Actualizar conexión a internet",
+        "recForU": "Recomendado para ti"
+    }
+}

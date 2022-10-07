@@ -1,0 +1,19 @@
+{
+    "code": "sw",
+    "translations": {
+        "welcomeBack": "Karibu tena!",
+        "library": "Maktaba",
+        "store": "Hifadhi (KI)",
+        "settings": "Mipangilio",
+        "wineSettings": "Mipangilio ya Wine (Linux pekee)",
+        "downloads": "Vipakuliwa",
+        "noDownloads": "Hakuna vipakuliwa. Angalia tena hivi karibuni!",
+        "play": "Cheza",
+        "downloadAndInstall": "Pakua na usakinishe",
+        "refreshStore": "Onyesha upya duka",
+        "wineConfig": "Mpangilio wa Wine",
+        "toLibrary": "Nenda kwenye maktaba!",
+        "refInternet": "Onyesha upya muunganisho wa intaneti",
+        "recForU": "Imependekezwa kwa ajili yako"
+    }
+}
