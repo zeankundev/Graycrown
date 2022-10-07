@@ -30,6 +30,9 @@ app.on('ready', () => {
     if (!fs.existsSync(app.getPath('userData') + '/games.json')) {
         fs.writeFileSync(app.getPath('userData') + '/games.json', '{ "games": [] }');
     }
+    if (!fs.existsSync(app.getPath('userData') + '/config.json')) {
+        fs.writeFileSync(app.getPath('userData') + '/config.json', '{ "config": { lang: "en" } }');
+    }
 });
 // exit all windows onclose
 app.on('window-all-closed', () => {

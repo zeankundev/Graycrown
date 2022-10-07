@@ -30,12 +30,16 @@ const downloadsText = document.getElementById('downloads-text');
 const noDownloads = document.getElementById('no-downloads');
 // end of translation area
 // fetch json of corresponding language
-let lang = 'en';
-let play = null;
-let downAndI = null
-    // new lang make it lowercase
-const runFetch = () => {
-    fetch(`../language/${lang}.json`)
+let lang;
+let play;
+let downAndI;
+let language;
+fetch(app.getPath('userData') + '/config.json')
+.then(response => response.json())
+.then(data => {
+    console.log(data.config.language)
+    document.getElementById('lang').value = data.config.language;
+    fetch(`../language/${data.config.language}.json`)
     .then((res) => res.json())
     .then(data => {
         document.getElementById('welcome-back').innerHTML = data.translations.welcomeBack
@@ -52,12 +56,24 @@ const runFetch = () => {
         document.getElementById('rec-for-u').innerHTML = data.translations.recForU
         play = data.translations.play
         downAndI = data.translations.downloadAndInstall
+        recommendGames();
+        fetchStores();
+        getGames();
     })
     .catch(e => {
         console.log(e);
     })
-} 
-runFetch()
+});
+const configuration = require(app.getPath('userData') + '/config.json')
+document.getElementById('lang').onchange = () => {
+    configuration.config.language = document.getElementById('lang').value;
+    fs.writeFile(app.getPath('userData') + '/config.json', JSON.stringify(configuration), function writeJSON(e) {
+        if (e) return console.log(e);
+        console.log(JSON.stringify(configuration));
+        console.log('Writing config file of lang to:' + app.getPath('userData') + '/config.json')
+        notifDisplay('In order for effects to take place, restart Graycrown', 'Restart required.')
+    })
+}
 function notifDisplay(txt, title) {
     notif.style.display = 'block';
     text.innerHTML = txt;
@@ -280,7 +296,8 @@ openMenu(event, 'home')
                     startBtn.className = "download";
                     startBtn.innerText = play;
                     startBtn.onclick = function() {
-                        window.open(`../views/child.html?url=${items.link}`, '_blank', `nodeIntegration=true,title=${items.name} - Graycrown`)
+                        if (items.link !== '') window.open(`../views/child.html?url=${items.link}`, '_blank', `nodeIntegration=true,title=${items.name} - Graycrown`);
+                        else notifDisplay('Error 407: Missing link argument in JSON file', 'Failed to launch!') 
                     }
                     recommendDisplay.appendChild(startBtn)
                     rec.appendChild(recommendDisplay)

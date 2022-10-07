@@ -30,10 +30,10 @@
             <div id="home" class="tabcontent">
                 <div class="home">
                     <h1 id="welcome-back">Welcome back!</h1>
-                    <br>
+                    <br><br>
                     <button class="button" onclick="openMenu(event, 'library')" id="to-library">Go to library!</button>
                     <button class="button" onclick="recommendGames()" id="ref-internet">Refresh internet connect</button>
-                    <br>
+                    <br><br>
 		            <h2 id="rec-for-u">Recommended for you</h2>
                     <div id="recommend-list">
                         <br>
@@ -59,6 +59,12 @@
                     <h1 id="settings-text">Settings</h1>
                     <div id="settings-list">
                         <button class="button" style="margin-top: 10px; margin-bottom: 10px;" id="games-open">Open games.json file</button>
+                        <select id="lang" class="button">
+                            <option value="en">English</option>
+                            <option value="de">Deutsch</option>
+                            <option value="id">Bahasa Indonesia</option>
+                            <option value="jp">日本語</option>
+                        </select>
                     </div>
                     <h2 id="wine-settings">Wine Settings (Linux only)</h2>
                     <button class="button" style="margin-top: 10px; margin-bottom: 10px;" id="wine-cfg" onclick="spawnWine('cfg')" id="wine-config">Wine configuration</button>
