@@ -31,7 +31,7 @@ jobs:
           
       - run:
           name: Delete foreign artifacts
-          command: cd build && rm -rf win-unpacked && rm -rf linux-unpacked && cd ..
+          command: cd dist && rm -rf win-unpacked && rm -rf linux-unpacked && cd ..
 
       - store_artifacts:
           path: ~/repo/dist
