@@ -28,10 +28,10 @@ jobs:
       - run:
           name: Generate Windows binaries
           command: npm run win
+          
+      - run:
+          name: Delete foreign artifacts
+          command: cd dist && rm -rf win-unpacked && rm -rf linux-unpacked && cd ..
 
       - store_artifacts:
           path: ~/repo/dist
-      - run:
-          name: "Publish Release on GitHub"
-          command: |
-            ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} ./artifacts/
