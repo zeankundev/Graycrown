@@ -1,8 +1,8 @@
 {
   "name": "graycrown",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "a simple game launcher",
-  "homepage": "https://graycrown.hstn.me",
+  "homepage": "https://gray-crown.web.app",
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
