@@ -37,6 +37,8 @@ let language;
 fetch(app.getPath('userData') + '/config.json')
 .then(response => response.json())
 .then(data => {
+    recommendGames(data.config.custom)
+    document.getElementById('cus-json').value = data.config.custom
     console.log(data.config.language)
     document.getElementById('lang').value = data.config.language;
     fetch(`../language/${data.config.language}.json`)
@@ -277,8 +279,17 @@ openMenu(event, 'home')
         document.getElementById(menu + '-tab').className = "tab active";
         console.log("OK: e.currentTarget.className += \" active\"");
     }
-    function recommendGames() {
-        fetch('https://gray-crown.web.app/host/Game.json')
+    document.getElementById('cus-json').onchange = () => {
+            configuration.config.custom = document.getElementById('cus-json').value;
+            fs.writeFile(app.getPath('userData') + '/config.json', JSON.stringify(configuration), function writeJSON(e) {
+                if (e) return console.log(e);
+                console.log(JSON.stringify(configuration));
+                console.log('Writing config file of custom to:' + app.getPath('userData') + '/config.json')
+                notifDisplay('In order for effects to take place, restart Graycrown', 'Restart required.')
+            })
+        }
+    function recommendGames(link) {
+        fetch(link)
             .then(res => res.json())
             .then(data => {
                 let rec = document.getElementById('recommend-list');
@@ -296,7 +307,7 @@ openMenu(event, 'home')
                     startBtn.className = "download";
                     startBtn.innerHTML = `<b>${play}</b>`;
                     startBtn.onclick = function() {
-                        if (items.link !== '') window.open(`../views/child.html?url=${items.link}`, '_blank', `nodeIntegration=true,title=${items.name} - Graycrown`);
+                        if (items.link !== '') window.open(`../views/child.html?url=${items.link}`, '_blank', `nodeIntegration=true,title=${items.name} - Graycrown,autoHideMenuBar=true`);
                         else notifDisplay('Error 407: Missing link argument in JSON file', 'Failed to launch!') 
                     }
                     recommendDisplay.appendChild(startBtn)
