@@ -32,12 +32,14 @@ const noDownloads = document.getElementById('no-downloads');
 // fetch json of corresponding language
 let lang;
 let play;
+let cus;
 let downAndI;
 let language;
 fetch(app.getPath('userData') + '/config.json')
 .then(response => response.json())
 .then(data => {
     recommendGames(data.config.custom)
+    cus = data.config.custom
     document.getElementById('cus-json').value = data.config.custom
     console.log(data.config.language)
     document.getElementById('lang').value = data.config.language;
@@ -241,7 +243,7 @@ openMenu(event, 'home')
                             `;
                             let gameButton = document.createElement("button");
                             gameButton.className = "play";
-                            gameButton.innerHTML = `<b>${play}</b>`;
+                            gameButton.innerHTML = `<span>${play}</span>`;
                             gameButton.onclick = function() {
                                 // downgraded to electron v4, now we can require child_process.
                                 const { spawn } = require('child_process');
@@ -305,7 +307,7 @@ openMenu(event, 'home')
                     `;
                     let startBtn = document.createElement("button");
                     startBtn.className = "download";
-                    startBtn.innerHTML = `<b>${play}</b>`;
+                    startBtn.innerHTML = `<span>${play}</span>`;
                     startBtn.onclick = function() {
                         if (items.link !== '') window.open(`../views/child.html?url=${items.link}`, '_blank', `nodeIntegration=true,title=${items.name} - Graycrown,autoHideMenuBar=true`);
                         else notifDisplay('Error 407: Missing link argument in JSON file', 'Failed to launch!') 
@@ -334,7 +336,7 @@ openMenu(event, 'home')
                     `;
                     let downButton = document.createElement("button");
                     downButton.className = "download";
-                    downButton.innerHTML = `<b>${downAndI}</b>`;
+                    downButton.innerHTML = `<span>${downAndI}</span>`;
                     if (!fs.existsSync(app.getPath('userData') + '/downloads')) {
                         fs.mkdirSync(app.getPath('userData') + '/downloads');
                     }
@@ -353,7 +355,7 @@ openMenu(event, 'home')
                                     url: store.download,
                                     directory: path.join(app.getPath('userData'), '/downloads'),
                                     onProgress: function (percent, chunk, remain) {
-                                        downProgress.innerHTML = `<b>Now downloading ${store.name}.</b>&nbsp;${percent}% | Bytes left: ${remain}`;
+                                        downProgress.innerHTML = `<span>Now downloading ${store.name}.</span>&nbsp;${percent}% | Bytes left: ${remain}`;
                                     }
                                 });
                                 try {

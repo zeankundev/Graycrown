@@ -23,6 +23,16 @@
     font-style: italic;
 }
 @font-face {
+    font-family: 'Averta';
+    src: url('../../assets/fonts/averta-reg.woff');
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'Averta';
+    src: url('../../assets/fonts/averta-bold.woff');
+    font-weight: 700;
+}
+@font-face {
     font-family: 'TF2';
     src: url('../../assets/fonts/TF2.ttf');
 }

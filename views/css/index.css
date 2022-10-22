@@ -103,7 +103,7 @@ body {
     background: var(--main-color);
     color: var(--main-text);
     cursor: url('../../assets/default.png'), default;
-    font-family: 'Effra', system-ui;
+    font-family: 'Averta', system-ui;
     user-select: none;
 }
 .menu-tab {
@@ -268,7 +268,7 @@ object, iframe {
     border: none;
     border-radius: 5px;
     padding: 10px;
-    font-family: 'Effra', system-ui;
+    font-family: 'Averta', system-ui;
     cursor: url('../../assets/pointer.png'), auto;
 }
 .game-display {
@@ -284,7 +284,7 @@ object, iframe {
   color: var(--main-text);
   padding: 5px;
   outline: none;
-  font-family: 'Effra', system-ui;
+  font-family: 'Averta', system-ui;
 }
 #game-list {
     overflow-y: hidden;
@@ -305,7 +305,7 @@ h1 {
     background-color: var(--play-color);
     border: none;
     display: inline-block;
-    font-family: 'Effra', system-ui;
+    font-family: 'Averta', system-ui;
     padding: 10px;
     border-radius: 15px;
     color: var(--main-text);
@@ -345,7 +345,7 @@ h1 {
     background-color: var(--download-color);
     border: none;
     display: inline-block;
-    font-family: 'Effra', system-ui;
+    font-family: 'Averta', system-ui;
     padding: 10px;
     margin-top: 10px;
     border-radius: 15px;
