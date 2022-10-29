@@ -106,6 +106,10 @@ body {
     font-family: 'Averta', system-ui;
     user-select: none;
 }
+reg-head {
+  font-family: 'TF2 Head Light', sans-serif;
+  font-weight: 400 !important;
+}
 .menu-tab {
     display: flex;
     flex-direction: row;

@@ -36,6 +36,10 @@
     font-family: 'TF2';
     src: url('../../assets/fonts/TF2.ttf');
 }
+@font-face {
+    font-family: 'TF2 Head Light';
+    src: url('../../assets/fonts/TF2-Regular.otf');
+}
 :root {
     --main-color: #1d1d1d;
     --main-hover-color: #2e2e2e;

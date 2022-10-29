@@ -13,6 +13,7 @@ const maximize = document.getElementById('maximize');
 const downloads = document.getElementById('downloads');
 const titleText = document.getElementById('title-text')
 const imageToggle = document.getElementById('img-toggle');
+const userdata = app.getPath('userData');
 const text = document.getElementById('text');
 const notif = document.getElementById('notif')
 const modal = document.getElementById('download-modal');
@@ -34,6 +35,7 @@ let lang;
 let play;
 let cus;
 let downAndI;
+let libText;
 let language;
 fetch(app.getPath('userData') + '/config.json')
 .then(response => response.json())
@@ -47,7 +49,7 @@ fetch(app.getPath('userData') + '/config.json')
     .then((res) => res.json())
     .then(data => {
         document.getElementById('welcome-back').innerHTML = data.translations.welcomeBack
-        document.getElementById('library-text').innerHTML = data.translations.library
+        document.getElementById('library-text').innerHTML = `${data.translations.library} <reg-head>(${userdata}/games.json)</reg-head>`;
         document.getElementById('store-text').innerHTML = data.translations.store
         document.getElementById('settings-text').innerHTML = data.translations.settings
         document.getElementById('wine-settings').innerHTML = data.translations.wineSettings
@@ -58,9 +60,8 @@ fetch(app.getPath('userData') + '/config.json')
         document.getElementById('to-library').innerHTML = data.translations.toLibrary
         document.getElementById('ref-internet').innerHTML = data.translations.refInternet
         document.getElementById('rec-for-u').innerHTML = data.translations.recForU
-        play = data.translations.play
+        play = data.translations.play;
         downAndI = data.translations.downloadAndInstall
-        recommendGames();
         fetchStores();
         getGames();
     })
@@ -116,7 +117,8 @@ const minimizeWin = () => {
 const maximizeWin = () => {
     const win = getWin();
     win.isMaximized() ? win.unmaximize() : win.maximize();
-    win.isMaximized() ? imageToggle.setAttribute("src", "../assets/restore_down_1024.png") : imageToggle.setAttribute("src", "../assets/maximize_1024.png")
+    if (win.isMaximized() == false) imageToggle.setAttribute("src", "../assets/maximize_1024.png");
+    else imageToggle.setAttribute("src", "../assets/restore_down_1024.png")
 }
 minimize.addEventListener('click', minimizeWin);
 maximize.addEventListener('click', maximizeWin);
@@ -241,10 +243,20 @@ openMenu(event, 'home')
                                 <img style="width: 48px !important; height:48px !important; border-radius:15px;" src="${game.icon}">
                                 <div class="game-title">${game.name}</div>
                             `;
+                            let secElapsed = document.createElement("p")
+                            secElapsed.style.display = 'none';
+                            let seconds = 0
                             let gameButton = document.createElement("button");
                             gameButton.className = "play";
                             gameButton.innerHTML = `<span>${play}</span>`;
                             gameButton.onclick = function() {
+                                seconds = 0;
+                                secElapsed.style.display = 'block';
+                                const timer = setInterval(function() {
+                                    seconds++
+                                    secElapsed.innerHTML = `${seconds} seconds elapsed. <br>`
+                                    if (seconds > 60) notifDisplay('You have exceeded the maximum time of 1 minute.', 'Please take a rest')
+                                }, 1000)
                                 // downgraded to electron v4, now we can require child_process.
                                 const { spawn } = require('child_process');
                                 const process = spawn(game.exec, game.args);
@@ -252,7 +264,11 @@ openMenu(event, 'home')
                                     console.log(err)
                                     notifDisplay(err, 'Failed to launch!')
                                 });
+                                process.on('exit', () => {
+                                    clearInterval(timer)
+                                })
                             }
+                            gameDisplay.appendChild(secElapsed)
                             gameDisplay.appendChild(gameButton);
                             gameList.appendChild(gameDisplay);
                         });
@@ -290,8 +306,11 @@ openMenu(event, 'home')
                 notifDisplay('In order for effects to take place, restart Graycrown', 'Restart required.')
             })
         }
-    function recommendGames(link) {
-        fetch(link)
+    function recommendGames() {
+        fetch(userdata + '/config.json')
+        .then(response => response.json())
+        .then(data => {
+            fetch(data.config.custom)
             .then(res => res.json())
             .then(data => {
                 let rec = document.getElementById('recommend-list');
@@ -307,7 +326,7 @@ openMenu(event, 'home')
                     `;
                     let startBtn = document.createElement("button");
                     startBtn.className = "download";
-                    startBtn.innerHTML = `<span>${play}</span>`;
+                    startBtn.innerHTML = play;
                     startBtn.onclick = function() {
                         if (items.link !== '') window.open(`../views/child.html?url=${items.link}`, '_blank', `nodeIntegration=true,title=${items.name} - Graycrown,autoHideMenuBar=true`);
                         else notifDisplay('Error 407: Missing link argument in JSON file', 'Failed to launch!') 
@@ -319,8 +338,8 @@ openMenu(event, 'home')
                 console.log(e);
                 document.getElementById('e').style.display = 'block';
             })
+        })
     }
-    recommendGames()
     function fetchStores() {
         fetch('https://gray-crown.web.app/host/Store.json')
             .then(response => response.json())
@@ -375,7 +394,10 @@ openMenu(event, 'home')
     }
 function spawnWine(processType) {
     const spawn = require('child_process').spawn;
-    spawn('wine' + processType);
+    try {
+    	spawn('wine' + processType);
+    } catch (e) {
+    	notifDisplay(e, 'Cannot launch Wine process')}
     // console.log the child_process output
     spawn.stdout.on('data', (data) => {
         console.log(`stdout: ${data}`);
