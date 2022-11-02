@@ -26,5 +26,6 @@ npm run build
 - Player window had issues with minimizing, maximizing and closing the player window [SOLVED]
 - Fix on duplicating status for multiple batch downloads
 - (BUG ON GNOME) Restored down window makes the button image as restored down instead of maximize
+- Someone plagiarized our brand (cease and desist sent)
 
 # [Join the discussion on Discord. Click the heading to continue!](https://discord.gg/3ujWSgkawv)
