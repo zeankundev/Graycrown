@@ -241,7 +241,7 @@ openMenu(event, 'home')
                             gameDisplay.className = "game-display";
                             gameDisplay.innerHTML = `
                                 <img style="width: 48px !important; height:48px !important; border-radius:15px;" src="${game.icon}">
-                                <div class="game-title">${game.name}</div>
+                                <div class="game-title">${game.name.slice(0, 18) + (game.name.length > 18 ? '...' : '')}</div>
                             `;
                             let secElapsed = document.createElement("p")
                             secElapsed.style.display = 'none';
@@ -322,7 +322,7 @@ openMenu(event, 'home')
                     recommendDisplay.title = items.info;
                     recommendDisplay.innerHTML = `
                         <img style="width: 48px !important; height:48px !important; border-radius:15px;" src="${items.banner}">
-                        <div class="store-title">${items.name}</div>
+                        <div class="store-title">${items.name.slice(0, 18) + (items.name.length > 18 ? '...' : '')}</div>
                     `;
                     let startBtn = document.createElement("button");
                     startBtn.className = "download";

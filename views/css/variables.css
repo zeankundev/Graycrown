@@ -33,6 +33,16 @@
     font-weight: 700;
 }
 @font-face {
+    font-family: 'SF Text';
+    src: url('../../assets/fonts/SFUIText-Regular.ttf');
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'SF Text';
+    src: url('../../assets/fonts/SFUIText-Bold.ttf');
+    font-weight: 700;
+}
+@font-face {
     font-family: 'TF2';
     src: url('../../assets/fonts/TF2.ttf');
 }
