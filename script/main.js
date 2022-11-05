@@ -1,12 +1,14 @@
 const remote = require('@electron/remote');
 const app = remote.app;
 const fs = require('fs');
+const { platform } = require('node:process')
 const Downloader = require('nodejs-file-downloader');
 const notifier = require('node-notifier');
 const download = require('download');
 const { url } = require('inspector');
 const path = require('path');
 const { config } = require('process');
+const commandExists = require('command-exists');
 const close = document.getElementById('close');
 const minimize = document.getElementById('minimize');
 const maximize = document.getElementById('maximize');
@@ -43,7 +45,12 @@ fetch(app.getPath('userData') + '/config.json')
     recommendGames(data.config.custom)
     cus = data.config.custom
     document.getElementById('cus-json').value = data.config.custom
-    console.log(data.config.language)
+    console.log(`
+        Variable Information:
+        platform: ${platform}
+        configDir: ${userdata}
+        language: ${data.config.language}
+    `)
     document.getElementById('lang').value = data.config.language;
     fetch(`../language/${data.config.language}.json`)
     .then((res) => res.json())
@@ -156,7 +163,8 @@ document.getElementById('submit').onclick = () => {
             obj['games'].push({
                 "name": document.getElementById('name').value,
                 "icon": document.getElementById('icon').value,
-                "exec": document.getElementById('exec').value
+                "exec": document.getElementById('exec').value,
+                "enableWine": document.getElementById('is-wine').checked
               });
         } else {
               let id = document.getElementById("id").value;
@@ -164,7 +172,8 @@ document.getElementById('submit').onclick = () => {
                 "id": document.getElementById('id').value,
                 "name": document.getElementById('name').value,
                 "icon": document.getElementById('icon').value,
-                "exec": document.getElementById('exec').value
+                "exec": document.getElementById('exec').value,
+                "enableWine": document.getElementById('is-wine').checked
               });
         }
             jsonStr = JSON.stringify(obj);
@@ -238,10 +247,11 @@ openMenu(event, 'home')
                             if (game.icon == "" || game.icon == undefined) {
                                 game.icon = "../assets/logo_1024.png";
                             }
+                            console.log(`Metadata of game:\n name: ${game.name}\n icon: ${game.icon}\n enableWine: ${game.enableWine}\n exec: ${game.exec}\n args: ${game.args}`)
                             gameDisplay.className = "game-display";
                             gameDisplay.innerHTML = `
                                 <img style="width: 48px !important; height:48px !important; border-radius:15px;" src="${game.icon}">
-                                <div class="game-title">${game.name.slice(0, 18) + (game.name.length > 18 ? '...' : '')}</div>
+                                <div class="game-title">${game.name.slice(0, 16) + (game.name.length > 18 ? '...' : '')}</div>
                             `;
                             let secElapsed = document.createElement("p")
                             secElapsed.style.display = 'none';
@@ -255,18 +265,37 @@ openMenu(event, 'home')
                                 const timer = setInterval(function() {
                                     seconds++
                                     secElapsed.innerHTML = `${seconds} seconds elapsed. <br>`
-                                    if (seconds > 60) notifDisplay('You have exceeded the maximum time of 1 minute.', 'Please take a rest')
+                                    if (seconds > 59) notifDisplay('You have exceeded the maximum time of 1 minute.', 'Please take a rest')
                                 }, 1000)
                                 // downgraded to electron v4, now we can require child_process.
                                 const { spawn } = require('child_process');
-                                const process = spawn(game.exec, game.args);
-                                process.on('error', (err) => {
-                                    console.log(err)
-                                    notifDisplay(err, 'Failed to launch!')
-                                });
-                                process.on('exit', () => {
-                                    clearInterval(timer)
-                                })
+                                if (game.enableWine != true) {
+                                    const process = spawn(game.exec, game.args);
+                                    process.on('error', (err) => {
+                                        console.log(err)
+                                        notifDisplay(err, 'Failed to launch!')
+                                    });
+                                    process.on('exit', () => {
+                                        clearInterval(timer)
+                                    })
+                                } else {
+                                    if (platform == 'win32') notifDisplay('Wine is only available for Mac or Linux', 'Your OS is unsupported');
+                                    else {
+                                        var cmdExist = require('command-exists');
+                                        if (cmdExist('wine')) {
+                                            const process = spawn('wine', [game.exec]);
+                                            process.on('error', (err) => {
+                                                console.log(err)
+                                                notifDisplay(err, 'Failed to launch!')
+                                            });
+                                            process.on('exit', () => {
+                                                clearInterval(timer)
+                                            })
+                                        } else {
+                                            notifDisplay('Wine cannot be searched. Close Graycrown, install wine, then try again.', 'Unsupported!')
+                                        }
+                                    }
+                                }
                             }
                             gameDisplay.appendChild(secElapsed)
                             gameDisplay.appendChild(gameButton);
