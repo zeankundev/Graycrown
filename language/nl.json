@@ -9,6 +9,7 @@
         "downloads": "Downloads",
         "noDownloads": "Geen downloads. Kom snel terug.",
         "play": "Spelen",
+        "stop": "Spel stoppen",
         "downloadAndInstall": "Download en installeer",
         "refreshStore": "Winkel vernieuwen",
         "wineConfig": "Wine configuratie",

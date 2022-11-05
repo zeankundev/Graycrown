@@ -9,6 +9,7 @@
         "downloads": "ダウンロード",
         "noDownloads": "ダウンロードはありません。 すぐにもう一度確認してください",
         "play": "遊ぶ",
+        "stop": "ゲームを停止",
         "downloadAndInstall": "ダウンロードとインストール",
         "refreshStore": "リフレッシュショップ",
         "wineConfig": "ワイン構成",

@@ -315,6 +315,7 @@ h1 {
     border-radius: 15px;
     color: var(--main-text);
     width: 240px;
+    transition: all 0.2s ease;
     cursor: url('../../assets/pointer.png'), auto;
     -webkit-animation: scale-down-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 	        animation: scale-down-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
@@ -323,6 +324,25 @@ h1 {
     background-color: var(--play-color-hover);
     -webkit-animation: scale-up-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 	        animation: scale-up-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+.stop {
+  background-color: var(--stop-color);
+  border: none;
+  display: inline-block;
+  font-family: system-ui;
+  padding: 10px;
+  border-radius: 15px;
+  color: var(--main-text);
+  width: 240px;
+  cursor: url('../../assets/pointer.png'), auto;
+  transition: all 0.2s ease;
+  -webkit-animation: scale-down-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        animation: scale-down-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+.stop:hover {
+  background-color: var(--stop-color-hover);
+  -webkit-animation: scale-up-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        animation: scale-up-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 .store-display {
     background: var(--main-color);

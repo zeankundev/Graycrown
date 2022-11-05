@@ -9,6 +9,7 @@
         "downloads": "Downloads",
         "noDownloads": "No downloads. Check back soon!",
         "play": "Play",
+        "stop": "Stop Game",
         "downloadAndInstall": "Download and Install",
         "refreshStore": "Refresh Store",
         "wineConfig": "Wine Configuration",

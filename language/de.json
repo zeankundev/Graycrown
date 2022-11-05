@@ -9,6 +9,7 @@
         "downloads": "Download",
         "noDownloads": "Keine Downloads. Schau bald wieder vorbei!",
         "play": "Spielen",
+        "stop": "Spiel beenden",
         "downloadAndInstall": "Herunterladen und installieren",
         "refreshStore": "Geschäft aktualisieren",
         "wineConfig": "Wine-Konfiguration",

@@ -39,6 +39,7 @@ let cus;
 let downAndI;
 let libText;
 let language;
+let stop;
 fetch(app.getPath('userData') + '/config.json')
 .then(response => response.json())
 .then(data => {
@@ -68,6 +69,7 @@ fetch(app.getPath('userData') + '/config.json')
         document.getElementById('ref-internet').innerHTML = data.translations.refInternet
         document.getElementById('rec-for-u').innerHTML = data.translations.recForU
         play = data.translations.play;
+        stop = data.translations.stop;
         downAndI = data.translations.downloadAndInstall
         fetchStores();
         getGames();
@@ -235,6 +237,7 @@ openMenu(event, 'home')
                 });
             });
         }*/
+        var proc;
             function getGames() {
                 fetch(app.getPath('userData') + '/games.json')
                     .then(response => response.json())
@@ -260,41 +263,55 @@ openMenu(event, 'home')
                             gameButton.className = "play";
                             gameButton.innerHTML = `<span>${play}</span>`;
                             gameButton.onclick = function() {
-                                seconds = 0;
-                                secElapsed.style.display = 'block';
-                                const timer = setInterval(function() {
-                                    seconds++
-                                    secElapsed.innerHTML = `${seconds} seconds elapsed. <br>`
-                                    if (seconds > 59) notifDisplay('You have exceeded the maximum time of 1 minute.', 'Please take a rest')
-                                }, 1000)
-                                // downgraded to electron v4, now we can require child_process.
-                                const { spawn } = require('child_process');
-                                if (game.enableWine != true) {
-                                    const process = spawn(game.exec, game.args);
-                                    process.on('error', (err) => {
-                                        console.log(err)
-                                        notifDisplay(err, 'Failed to launch!')
-                                    });
-                                    process.on('exit', () => {
-                                        clearInterval(timer)
-                                    })
-                                } else {
-                                    if (platform == 'win32') notifDisplay('Wine is only available for Mac or Linux', 'Your OS is unsupported');
-                                    else {
-                                        var cmdExist = require('command-exists');
-                                        if (cmdExist('wine')) {
-                                            const process = spawn('wine', [game.exec]);
-                                            process.on('error', (err) => {
-                                                console.log(err)
-                                                notifDisplay(err, 'Failed to launch!')
-                                            });
-                                            process.on('exit', () => {
-                                                clearInterval(timer)
-                                            })
-                                        } else {
-                                            notifDisplay('Wine cannot be searched. Close Graycrown, install wine, then try again.', 'Unsupported!')
+                                if (gameButton.className == "play") {
+                                    seconds = 0;
+                                    secElapsed.style.display = 'block';
+                                    const timer = setInterval(function() {
+                                        seconds++
+                                        secElapsed.innerHTML = `${seconds} seconds elapsed. <br>`
+                                        if (seconds > 59) notifDisplay('You have exceeded the maximum time of 1 minute.', 'Please take a rest')
+                                    }, 1000)
+                                    // downgraded to electron v4, now we can require child_process.
+                                    const { spawn } = require('child_process');
+                                    if (game.enableWine != true) {
+                                        proc = spawn(game.exec, game.args);
+                                        gameButton.className = "stop";
+                                        gameButton.innerHTML = stop;
+                                        proc.on('error', (err) => {
+                                            console.log(err)
+                                            notifDisplay(err, 'Failed to launch!')
+                                        });
+                                        proc.on('exit', () => {
+                                            clearInterval(timer)
+                                            gameButton.className = "play";
+                                            gameButton.innerHTML = play;
+                                        })
+                                    } else {
+                                        if (platform == 'win32') notifDisplay('Wine is only available for Mac or Linux', 'Your OS is unsupported');
+                                        else {
+                                            var cmdExist = require('command-exists');
+                                            if (cmdExist('wine')) {
+                                                proc = spawn('wine', [game.exec]);
+                                                gameButton.className = "stop";
+                                                gameButton.innerHTML = stop;
+                                                proc.on('error', (err) => {
+                                                    console.log(err)
+                                                    notifDisplay(err, 'Failed to launch!')
+                                                });
+                                                proc.on('exit', () => {
+                                                    clearInterval(timer)
+                                                    gameButton.className = "play";
+                                                    gameButton.innerHTML = play;
+                                                })
+                                            } else {
+                                                notifDisplay('Wine cannot be searched. Close Graycrown, install wine, then try again.', 'Unsupported!')
+                                            }
                                         }
                                     }
+                                } else {
+                                    const { spawn } = require('child_process');
+                                    console.log("KILLING PROCESS")
+                                    proc.kill()
                                 }
                             }
                             gameDisplay.appendChild(secElapsed)

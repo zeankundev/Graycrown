@@ -9,6 +9,7 @@
         "downloads": "Descargas",
         "noDownloads": "Sin descargas. ¡Vuelve a consultar pronto!",
         "play": "Tocar",
+        "stop": "Detener el juego",
         "downloadAndInstall": "Descargar e instalar",
         "refreshStore": "Actualizar tienda",
         "wineConfig": "Configuración del Wine",
