@@ -391,7 +391,7 @@ openMenu(event, 'home')
         })
     }
     function fetchStores() {
-        fetch('https://gray-crown.web.app/host/Store.json')
+        fetch('../test/Store.json')
             .then(response => response.json())
             .then(data => {
                 let storeList = document.getElementById("store-list");
@@ -410,6 +410,20 @@ openMenu(event, 'home')
                         fs.mkdirSync(app.getPath('userData') + '/downloads');
                     }
                     downButton.onclick = function() {
+                        const configDir = app.getPath('userData');
+                        let jsonData = require(configDir + '/games.json');
+                        var obj = (jsonData);
+                        obj['games'].push({
+                            "name": store.name,
+                            "icon": "",
+                            "exec": configDir + '/downloads/' + store.id,
+                            "enableWine": "false"
+                        });
+                        jsonStr = JSON.stringify(obj);
+                        const gameListDir = configDir + "/games.json";
+                        console.log(jsonStr)
+                        fs.writeFile(gameListDir, jsonStr, (err) => { if (err) { console.log(err); }});
+                        
                         downList.innerHTML = "";
                         let downStatus = document.createElement('div')
                         downStatus.innerHTML = `
@@ -423,6 +437,8 @@ openMenu(event, 'home')
                                 const down = new Downloader({
                                     url: store.download,
                                     directory: path.join(app.getPath('userData'), '/downloads'),
+                                    cloneFiles: false,
+                                    fileName: store.id,
                                     onProgress: function (percent, chunk, remain) {
                                         downProgress.innerHTML = `<span>Now downloading ${store.name}.</span>&nbsp;${percent}% | Bytes left: ${remain}`;
                                     }
