@@ -318,7 +318,11 @@ openMenu(event, 'home')
                             gameDisplay.appendChild(gameButton);
                             gameList.appendChild(gameDisplay);
                         });
-                    });
+                    })
+                    .catch((e) => {
+                        throw new Error("GRAYCROWN_JSON_DAEMON: Hey! You can't do that! You are deleting the core of Graycrown! Reinstall Graycrown to fix this problem, or restart Graycrown.")
+                        notifDisplay("You are deleting the core data of Graycrown! Reinstall or restart the entire app to fully fix this problem.", "That's illegal!")
+                    })
             }
     getGames();
     // check any changes on app.getPath('userData' + /games.json)
