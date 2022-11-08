@@ -395,7 +395,7 @@ openMenu(event, 'home')
         })
     }
     function fetchStores() {
-        fetch('../test/Store.json')
+        fetch('graycrown.hstn.me/host/Store.json')
             .then(response => response.json())
             .then(data => {
                 let storeList = document.getElementById("store-list");
