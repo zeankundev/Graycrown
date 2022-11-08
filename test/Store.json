@@ -19,6 +19,12 @@
             "download": "https://www.dropbox.com/s/uo2ix8tal2yg839/CityCompleteEdition.exe?dl=1"
         },
         {
+            "id": "City 2",
+            "name": "cityab2.exe",
+            "summary": "The second epik city game from AB Studios",
+            "download": "https://www.dropbox.com/s/4iefavn6q88a6xy/CityCompleteEdition2.exe?dl=1"
+        },
+        {
             "id": "Memeforest Classic",
             "name": "memeforestc.exe",
             "summary": "The good old memeforest classic from AB Studios",
