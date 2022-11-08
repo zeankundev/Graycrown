@@ -280,6 +280,8 @@ openMenu(event, 'home')
                                         proc.on('error', (err) => {
                                             console.log(err)
                                             notifDisplay(err, 'Failed to launch!')
+                                            gameButton.className = "play";
+                                            gameButton.innerHTML = play;
                                         });
                                         proc.on('exit', () => {
                                             clearInterval(timer)
@@ -297,6 +299,8 @@ openMenu(event, 'home')
                                                 proc.on('error', (err) => {
                                                     console.log(err)
                                                     notifDisplay(err, 'Failed to launch!')
+                                                    gameButton.className = "play";
+                                                    gameButton.innerHTML = play;
                                                 });
                                                 proc.on('exit', () => {
                                                     clearInterval(timer)
