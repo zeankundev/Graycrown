@@ -27,6 +27,6 @@ npm run build
 - Fix on duplicating status for multiple batch downloads
 - (BUG ON GNOME) Restored down window makes the button image as restored down instead of maximize
 - `spawn wine ENOENT` error known of using snap version of Graycrown (tested with machine that has wine)
-- Someone plagiarized our brand (cease and desist sent)
+- Someone plagiarized our brand (cease and desist sent) [ON AN INTENSE DRAMA RIGHT NOW]
 
 # [Join the discussion on Discord. Click the heading to continue!](https://discord.gg/3ujWSgkawv)
