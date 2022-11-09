@@ -1,0 +1,34 @@
+{
+    "store": [
+        {
+            "id": "test",
+            "name": "Hello World",
+            "summary": "A test card for Graycrown store",
+            "download": "https://wiki.teamfortress.com/w/images/c/c8/Eng_guzzle_06.wav"
+        },
+        {
+            "id": "hl",
+            "name": "Half-Life",
+            "summary": "Half-Life game from Valve",
+            "download": "http://download2390.mediafire.com/xaxb6luq9k1g/hf4bzz66jlo3v3b/Half+Life.exe"
+        },
+        {
+            "id": "City",
+            "name": "cityab.exe",
+            "summary": "The epik city game from AB Studios",
+            "download": "https://www.dropbox.com/s/uo2ix8tal2yg839/CityCompleteEdition.exe?dl=1"
+        },
+        {
+            "id": "City 2",
+            "name": "cityab2.exe",
+            "summary": "The second epik city game from AB Studios",
+            "download": "https://www.dropbox.com/s/4iefavn6q88a6xy/CityCompleteEdition2.exe?dl=1"
+        },
+        {
+            "id": "Memeforest Classic",
+            "name": "memeforestc.exe",
+            "summary": "The good old memeforest classic from AB Studios",
+            "download": "https://www.dropbox.com/s/dqvuqse9m7fvcpj/MemeforestCompleteEdition.exe?dl=1"
+        }
+    ]
+}
