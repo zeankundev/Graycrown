@@ -126,8 +126,7 @@ const minimizeWin = () => {
 const maximizeWin = () => {
     const win = getWin();
     win.isMaximized() ? win.unmaximize() : win.maximize();
-    if (win.isMaximized() == false) imageToggle.setAttribute("src", "../assets/maximize_1024.png");
-    else imageToggle.setAttribute("src", "../assets/restore_down_1024.png")
+    win.isMaximized() ? imageToggle.setAttribute("src", "../assets/restore_down_1024.png") : imageToggle.setAttribute("src", "../assets/maximize_1024.png")
 }
 minimize.addEventListener('click', minimizeWin);
 maximize.addEventListener('click', maximizeWin);
@@ -254,7 +253,7 @@ openMenu(event, 'home')
                             gameDisplay.className = "game-display";
                             gameDisplay.innerHTML = `
                                 <img style="width: 48px !important; height:48px !important; border-radius:15px;" src="${game.icon}">
-                                <div class="game-title">${game.name.slice(0, 16) + (game.name.length > 18 ? '...' : '')}</div>
+                                <div class="game-title">${game.name.slice(0, 15) + (game.name.length > 15 ? '...' : '')}</div>
                             `;
                             let secElapsed = document.createElement("p")
                             secElapsed.style.display = 'none';
@@ -324,7 +323,7 @@ openMenu(event, 'home')
                         });
                     })
                     .catch((e) => {
-                        throw new Error("GRAYCROWN_JSON_DAEMON: Hey! You can't do that! You are deleting the core of Graycrown! Reinstall Graycrown to fix this problem, or restart Graycrown.")
+                        throw new Error("GRAYCROWN_JSON_DAEMON: Hey! You can't do that! You are deleting the core of Graycrown! Reinstall Graycrown to fix this problem, or restart Graycrown.");
                         notifDisplay("You are deleting the core data of Graycrown! Reinstall or restart the entire app to fully fix this problem.", "That's illegal!")
                     })
             }
@@ -376,7 +375,7 @@ openMenu(event, 'home')
                     recommendDisplay.title = items.info;
                     recommendDisplay.innerHTML = `
                         <img style="width: 48px !important; height:48px !important; border-radius:15px;" src="${items.banner}">
-                        <div class="store-title">${items.name.slice(0, 18) + (items.name.length > 18 ? '...' : '')}</div>
+                        <div class="store-title">${items.name.slice(0, 16) + (items.name.length > 16 ? '...' : '')}</div>
                     `;
                     let startBtn = document.createElement("button");
                     startBtn.className = "download";
@@ -395,7 +394,7 @@ openMenu(event, 'home')
         })
     }
     function fetchStores() {
-        fetch('../test/Store.json')
+        fetch('https://zeankundev.github.io/cdn/Store.json')
             .then(response => response.json())
             .then(data => {
                 let storeList = document.getElementById("store-list");
@@ -405,7 +404,7 @@ openMenu(event, 'home')
                     storeDisplay.className = "store-display";
                     storeDisplay.innerHTML = `
                         <div class="store-title">${store.name}</div>
-                        <div class="store-description">${store.summary}</div>
+                        <div class="store-description">${store.summary.slice(0, 25) + (store.summary.length > 25 ? '...' : '')}</div>
                     `;
                     let downButton = document.createElement("button");
                     downButton.className = "download";
@@ -460,7 +459,9 @@ openMenu(event, 'home')
                     storeDisplay.appendChild(downButton);
                     storeList.appendChild(storeDisplay);
                 });
-            });
+            }).catch((e) => {
+                notifDisplay('Cannot fetch store JSON file. Maybe the server is down or check your internet connection', e)
+            })
     }
 function spawnWine(processType) {
     const spawn = require('child_process').spawn;

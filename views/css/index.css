@@ -1,6 +1,7 @@
 * {
     margin: 0;
     overflow: hidden;
+    cursor: url('../../assets/default.png'), default;
 }
 @-webkit-keyframes slide-bottom {
   0% {
@@ -115,6 +116,7 @@ reg-head {
     display: flex;
     flex-direction: row;
     background: var(--main-color);
+    cursor: url('../../assets/default.png'), default;
     color: var(--main-text);
     /*-webkit-app-region: drag;*/
 }
