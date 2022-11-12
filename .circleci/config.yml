@@ -30,6 +30,10 @@ jobs:
           command: npm run win
           
       - run:
+          name: Generate Mac binaries
+          command: npx electron-builder --mac
+          
+      - run:
           name: Delete foreign artifacts
           command: cd dist && rm -rf win-unpacked && rm -rf linux-unpacked && cd ..
 
