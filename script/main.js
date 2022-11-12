@@ -22,6 +22,7 @@ const modal = document.getElementById('download-modal');
 const downList = document.getElementById('download-list');
 const closeModal = document.getElementById('close-modal');
 // translation area
+var heads = document.getElementsByTagName('h1')
 const welcomeBack = document.getElementById('welcome-back');
 const library = document.getElementById('library');
 const store = document.getElementById('store');
@@ -51,7 +52,15 @@ fetch(app.getPath('userData') + '/config.json')
         platform: ${platform}
         configDir: ${userdata}
         language: ${data.config.language}
+        custom: ${data.config.custom}
+        headFont: ${data.config.headFont}
     `)
+    for (var i=0; i < heads.length; i++){
+        var head = heads[i]
+        head.style.fontFamily = data.config.headFont
+    }
+    document.getElementById('head-font').value = data.config.headFont
+    document.getElementById('head-font').style.fontFamily = data.config.headFont
     document.getElementById('lang').value = data.config.language;
     fetch(`../language/${data.config.language}.json`)
     .then((res) => res.json())
@@ -85,6 +94,16 @@ document.getElementById('lang').onchange = () => {
         if (e) return console.log(e);
         console.log(JSON.stringify(configuration));
         console.log('Writing config file of lang to:' + app.getPath('userData') + '/config.json')
+        notifDisplay('In order for effects to take place, restart Graycrown', 'Restart required.')
+    })
+}
+document.getElementById('head-font').onchange = () => {
+    configuration.config.headFont = document.getElementById('head-font').value;
+    document.getElementById('head-font').style.fontFamily = document.getElementById('head-font').value;
+    fs.writeFile(app.getPath('userData') + '/config.json', JSON.stringify(configuration), (e) => {
+        if (e) return console.log(e);
+        console.log(JSON.stringify(configuration))
+        console.log('Writing config file of lang to:', configuration)
         notifDisplay('In order for effects to take place, restart Graycrown', 'Restart required.')
     })
 }
@@ -381,7 +400,7 @@ openMenu(event, 'home')
                     startBtn.className = "download";
                     startBtn.innerHTML = play;
                     startBtn.onclick = function() {
-                        if (items.link !== '') window.open(`../views/child.html?url=${items.link}`, '_blank', `nodeIntegration=true,title=${items.name} - Graycrown,autoHideMenuBar=true`);
+                        if (items.link !== '') window.open(`../views/child.html?uri=${items.link}`, '_blank', `nodeIntegration=true,title=${items.name} - Graycrown,autoHideMenuBar=true`);
                         else notifDisplay('Error 407: Missing link argument in JSON file', 'Failed to launch!') 
                     }
                     recommendDisplay.appendChild(startBtn)

@@ -230,6 +230,20 @@ img {
     border: none;
     background: var(--main-color);
 }
+.navbars-mac {
+  margin-left: 0;
+  padding-left: 0;
+}
+.navbutton-mac {
+  padding: 10px;
+  -webkit-appearance: none;
+  outline: none;
+  border: none;
+  background: var(--main-color);
+}
+.navbutton-mac img {
+  padding-left: -5px;
+}
 .notification {
     background-color: var(--main-color);
     text-align: center;
@@ -252,7 +266,8 @@ img {
   }
 }
 h1 {
-  font-family: "TF2", sans-serif
+  font-family: sans-serif;
+  font-weight: 400;
 }
 .navbutton:hover {
     background: var(--main-hover-color) !important;

@@ -1,5 +1,5 @@
 const params = new URLSearchParams(location.search)
-const res = params.get('url')
+const res = params.get('uri')
 const webView = document.getElementById('webview');
 const title = document.getElementById('title');
 const close = document.getElementById('close');

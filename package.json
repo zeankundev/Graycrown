@@ -45,6 +45,15 @@
       "maintainer": "zeankun.dev",
       "category": "Game",
       "icon": "./build/icons/512x512.png"
+    },
+    "mac": {
+      "target": [
+        "dmg",
+        "zip",
+        "tar.gz"
+      ],
+      "category": "public.app-category.games",
+      "icon": "./build/icons/512x512.png"
     }
   },
   "devDependencies": {

@@ -43,12 +43,16 @@
     font-weight: 700;
 }
 @font-face {
-    font-family: 'TF2';
+    font-family: 'cartoon';
     src: url('../../assets/fonts/TF2.ttf');
 }
 @font-face {
     font-family: 'TF2 Head Light';
     src: url('../../assets/fonts/TF2-Regular.otf');
+}
+@font-face {
+    font-family: 'game-serif';
+    src: url('../../assets/fonts/ja-jp.ttf');
 }
 :root {
     --main-color: #1d1d1d;
