@@ -2,7 +2,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="css/index.css">
-        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" id="css" href="css/default.css">
     </head>
     <body>
         <div class="menu-tab">
@@ -71,13 +71,13 @@
                         </select>
                         <br>
                         <p>Header font (more soon)</p>
-                        <select id="head-font" class="button">
-                            <option style="font-family: cartoon;" value="cartoon">Cartoon</option>
-                            <option style="font-family: game-serif;" value="game-serif">Serif</option>
+                        <input type="text" id="head-font" class="text" style="background-color: var(--main-color); width: 20%;">
+                        <select id="cus-css" class="button">
+                            <option value="css/default.css">default.css</option>
                         </select>
                         <br>
                         <p>Custom recommendation JSON URL:</p>
-                        <input type="text" id="cus-json" class="text" style="background-color: #1d1d1d; width: 20%;" value="https://gray-crown.web.app/host/Game.json">
+                        <input type="text" id="cus-json" class="text" style="background-color: var(--main-color); width: 20%;" value="https://gray-crown.web.app/host/Game.json">
                     </div>
                     <h2 id="wine-settings">Wine Settings (Linux only)</h2>
                     <button class="button" style="margin-top: 10px; margin-bottom: 10px;" id="wine-cfg" onclick="spawnWine('cfg')" id="wine-config">Wine configuration</button>

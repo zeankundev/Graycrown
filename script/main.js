@@ -7,6 +7,7 @@ const notifier = require('node-notifier');
 const download = require('download');
 const { url } = require('inspector');
 const path = require('path');
+const cssDir = fs.readdirSync(path.join(app.getPath('userData'), 'styles'))
 const { config } = require('process');
 const commandExists = require('command-exists');
 const close = document.getElementById('close');
@@ -45,7 +46,8 @@ fetch(app.getPath('userData') + '/config.json')
 .then(response => response.json())
 .then(data => {
     recommendGames(data.config.custom)
-    cus = data.config.custom
+    cus = data.config.custom;
+    document.getElementById('css').href = data.config.styleURL
     document.getElementById('cus-json').value = data.config.custom
     console.log(`
         Variable Information:
@@ -62,6 +64,7 @@ fetch(app.getPath('userData') + '/config.json')
     document.getElementById('head-font').value = data.config.headFont
     document.getElementById('head-font').style.fontFamily = data.config.headFont
     document.getElementById('lang').value = data.config.language;
+    document.getElementById('cus-css').value = data.config.styleURL
     fetch(`../language/${data.config.language}.json`)
     .then((res) => res.json())
     .then(data => {
@@ -100,6 +103,16 @@ document.getElementById('lang').onchange = () => {
 document.getElementById('head-font').onchange = () => {
     configuration.config.headFont = document.getElementById('head-font').value;
     document.getElementById('head-font').style.fontFamily = document.getElementById('head-font').value;
+    fs.writeFile(app.getPath('userData') + '/config.json', JSON.stringify(configuration), (e) => {
+        if (e) return console.log(e);
+        console.log(JSON.stringify(configuration))
+        console.log('Writing config file of lang to:', configuration)
+        notifDisplay('In order for effects to take place, restart Graycrown', 'Restart required.')
+    })
+}
+document.getElementById('cus-css').onchange = () => {
+    configuration.config.styleURL = document.getElementById('cus-css').value;
+    document.getElementById('cus-css').style.value = document.getElementById('cus-css').value;
     fs.writeFile(app.getPath('userData') + '/config.json', JSON.stringify(configuration), (e) => {
         if (e) return console.log(e);
         console.log(JSON.stringify(configuration))
@@ -378,6 +391,14 @@ openMenu(event, 'home')
                 notifDisplay('In order for effects to take place, restart Graycrown', 'Restart required.')
             })
         }
+    cssDir.forEach(style => {
+        console.warn('the folder contains: ' + style)
+        let cssOption = document.createElement('option');
+        cssOption.value = path.join(app.getPath('userData'), 'styles', style);
+        console.log(cssOption.value)
+        cssOption.innerText = style;
+        document.getElementById('cus-css').appendChild(cssOption)
+    });
     function recommendGames() {
         fetch(userdata + '/config.json')
         .then(response => response.json())
@@ -428,8 +449,8 @@ openMenu(event, 'home')
                     let downButton = document.createElement("button");
                     downButton.className = "download";
                     downButton.innerHTML = `<span>${downAndI}</span>`;
-                    if (!fs.existsSync(app.getPath('userData') + '/downloads')) {
-                        fs.mkdirSync(app.getPath('userData') + '/downloads');
+                    if (!fs.existsSync(path.join(app.getPath('userData'), '/downloads'))) {
+                        fs.mkdirSync(path.join(app.getPath('userData'), '/downloads'));
                     }
                     downButton.onclick = function() {
                         const configDir = app.getPath('userData');

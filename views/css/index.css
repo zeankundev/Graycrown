@@ -1,3 +1,15 @@
+@font-face {
+  font-family: 'cartoon';
+  src: url('../../assets/fonts/TF2.ttf');
+}
+@font-face {
+  font-family: 'TF2 Head Light';
+  src: url('../../assets/fonts/TF2-Regular.otf');
+}
+@font-face {
+  font-family: 'game-serif';
+  src: url('../../assets/fonts/ja-jp.ttf');
+}
 * {
     margin: 0;
     overflow: hidden;
@@ -204,13 +216,10 @@ img {
     -webkit-appearance: none;
     border: none;
     outline: none;
-    background: var(--main-color);
-}
-.tab:hover {
-    background: var(--main-color-hover);
+    background: none;
 }
 .active {
-    background: #2e2e2e !important;
+    background-color: var(--main-hover-color);
     transition: all 0.3s ease-in-out;
 }
 
@@ -305,6 +314,7 @@ object, iframe {
   background: var(--main-hover-color);
   color: var(--main-text);
   padding: 5px;
+  font-size: 15pt;
   outline: none;
   font-family: system-ui;
 }
