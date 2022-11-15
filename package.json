@@ -48,7 +48,6 @@
     },
     "mac": {
       "target": [
-        "dmg",
         "zip",
         "tar.gz"
       ],
