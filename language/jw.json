@@ -1,0 +1,20 @@
+{
+    "code": "jw",
+    "translations": {
+        "welcomeBack": "Sugeng Rawuh!",
+        "library": "Pustaka",
+        "store": "Toko (IP)",
+        "settings": "Setelan",
+        "wineSettings": "Setelan Wine (Linux mung)",
+        "downloads": "Ngundhuh",
+        "noDownloads": "Ora ana undhuhan. Mriksa maneh enggal!",
+        "play": "Dolanan",
+        "stop": "Stop Game",
+        "downloadAndInstall": "Ngundhuh lan nginstal",
+        "refreshStore": "Refresh toko",
+        "wineConfig": "Konfigurasi Wine",
+        "toLibrary": "Menyang perpustakaan!",
+        "refInternet": "Refresh sambungan internet",
+        "recForU": "Dianjurake kanggo sampeyan"
+    }
+}

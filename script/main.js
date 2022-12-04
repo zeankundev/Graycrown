@@ -456,11 +456,14 @@ openMenu(event, 'home')
                         const configDir = app.getPath('userData');
                         let jsonData = require(configDir + '/games.json');
                         var obj = (jsonData);
+                        let wine = false;
+                        if (process.platform == 'win32') wine = false;
+                        else wine = true;
                         obj['games'].push({
                             "name": store.name,
                             "icon": "",
                             "exec": configDir + '/downloads/' + store.id,
-                            "enableWine": "false"
+                            "enableWine": wine
                         });
                         jsonStr = JSON.stringify(obj);
                         const gameListDir = configDir + "/games.json";
