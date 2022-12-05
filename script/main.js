@@ -61,8 +61,6 @@ fetch(app.getPath('userData') + '/config.json')
         var head = heads[i]
         head.style.fontFamily = data.config.headFont
     }
-    document.getElementById('head-font').value = data.config.headFont
-    document.getElementById('head-font').style.fontFamily = data.config.headFont
     document.getElementById('lang').value = data.config.language;
     document.getElementById('cus-css').value = data.config.styleURL
     fetch(`../language/${data.config.language}.json`)
@@ -97,16 +95,6 @@ document.getElementById('lang').onchange = () => {
         if (e) return console.log(e);
         console.log(JSON.stringify(configuration));
         console.log('Writing config file of lang to:' + app.getPath('userData') + '/config.json')
-        notifDisplay('In order for effects to take place, restart Graycrown', 'Restart required.')
-    })
-}
-document.getElementById('head-font').onchange = () => {
-    configuration.config.headFont = document.getElementById('head-font').value;
-    document.getElementById('head-font').style.fontFamily = document.getElementById('head-font').value;
-    fs.writeFile(app.getPath('userData') + '/config.json', JSON.stringify(configuration), (e) => {
-        if (e) return console.log(e);
-        console.log(JSON.stringify(configuration))
-        console.log('Writing config file of lang to:', configuration)
         notifDisplay('In order for effects to take place, restart Graycrown', 'Restart required.')
     })
 }

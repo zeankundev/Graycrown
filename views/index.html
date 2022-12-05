@@ -6,11 +6,13 @@
     </head>
     <body>
         <div class="menu-tab">
-            <button class="tab" onclick="openMenu(event, 'home')" id="home-tab"><img src="../assets/home_1024.png"></button>
-            <button class="tab"onclick="openMenu(event, 'library');" id="library-tab"><img src="../assets/library_1024.png"></button>
-            <button class="tab" onclick="openMenu(event, 'store'); fetchStores()" id="store-tab"><img src="../assets/news_1024.png"></button>
-            <button class="tab" onclick="openMenu(event, 'settings')" id="settings-tab"><img src="../assets/settings_1024.png"></button>
-            <button class="tab" style="display: none;" onclick="openMenu(event, 'minesweeper')" id="minesweeper-tab"><img src="../assets/minesweeper_1024.png"></button>
+            <div id="api-menu">
+                <button class="tab" onclick="openMenu(event, 'home')" id="home-tab"><img src="../assets/home_1024.png"></button>
+                <button class="tab"onclick="openMenu(event, 'library');" id="library-tab"><img src="../assets/library_1024.png"></button>
+                <button class="tab" onclick="openMenu(event, 'store'); fetchStores()" id="store-tab"><img src="../assets/news_1024.png"></button>
+                <button class="tab" onclick="openMenu(event, 'settings')" id="settings-tab"><img src="../assets/settings_1024.png"></button>
+                <button class="tab" style="display: none;" onclick="openMenu(event, 'minesweeper')" id="minesweeper-tab"><img src="../assets/minesweeper_1024.png"></button>
+            </div>
             <div style="display: flex; -webkit-app-region: drag; flex-grow: 1; cursor: url('../assets/default.png'), default !important;"></div>
             <ul class="navbars" id="general">
                 <button class="navbutton" id="secret"></button>
@@ -26,7 +28,7 @@
             <br>
             <p id="text">%TEXT%</p>
         </div>
-        <div class="container">
+        <div class="container" id="api-tabs">
             <div id="home" class="tabcontent">
                 <div class="home">
                     <h1 id="welcome-back">Welcome back!</h1>
@@ -71,8 +73,7 @@
                             <option value="jp">日本語</option>
                         </select>
                         <br>
-                        <p>Header font (more soon)</p>
-                        <input type="text" id="head-font" class="text" style="background-color: var(--main-color); width: 20%;">
+                        <p>Styling</p>
                         <select id="cus-css" class="button">
                             <option value="css/default.css">default.css</option>
                         </select>
@@ -168,5 +169,6 @@
         </div>
         <script src="../script/main.js"></script>
         <script src="../script/minesweeper.js"></script>
+        <script src="../script/apis/NewTabCreator.js"></script>
     </body>
 </html>
