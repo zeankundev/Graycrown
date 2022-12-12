@@ -297,8 +297,8 @@ object, iframe {
     background-color: var(--main-color);
     color: var(--main-text);
     border: none;
-    border-radius: 5px;
-    padding: 10px;
+    border-radius: 200px;
+    padding: 12px;
     font-family: system-ui;
     cursor: url('../../assets/pointer.png'), auto;
 }
