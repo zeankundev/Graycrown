@@ -1,0 +1,104 @@
+@font-face {
+    font-family: 'Effra';
+    src: url('../../assets/fonts/Effra_Trial_Rg.ttf');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Effra';
+    src: url('../../assets/fonts/Effra_Trial_It.ttf');
+    font-weight: 400;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Effra';
+    src: url('../../assets/fonts/Effra_Trial_Bd.ttf');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Effra';
+    src: url('../../assets/fonts/Effra_Trial_BdIt.ttf');
+    font-weight: 700;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Averta';
+    src: url('../../assets/fonts/averta-reg.woff');
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'Averta';
+    src: url('../../assets/fonts/averta-bold.woff');
+    font-weight: 700;
+}
+@font-face {
+    font-family: 'SF Text';
+    src: url('../../assets/fonts/SFUIText-Regular.ttf');
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'SF Text';
+    src: url('../../assets/fonts/SFUIText-Bold.ttf');
+    font-weight: 700;
+}
+@font-face {
+    font-family: 'cartoon';
+    src: url('../../assets/fonts/TF2.ttf');
+}
+@font-face {
+    font-family: 'TF2 Head Light';
+    src: url('../../assets/fonts/TF2-Regular.otf');
+}
+@font-face {
+    font-family: 'game-serif';
+    src: url('../../assets/fonts/ja-jp.ttf');
+}
+:root {
+    --main-color: #d6d6d6;
+    --main-hover-color: #eeeeee;
+    --main-selected-disabled-color: #c9c9c9;
+    --main-text: rgb(48, 48, 48);
+    --play-color: #16c716;
+    --play-color-hover: #2ae42a;
+    --stop-color: #ff0b0b;
+    --stop-color-hover: #ff2323;
+    --download-color: #0362fc;
+    --download-color-hover: #1e71f7;
+}
+#h {
+    content: url('../../assets/home_light_1024.png');
+}
+#l {
+    content: url('../../assets/library_light_1024.png');
+}
+#st {
+    content: url('../../assets/news_light_1024.png');
+}
+#s {
+    content: url('../../assets/settings_light_1024.png');
+}
+#ad {
+    content: url('../../assets/close_light_1024.png');
+}
+#down {
+    content: url('../../assets/download_light_1024.png');
+}
+#min {
+    content: url('../../assets/minimize_light_1024.png');
+}
+#img-toggle {
+    content: url('../../assets/maximize_light_1024.png');
+}
+#cl {
+    content: url('../../assets/close_light_1024.png');
+}
+.recommend-display {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    background-blend-mode: multiply;
+    margin: 10px;
+    color: var(--main-hover-color);
+    padding: 10px;
+    display: inline-block;
+    border-radius: 25px;
+  }

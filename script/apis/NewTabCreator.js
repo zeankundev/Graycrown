@@ -7,6 +7,7 @@ class Tab {
         this.divId = divId
         this.title = title
         let tab = document.createElement('button');
+        tab.title = title;
         tab.className = 'tab';
         tab.id = `${this.divId}-tab`;
         tab.setAttribute("onclick", `openMenu(event, '${this.divId}')`);
@@ -20,11 +21,7 @@ class Tab {
         let container = document.createElement('div');
         container.id = this.divId;
         container.className = 'tabcontent';
-        container.innerHTML = `
-            <h1>${this.title}</h1>
-            <br>
-            ${inner}
-        `
+        container.appendChild(inner);
         apiCont.appendChild(container)
     }
 }

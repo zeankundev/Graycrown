@@ -7,20 +7,20 @@
     <body>
         <div class="menu-tab">
             <div id="api-menu">
-                <button class="tab" onclick="openMenu(event, 'home')" id="home-tab"><img src="../assets/home_1024.png"></button>
-                <button class="tab"onclick="openMenu(event, 'library');" id="library-tab"><img src="../assets/library_1024.png"></button>
-                <button class="tab" onclick="openMenu(event, 'store'); fetchStores()" id="store-tab"><img src="../assets/news_1024.png"></button>
-                <button class="tab" onclick="openMenu(event, 'settings')" id="settings-tab"><img src="../assets/settings_1024.png"></button>
-                <button class="tab" style="display: none;" onclick="openMenu(event, 'minesweeper')" id="minesweeper-tab"><img src="../assets/minesweeper_1024.png"></button>
+                <button class="tab" onclick="openMenu(event, 'home')" id="home-tab"><img id="h" src="../assets/home_1024.png"></button>
+                <button class="tab"onclick="openMenu(event, 'library');" id="library-tab"><img id="l" src="../assets/library_1024.png"></button>
+                <button class="tab" onclick="openMenu(event, 'store'); fetchStores()" id="store-tab"><img id="st" src="../assets/news_1024.png"></button>
+                <button class="tab" onclick="openMenu(event, 'settings')" id="settings-tab"><img id="s" src="../assets/settings_1024.png"></button>
+                <!--<button class="tab" style="display: none;" onclick="openMenu(event, 'minesweeper')" id="minesweeper-tab"><img src="../assets/minesweeper_1024.png"></button>-->
             </div>
             <div style="display: flex; -webkit-app-region: drag; flex-grow: 1; cursor: url('../assets/default.png'), default !important;"></div>
             <ul class="navbars" id="general">
-                <button class="navbutton" id="secret"></button>
-                <button class="navbutton" id="add"><img src="../assets/close_1024.png" style="transform: rotate(45deg);"></button>
-                <button class="navbutton" id="downloads"><img src="../assets/download_1024.png"></button>
-                    <button class="navbutton" id="minimize"><img src="../assets/minimize_1024.png"></button>
+                <!--<button class="navbutton" id="secret"></button>-->
+                <button class="navbutton" id="add"><img id="ad" src="../assets/close_1024.png" style="transform: rotate(45deg);"></button>
+                <button class="navbutton" id="downloads"><img id="down" src="../assets/download_1024.png"></button>
+                    <button class="navbutton" id="minimize"><img id="min" src="../assets/minimize_1024.png"></button>
                     <button class="navbutton" id="maximize"><img src="../assets/maximize_1024.png" id="img-toggle"></button>
-                    <button class="navbutton" id="close"><img src="../assets/close_1024.png"></button>
+                    <button class="navbutton" id="close"><img id="cl" src="../assets/close_1024.png"></button>
             </ul>
         </div>
         <div class="notification" id="notif">
@@ -75,7 +75,8 @@
                         <br>
                         <p>Styling</p>
                         <select id="cus-css" class="button">
-                            <option value="css/default.css">default.css</option>
+                            <option value="css/default.css">Default Theme</option>
+                            <option value="css/light.css">Light Theme</option>
                         </select>
                         <br>
                         <p>Custom recommendation JSON URL:</p>

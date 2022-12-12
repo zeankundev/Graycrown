@@ -36,6 +36,9 @@ app.on('ready', () => {
     if (!fs.existsSync(app.getPath('userData') + '/styles')) {
         fs.mkdirSync(app.getPath('userData') + '/styles');
     }
+    if (!fs.existsSync(app.getPath('userData') + '/plugins')) {
+        fs.mkdirSync(app.getPath('userData') + '/plugins');
+    }
 });
 // exit all windows onclose
 app.on('window-all-closed', () => {

@@ -8,6 +8,7 @@ const download = require('download');
 const { url } = require('inspector');
 const path = require('path');
 const cssDir = fs.readdirSync(path.join(app.getPath('userData'), 'styles'))
+const pluginDir = fs.readdirSync(path.join(app.getPath('userData', 'plugins')))
 const { config } = require('process');
 const commandExists = require('command-exists');
 const close = document.getElementById('close');
@@ -27,7 +28,6 @@ var heads = document.getElementsByTagName('h1')
 const welcomeBack = document.getElementById('welcome-back');
 const library = document.getElementById('library');
 const store = document.getElementById('store');
-const easter = document.getElementById('secret');
 const minesweeper = document.getElementById('minesweeper-tab')
 const settings = document.getElementById('settings');
 const wineSettings = document.getElementById('wine-settings');
@@ -57,10 +57,6 @@ fetch(app.getPath('userData') + '/config.json')
         custom: ${data.config.custom}
         headFont: ${data.config.headFont}
     `)
-    for (var i=0; i < heads.length; i++){
-        var head = heads[i]
-        head.style.fontFamily = data.config.headFont
-    }
     document.getElementById('lang').value = data.config.language;
     document.getElementById('cus-css').value = data.config.styleURL
     fetch(`../language/${data.config.language}.json`)
@@ -117,19 +113,6 @@ function notifDisplay(txt, title) {
     }, 4000)
 }
 var count = 0
-easter.onclick = function() {
-    count = count + 1
-    console.log('set count to: ' + count)
-    if ((count > 2) && (count < 10)) {
-        var more = 10 - count
-        notifDisplay('You are ' + more + ' clicks closer to the secret!', 'Few clicks closer!')
-    }
-    if (count == 10) {
-        minesweeper.style.display = "block";
-        notifDisplay('A new game mode has been unlocked! Good luck!', 'Yay!')
-    }
-    ha = setTimeout(lol, 2000)
-}
 function lol() {
     count = 0
     console.log('reset count to ' + count)
@@ -146,7 +129,6 @@ const minimizeWin = () => {
 const maximizeWin = () => {
     const win = getWin();
     win.isMaximized() ? win.unmaximize() : win.maximize();
-    win.isMaximized() ? imageToggle.setAttribute("src", "../assets/restore_down_1024.png") : imageToggle.setAttribute("src", "../assets/maximize_1024.png")
 }
 minimize.addEventListener('click', minimizeWin);
 maximize.addEventListener('click', maximizeWin);
@@ -465,6 +447,10 @@ openMenu(event, 'home')
                             <h2>${store.name}</h2>
                         `;
                         let downProgress = document.createElement('p');
+                        let bar = document.createElement('progress');
+                        bar.setAttribute('min', '0')
+                        bar.setAttribute('max', '100')
+                        bar.value = 0;
                         downProgress.innerHTML = "Waiting for download to start...";
                         fetch(store.download)
                             .then(async () => {
@@ -475,6 +461,7 @@ openMenu(event, 'home')
                                     fileName: store.id,
                                     onProgress: function (percent, chunk, remain) {
                                         downProgress.innerHTML = `<span>Now downloading ${store.name}.</span>&nbsp;${percent}% | Bytes left: ${remain}`;
+                                        bar.value = percent;
                                     }
                                 });
                                 try {
@@ -484,6 +471,7 @@ openMenu(event, 'home')
                                     notifDisplay(e, 'Error. Cannot download');
                                 }
                             });
+                            downStatus.appendChild(bar)
                             downStatus.appendChild(downProgress);
                             downList.appendChild(downStatus);
                     }
