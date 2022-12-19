@@ -15,6 +15,9 @@
         "wineConfig": "Wine configuratie",
         "toLibrary": "Ga naar de bibliotheek!",
         "refInternet": "Internetverbinding vernieuwen",
-        "recForU": "Aanbevolen voor jou"
+        "recForU": "Aanbevolen voor jou", 
+        "internetDisconnected": "Internet verbroken 😥",
+        "discL1": "Maak je geen zorgen, vriend! Je hebt nog steeds een kans! Het enige wat u hoeft te doen is",
+        "discL2": "maak opnieuw verbinding met internet en klik vervolgens op de knop om te vernieuwen! 😉"
     }
 }

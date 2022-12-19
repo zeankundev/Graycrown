@@ -1,0 +1,23 @@
+{
+    "code": "fil",
+    "translations": {
+        "welcomeBack": "Maligayang pagbabalik",
+        "library": "Aklatan",
+        "store": "Tindahan (kasalukuyang ginagawa)",
+        "settings": "Mga setting",
+        "wineSettings": "Mga Setting ng Wine (Linux lang)",
+        "downloads": "Mga download",
+        "noDownloads": "Walang mga download. Bumalik kaagad!",
+        "play": "Maglaro",
+        "stop": "Itigil ang Laro",
+        "downloadAndInstall": "I-download at i-install",
+        "refreshStore": "I-refresh ang Tindahan",
+        "wineConfig": "Configuration ng Wine",
+        "toLibrary": "Pumunta sa library!",
+        "refInternet": "I-refresh ang koneksyon sa internet",
+        "recForU": "Inirerekomenda para sa iyo",
+        "internetDisconnected": "Putang, na-disconnect ang internet? 😥", 
+        "discL1": "Huwag mag-alala, buddy! May chance ka pa! Ang kailangan mo lang gawin ay",
+        "discL2": "muling ikonekta ang iyong internet, pagkatapos ay i-click ang button para i-refresh! 😉"
+    }
+}

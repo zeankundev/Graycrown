@@ -15,6 +15,9 @@
         "wineConfig": "Wine-Konfiguration",
         "toLibrary": "Zum Bibilothek!",
         "refInternet": "Internet-Verbindung aktualisieren",
-        "recForU": "Für dich empfohlen"
+        "recForU": "Für dich empfohlen",
+        "internetDisconnected": "Die Internetverbindung nicht gefunden 😥",
+        "discL1": "Keine Sorge, Kumpel! Du hast noch eine Chance! Alles, was Sie tun müssen, ist",
+        "discL2": "verbinden Sie sich erneut mit dem Internet und klicken Sie dann auf die Schaltfläche zum Aktualisieren! 😉"
     }
 }

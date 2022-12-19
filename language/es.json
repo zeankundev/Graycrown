@@ -15,6 +15,9 @@
         "wineConfig": "Configuración del Wine",
         "toLibrary": "Ir a la biblioteca",
         "refInternet": "Actualizar conexión a internet",
-        "recForU": "Recomendado para ti"
+        "recForU": "Recomendado para ti",
+        "internetDisconnected": "Internet desconectado 😥",
+        "discL1": "¡No te preocupes, amigo! ¡Sigues teniendo una oportunidad! Todo lo que necesitas hacer es",
+        "discL2": "vuelva a conectar su Internet, luego haga clic en el botón para actualizar. 😉"
     }
 }

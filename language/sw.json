@@ -15,6 +15,9 @@
         "wineConfig": "Mpangilio wa Wine",
         "toLibrary": "Nenda kwenye maktaba!",
         "refInternet": "Onyesha upya muunganisho wa intaneti",
-        "recForU": "Imependekezwa kwa ajili yako"
+        "recForU": "Imependekezwa kwa ajili yako",
+        "internetDisconnected": "Mtandao umekatika 😥",
+        "discL1": "Usifadhaike, rafiki! Bado unayo nafasi! Unachohitaji kufanya ni kufanya",
+        "discL2": "unganisha tena mtandao wako, kisha ubofye kitufe ili kuonyesha upya! 😉"
     }
 }

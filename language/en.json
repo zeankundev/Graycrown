@@ -15,6 +15,9 @@
         "wineConfig": "Wine Configuration",
         "toLibrary": "Go to library!",
         "refInternet": "Refresh internet connection",
-        "recForU": "Recommended for you"
+        "recForU": "Recommended for you",
+        "internetDisconnected": "Internet disconnected 😥", 
+        "discL1": "Don't fret, buddy! You still have a chance! All you need to do is to",
+        "discL2": "reconnect your internet, then click the button to refresh! 😉"
     }
 }

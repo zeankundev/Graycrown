@@ -15,6 +15,9 @@
         "wineConfig": "Konfigurasi Wine",
         "toLibrary": "Ke perpustakaan",
         "refInternet": "Segarkan sambungan internet",
-        "recForU": "Disarankan untuk Anda"
+        "recForU": "Disarankan untuk Anda",
+        "internetDisconnected": "Yahh, gak ada sambungan internet 😥",
+        "discL1": "Jangan sedih, temen! Masih ada kok kesempatan! Hanya",
+        "discL2": "sambung ulang internet, dan tekan tombol untuk mengulangi! 😉"
     }
 }

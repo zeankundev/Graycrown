@@ -39,7 +39,19 @@
 		            <h2 id="rec-for-u">Recommended for you</h2>
                     <div id="recommend-list">
                         <br>
-                        <p id="e" style="display: none;">You have no internet. Should the internet be reconnected again.</p>
+                        <div id="e" style="display: none; text-align: center;">
+                            <img src="../assets/nointernet.svg" style="width: 150px !important;">
+                            <br>
+                            <br>
+                            <h1 id="internet-discon">Internet disconnected 😥</h1>
+                            <br>
+                            <span id="l1">Don't fret, buddy! You still have a chance! All you need to do is to</span>
+                            <br>
+                            <span id="l2">your internet, then click the button to refresh! 😉</span>
+                            <br>
+                            <br>
+                            <button class="button" onclick="recommendGames(cus)" id="retry-internet">Click me if you are done! 😉</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -67,6 +79,7 @@
                             <option value="jw">Basa Jowo (seng kasar)</option>
                             <option value="en">English</option>
                             <option value="es">Español</option>
+                            <option value="fil">Filipino</option>
                             <option value="de">Deutsch</option>
                             <option value="nl">Nederlands</option>
                             <option value="sw">Kiswalihi</option>

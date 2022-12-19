@@ -42,6 +42,12 @@ let downAndI;
 let libText;
 let language;
 let stop;
+const changeF = (font) => {
+    var h1 = document.querySelectorAll('h1');
+    for (var x = 0; x < h1.length; x++) {
+        h1[x].style.fontFamily = font;
+    }
+}
 fetch(app.getPath('userData') + '/config.json')
 .then(response => response.json())
 .then(data => {
@@ -74,6 +80,9 @@ fetch(app.getPath('userData') + '/config.json')
         document.getElementById('to-library').innerHTML = data.translations.toLibrary
         document.getElementById('ref-internet').innerHTML = data.translations.refInternet
         document.getElementById('rec-for-u').innerHTML = data.translations.recForU
+        document.getElementById('internet-discon').innerHTML = data.translations.internetDisconnected
+        document.getElementById('l1').innerHTML = data.translations.discL1
+        document.getElementById('l2').innerHTML = data.translations.discL2
         play = data.translations.play;
         stop = data.translations.stop;
         downAndI = data.translations.downloadAndInstall

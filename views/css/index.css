@@ -275,7 +275,7 @@ img {
   }
 }
 h1 {
-  font-family: cartoon;
+  font-family: cartoon, game-serif, 'Noto Sans Arabic';
   font-weight: 400;
 }
 .navbutton:hover {
@@ -296,11 +296,23 @@ object, iframe {
 .button {
     background-color: var(--main-color);
     color: var(--main-text);
+    margin-bottom: 10px;
     border: none;
-    border-radius: 200px;
+    /*border-radius: 200px;*/
     padding: 12px;
+    box-shadow: 0px 10px 0px 0px var(--main-selected-disabled-color);
     font-family: system-ui;
     cursor: url('../../assets/pointer.png'), auto;
+}
+.button:hover {
+  position: relative;
+  top: 4px;
+  box-shadow: 0px 6px 0px 0px var(--main-selected-disabled-color);
+}
+.button:active {
+  position: relative;
+  top: 9px;
+  box-shadow: 0px 1px 0px 0px var(--main-selected-disabled-color);
 }
 .game-display {
     background: var(--main-color);
