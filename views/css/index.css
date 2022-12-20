@@ -116,7 +116,7 @@ body {
     background: var(--main-color);
     color: var(--main-text);
     cursor: url('../../assets/default.png'), default;
-    font-family: system-ui;
+    font-family: system-ui, 'Noto Sans Arabic';
     -webkit-font-smoothing: antialiased;
     user-select: none;
 }
@@ -276,7 +276,6 @@ img {
 }
 h1 {
   font-family: cartoon, game-serif, 'Noto Sans Arabic';
-  font-weight: 400;
 }
 .navbutton:hover {
     background: var(--main-hover-color) !important;
@@ -301,7 +300,7 @@ object, iframe {
     /*border-radius: 200px;*/
     padding: 12px;
     box-shadow: 0px 10px 0px 0px var(--main-selected-disabled-color);
-    font-family: system-ui;
+    font-family: system-ui, 'Noto Sans Arabic';
     cursor: url('../../assets/pointer.png'), auto;
 }
 .button:hover {
@@ -353,7 +352,7 @@ h1 {
     background-color: var(--play-color);
     border: none;
     display: inline-block;
-    font-family: system-ui;
+    font-family: system-ui, 'Noto Sans Arabic';
     padding: 10px;
     border-radius: 15px;
     color: var(--main-text);
@@ -372,7 +371,7 @@ h1 {
   background-color: var(--stop-color);
   border: none;
   display: inline-block;
-  font-family: system-ui;
+  font-family: system-ui, 'Noto Sans Arabic';
   padding: 10px;
   border-radius: 15px;
   color: var(--main-text);
@@ -413,7 +412,7 @@ h1 {
     background-color: var(--download-color);
     border: none;
     display: inline-block;
-    font-family: system-ui;
+    font-family: system-ui, 'Noto Sans Arabic';
     padding: 10px;
     margin-top: 10px;
     border-radius: 15px;
