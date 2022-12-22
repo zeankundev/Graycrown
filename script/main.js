@@ -1,5 +1,7 @@
 const remote = require('@electron/remote');
-const startup = new Audio('../assets/startup.mp3')
+const startup = new Audio('../assets/startup.mp3');
+const buttonClick = new Audio('../assets/button_click.mp3');
+const tabSwitch = new Audio('../assets/button_up.mp3');
 const { setTimeout } = require('node:timers/promises')
 const app = remote.app;
 const fs = require('fs');
@@ -44,6 +46,7 @@ let downAndI;
 let libText;
 let language;
 let stop;
+let started = false;
 const load = async () => {
     startup.play();
     await setTimeout(5000);
@@ -52,6 +55,7 @@ const load = async () => {
     document.getElementById('add').style.display = 'inline-block';
     document.getElementById('downloads').style.display = 'inline-block';
     await setTimeout(490);
+    started = true;
     document.getElementById('startup').style.display = 'none';
 }
 load();
@@ -209,7 +213,7 @@ document.getElementById('submit').onclick = () => {
                 }
             });
 }
-openMenu(event, 'home')
+openMenu(event, 'home', false)
 // check available games in the games.json file
     /* json schema:
     {
@@ -295,9 +299,9 @@ openMenu(event, 'home')
                                         if (seconds > 59) notifDisplay('You have exceeded the maximum time of 1 minute.', 'Please take a rest')
                                     }, 1000)
                                     // downgraded to electron v4, now we can require child_process.
-                                    const { spawn } = require('child_process');
+                                    const { spawn,execFile } = require('child_process');
                                     if (game.enableWine != true) {
-                                        proc = spawn(game.exec, game.args);
+                                        proc = execFile(game.exec, game.args);
                                         gameButton.className = "stop";
                                         gameButton.innerHTML = stop;
                                         proc.on('error', (err) => {
@@ -338,7 +342,13 @@ openMenu(event, 'home')
                                 } else {
                                     const { spawn } = require('child_process');
                                     console.log("KILLING PROCESS")
-                                    proc.kill()
+                                    try {
+                                        proc.kill();
+                                    }
+                                    catch (e) {
+                                        console.log(e);
+                                        notifDisplay('Failed to kill process. Try again.', 'Cannot end process')
+                                    }
                                 }
                             }
                             gameDisplay.appendChild(secElapsed)
@@ -357,7 +367,7 @@ openMenu(event, 'home')
     fs.watch(app.getPath('userData') + '/games.json', (event, filename) => {
         getGames();
     });
-    function openMenu(e, menu) {
+    function openMenu(e, menu, ) {
         var i, tabcontent, tablinks;
         tabcontent = document.getElementsByClassName("tabcontent");
         for (i = 0; i < tabcontent.length; i++) {
@@ -373,6 +383,9 @@ openMenu(event, 'home')
         document.getElementsByClassName("container")[0].style.display = "block";
         document.getElementById(menu + '-tab').className = "tab active";
         console.log("OK: e.currentTarget.className += \" active\"");
+        if (started == true) {
+            tabSwitch.play();
+        }
     }
     document.getElementById('cus-json').onchange = () => {
             configuration.config.custom = document.getElementById('cus-json').value;
