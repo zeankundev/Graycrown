@@ -290,6 +290,7 @@ openMenu(event, 'home', false)
                             gameButton.className = "play";
                             gameButton.innerHTML = `<span>${play}</span>`;
                             gameButton.onclick = function() {
+                                buttonClick.play();
                                 if (gameButton.className == "play") {
                                     seconds = 0;
                                     secElapsed.style.display = 'block';
@@ -426,6 +427,7 @@ openMenu(event, 'home', false)
                     startBtn.className = "download";
                     startBtn.innerHTML = play;
                     startBtn.onclick = function() {
+                        buttonClick.play();
                         if (items.link !== '') window.open(`../views/child.html?uri=${items.link}`, '_blank', `nodeIntegration=true,title=${items.name} - Graycrown,autoHideMenuBar=true`);
                         else notifDisplay('Error 407: Missing link argument in JSON file', 'Failed to launch!') 
                     }
@@ -458,6 +460,7 @@ openMenu(event, 'home', false)
                         fs.mkdirSync(path.join(app.getPath('userData'), '/downloads'));
                     }
                     downButton.onclick = function() {
+                        buttonClick.play();
                         const configDir = app.getPath('userData');
                         let jsonData = require(configDir + '/games.json');
                         var obj = (jsonData);
