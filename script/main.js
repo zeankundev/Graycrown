@@ -1,4 +1,6 @@
 const remote = require('@electron/remote');
+const startup = new Audio('../assets/startup.mp3')
+const { setTimeout } = require('node:timers/promises')
 const app = remote.app;
 const fs = require('fs');
 const { platform } = require('node:process')
@@ -42,6 +44,17 @@ let downAndI;
 let libText;
 let language;
 let stop;
+const load = async () => {
+    startup.play();
+    await setTimeout(5000);
+    document.getElementById('startup').style.animation = 'fade 0.5s linear normal';
+    document.getElementById('api-menu').style.display = 'block';
+    document.getElementById('add').style.display = 'inline-block';
+    document.getElementById('downloads').style.display = 'inline-block';
+    await setTimeout(490);
+    document.getElementById('startup').style.display = 'none';
+}
+load();
 const changeF = (font) => {
     var h1 = document.querySelectorAll('h1');
     for (var x = 0; x < h1.length; x++) {

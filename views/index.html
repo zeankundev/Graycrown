@@ -6,18 +6,18 @@
     </head>
     <body>
         <div class="menu-tab">
-            <div id="api-menu">
+            <div id="api-menu" style="display: none;">
                 <button class="tab" onclick="openMenu(event, 'home')" id="home-tab"><img id="h" src="../assets/home_1024.png"></button>
                 <button class="tab"onclick="openMenu(event, 'library');" id="library-tab"><img id="l" src="../assets/library_1024.png"></button>
                 <button class="tab" onclick="openMenu(event, 'store'); fetchStores()" id="store-tab"><img id="st" src="../assets/news_1024.png"></button>
                 <button class="tab" onclick="openMenu(event, 'settings')" id="settings-tab"><img id="s" src="../assets/settings_1024.png"></button>
                 <!--<button class="tab" style="display: none;" onclick="openMenu(event, 'minesweeper')" id="minesweeper-tab"><img src="../assets/minesweeper_1024.png"></button>-->
+                <div style="display: flex; -webkit-app-region: drag; flex-grow: 1; cursor: url('../assets/default.png'), default !important;"></div>
             </div>
-            <div style="display: flex; -webkit-app-region: drag; flex-grow: 1; cursor: url('../assets/default.png'), default !important;"></div>
             <ul class="navbars" id="general">
                 <!--<button class="navbutton" id="secret"></button>-->
-                <button class="navbutton" id="add"><img id="ad" src="../assets/close_1024.png" style="transform: rotate(45deg);"></button>
-                <button class="navbutton" id="downloads"><img id="down" src="../assets/download_1024.png"></button>
+                <button class="navbutton" id="add" style="display: none;"><img id="ad" src="../assets/close_1024.png" style="transform: rotate(45deg);"></button>
+                <button class="navbutton" id="downloads" style="display: none;"><img id="down" src="../assets/download_1024.png"></button>
                     <button class="navbutton" id="minimize"><img id="min" src="../assets/minimize_1024.png"></button>
                     <button class="navbutton" id="maximize"><img src="../assets/maximize_1024.png" id="img-toggle"></button>
                     <button class="navbutton" id="close"><img id="cl" src="../assets/close_1024.png"></button>
@@ -150,6 +150,23 @@
                         </div>
                     </div>
             </div>
+        </div>
+        <div class="startup" id="startup">
+            <img class="startup-logo" src="../build/icons/512x512.png" style="width: 150px !important;">
+            <br>
+            <h1>
+                Graycrown
+            </h1>
+            <reg-head>
+                made by zeankun.dev.
+                <br>
+                &copy; 2022 zeankun.dev of Graycrown. All rights reserved.
+                <br>
+                This Project is Open Source to everyone!
+                <br>
+                <br>
+            </reg-head>
+            <reg-head><a href="https://paypal.me/ZIsnomo" target="_blank">Donate me on PayPal!</a></reg-head>
         </div>
         <div class="modal" id="download-modal">
             <h1 id="downloads-text">Downloads</h1>

@@ -79,6 +79,49 @@
             transform: scale(1) translateY(0px);
   }
 }
+@keyframes startup{
+  0% {
+    transform: scale(5);
+  }
+  29% {
+      transform:  scale(0.5) rotate(45deg);
+  }
+  45% {
+      transform:  scale(0.5) rotate(45deg);
+  }
+  64% {
+      transform:  rotate(-45deg) scale(1.50);
+  }
+  78% {
+      transform:  scale(1.00) rotate(0deg);
+  }
+  100% {
+    transform:  scale(1.00) rotate(0deg);
+  }
+}
+@keyframes h1pop {
+  0% {
+    opacity: 0;
+    transform: translateY(-150px);
+  }
+  50% {
+    opacity: 0;
+    transform: translateY(-150px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+@keyframes fade {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 ::-webkit-scrollbar {
   width: 5px;
   height: 5px;
@@ -366,6 +409,35 @@ h1 {
     background-color: var(--play-color-hover);
     -webkit-animation: scale-up-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 	        animation: scale-up-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+.startup-logo {
+  display: block;
+  animation: startup 2s ease normal;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+}
+.startup h1 {
+  font-size: 48pt;
+  margin-top: 30px; 
+  animation: h1pop 2.5s ease;
+  display: flex;
+  justify-content: center;
+}
+.startup reg-head {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  animation: h1pop 2.5s ease;
+}
+a {
+  text-decoration: none;
+  color: var(--main-text);
+}
+.startup {
+  background-color: var(--main-color);
+  z-index: 99999;
+  min-height: 100vh;
 }
 .stop {
   background-color: var(--stop-color);
