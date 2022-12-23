@@ -8,6 +8,7 @@
         "wineSettings": "ワインの設定 (Linux のみ)",
         "downloads": "ダウンロード",
         "noDownloads": "ダウンロードはありません。 すぐにもう一度確認してください",
+        "info": "ゲーム情報",
         "play": "遊ぶ",
         "stop": "ゲームを停止",
         "downloadAndInstall": "ダウンロードとインストール",

@@ -499,6 +499,28 @@ a {
     -webkit-animation: scale-up-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 	        animation: scale-up-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
+.game-info {
+  background-image: url('https://bobuxstation.github.io/Coal-Web/banners/arkacraft.png');
+  background-color: rgba(0, 0, 0, 0.7);
+  background-blend-mode: multiply;
+  display: block;
+  min-height: 100vh;
+  overflow-y: scroll;
+}
+.game-info .top-layout {
+  display: block;
+  padding: 20px;
+}
+.game-info h1 {
+  margin-left: 20px;
+}
+.game-info .bottom-layout {
+  background-color: var(--main-hover-color);
+  margin-top: 20%;
+  min-height: 80vh;
+  padding: 20px;
+  z-index: 999999999;
+}
 .modal {
     background-color: var(--main-color);
     width: fit-content;

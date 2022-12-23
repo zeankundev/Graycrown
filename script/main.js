@@ -27,6 +27,7 @@ const notif = document.getElementById('notif')
 const modal = document.getElementById('download-modal');
 const downList = document.getElementById('download-list');
 const closeModal = document.getElementById('close-modal');
+const { spawn,execFile } = require('child_process');
 // translation area
 var heads = document.getElementsByTagName('h1')
 const welcomeBack = document.getElementById('welcome-back');
@@ -130,13 +131,12 @@ document.getElementById('cus-css').onchange = () => {
         notifDisplay('In order for effects to take place, restart Graycrown', 'Restart required.')
     })
 }
-function notifDisplay(txt, title) {
+async function notifDisplay(txt, title) {
     notif.style.display = 'block';
     text.innerHTML = txt;
     titleText.innerHTML = title
-    setTimeout(function(){
-        notif.style.display = 'none';
-    }, 4000)
+    await setTimeout(4000);
+    notif.style.display = 'none';
 }
 var count = 0
 function lol() {
@@ -299,8 +299,6 @@ openMenu(event, 'home', false)
                                         secElapsed.innerHTML = `${seconds} seconds elapsed. <br>`
                                         if (seconds > 59) notifDisplay('You have exceeded the maximum time of 1 minute.', 'Please take a rest')
                                     }, 1000)
-                                    // downgraded to electron v4, now we can require child_process.
-                                    const { spawn,execFile } = require('child_process');
                                     if (game.enableWine != true) {
                                         proc = execFile(game.exec, game.args);
                                         gameButton.className = "stop";
