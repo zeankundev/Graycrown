@@ -297,7 +297,7 @@ openMenu(event, 'home', false)
                                     secElapsed.style.display = 'block';
                                     const timer = setInterval(function() {
                                         seconds++
-                                        secElapsed.innerHTML = `${fmtMSS(seconds)} seconds elapsed. <br>`
+                                        secElapsed.innerHTML = `${fmtMSS(seconds)} elapsed. <br>`
                                         if (seconds > 59) notifDisplay('You have exceeded the maximum time of 1 minute.', 'Please take a rest')
                                     }, 1000)
                                     if (game.enableWine != true) {
