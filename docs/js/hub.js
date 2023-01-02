@@ -2,7 +2,7 @@ const params = new URLSearchParams(location.search)
 const query = params.get('style');
 let res;
 let hubRes
-fetch('../host/stylehub.json')
+fetch('https://zeankundev.github.io/graycrown/host/stylehub.json')
 .then(res => res.json())
 .then(data => {
     console.log(data);
