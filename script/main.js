@@ -278,13 +278,13 @@ openMenu(event, 'home', false)
                             if (game.icon == "" || game.icon == undefined) {
                                 game.icon = "../assets/logo_1024.png";
                             }
-                            gameDisplay.style.backgroundImage = `url(${game.icon})`;
                             console.log(`Metadata of game:\n name: ${game.name}\n icon: ${game.icon}\n enableWine: ${game.enableWine}\n exec: ${game.exec}\n args: ${game.args}`)
                             gameDisplay.className = "game-display";
                             gameDisplay.innerHTML = `
                                 <img style="width: 48px !important; height:48px !important; border-radius:15px;" src="${game.icon}">
                                 <div class="game-title">${game.name.slice(0, 15) + (game.name.length > 15 ? '...' : '')}</div>
                             `;
+                            gameDisplay.style.backgroundImage = `url(${game.icon})`;
                             let secElapsed = document.createElement("p")
                             secElapsed.style.display = 'none';
                             let seconds = 0
