@@ -10,7 +10,7 @@ fetch('https://zeankundev.github.io/graycrown/host/stylehub.json')
     hubRes = res.find(hub => hub.name === query)
     document.getElementById('name-pub').innerHTML = `${hubRes.name} by ${hubRes.publisher}`
     document.getElementById('desc').innerHTML = hubRes.description;
-    document.getElementById('preview').src = `../assets/stylehub/preview.html?style=${hubRes.link}`
+    document.getElementById('preview').src = `https://zeankundev.github.io/graycrown/assets/stylehub/preview.html?style=${hubRes.link}`
     document.getElementById('down').onclick = () => {
         var link = document.createElement("a");
         // If you don't know the name or want to use
