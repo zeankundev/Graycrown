@@ -4,14 +4,14 @@
             "name": "greedy shit",
             "publisher": "zeankun.dev",
             "description": "greedy theme for graycrown like thomas shelbyyy",
-            "link": "/host/stylehub-data/greedy shit.css",
+            "link": "https://zeankundev.github.io/graycrown/host/stylehub-data/greedy shit.css",
             "img": "https://pbs.twimg.com/media/FhkdyvraMAETryQ?format=jpg"
         },
         {
             "name": "Default Graycrown theme",
             "publisher":"zeankun.dev",
             "description": "Default Graycrown theme",
-            "link": "/host/stylehub-data/default.css"
+            "link": "https://zeankundev.github.io/graycrown/host/stylehub-data/default.css"
         }
     ]
 }
