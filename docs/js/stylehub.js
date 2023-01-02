@@ -1,4 +1,4 @@
-fetch('../host/stylehub.json')
+fetch('https://zeankundev.github.io/graycrown/host/stylehub.json')
 .then(res => res.json())
 .then(data => {
     let styleLib = document.getElementById('style-lib')
