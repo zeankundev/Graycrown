@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" id="css" href="./default.css">
+        <script>
+            const params = new URLSearchParams(location.search);
+            const style = params.get('style')
+            document.getElementById('css').setAttribute('href', style)
+        </script>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style name="corefonts">
+            @font-face {
+                font-family: 'Effra';
+                src: url('../../assets/fonts/Effra_Trial_Rg.ttf');
+                font-weight: 400;
+                font-style: normal;
+            }
+            @font-face {
+                font-family: 'Effra';
+                src: url('../../assets/fonts/Effra_Trial_It.ttf');
+                font-weight: 400;
+                font-style: italic;
+            }
+            @font-face {
+                font-family: 'Effra';
+                src: url('../../assets/fonts/Effra_Trial_Bd.ttf');
+                font-weight: 700;
+                font-style: normal;
+            }
+            @font-face {
+                font-family: 'Effra';
+                src: url('../../assets/fonts/Effra_Trial_BdIt.ttf');
+                font-weight: 700;
+                font-style: italic;
+            }
+            @font-face {
+                font-family: 'Averta';
+                src: url('../../assets/fonts/averta-reg.woff');
+                font-weight: 400;
+            }
+            @font-face {
+                font-family: 'Averta';
+                src: url('../../assets/fonts/averta-bold.woff');
+                font-weight: 700;
+            }
+            @font-face {
+                font-family: 'SF Text';
+                src: url('../../assets/fonts/SFUIText-Regular.ttf');
+                font-weight: 400;
+            }
+            @font-face {
+                font-family: 'SF Text';
+                src: url('../../assets/fonts/SFUIText-Bold.ttf');
+                font-weight: 700;
+            }
+            @font-face {
+                font-family: 'cartoon';
+                src: url('../../assets/fonts/TF2.ttf');
+            }
+            @font-face {
+                font-family: 'TF2 Head Light';
+                src: url('../../assets/fonts/TF2-Regular.otf');
+            }
+            @font-face {
+                font-family: 'game-serif';
+                src: url('../../assets/fonts/ja-jp.ttf');
+            }
+        </style>
+        <style name="core">
+            @-webkit-keyframes slide-bottom {
+            0% {
+                -webkit-transform: translateY(0);
+                        transform: translateY(0);
+                        opacity: 0;
+            }
+            100% {
+                -webkit-transform: translateY(50px);
+                        transform: translateY(50px);
+                        opacity: 1;
+            }
+            }
+            @keyframes slide-bottom {
+            0% {
+                -webkit-transform: translateY(0);
+                        transform: translateY(0);
+                        opacity: 0;
+            }
+            100% {
+                -webkit-transform: translateY(50px);
+                        transform: translateY(50px);
+                        opacity: 1;
+            }
+            }
+            @-webkit-keyframes scale-up-center {
+            0% {
+                -webkit-transform: scale(1) translateY(0px);
+                        transform: scale(1) translateY(0px);
+            }
+            100% {
+                -webkit-transform: scale(1.5) translateY(2px);
+                        transform: scale(1.5) translateY(2px);
+            }
+            }
+            @keyframes scale-up-center {
+            0% {
+                -webkit-transform: scale(1) translateY(0px);
+                        transform: scale(1) translateY(0px);
+            }
+            100% {
+                -webkit-transform: scale(1.5) translateY(2px);
+                        transform: scale(1.5) translateY(2px);
+            }
+            }
+            @-webkit-keyframes scale-down-center {
+            0% {
+                -webkit-transform: scale(1.5) translateY(2px);
+                        transform: scale(1.5) translateY(2px);
+            }
+            100% {
+                -webkit-transform: scale(1) translateY(0px);
+                        transform: scale(1) translateY(0px);
+            }
+            }
+            @keyframes scale-down-center {
+            0% {
+                -webkit-transform: scale(1.5) translateY(2px);
+                        transform: scale(1.5) translateY(2px);
+            }
+            100% {
+                -webkit-transform: scale(1) translateY(0px);
+                        transform: scale(1) translateY(0px);
+            }
+            }
+            * {
+                margin: 0;
+            }
+            body {
+                background-color: var(--main-color);
+                user-select: none;
+                color: var(--main-text);
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            }
+            .active {
+                background-color: var(--main-hover-color) !important;
+            }
+            .tab {
+                width: 24px;
+                height: 27px;
+                padding: 10px;
+                background: none;
+                display: inline-block;
+            }
+            .tab:hover {
+                background-color: var(--main-selected-disabled-color) !important;
+            }
+            img {
+                width: 24px;
+            }
+            .container {
+                background-color: var(--main-hover-color);
+                position: absolute;
+                top: 47px;
+                right: 0;
+                left: 0;
+                bottom: 0;
+                z-index: -1;
+                padding: 20px;
+            }
+            reg-head {
+                font-family: 'TF2 Head Light';
+                font-size: 15pt;
+            }
+            h1 {
+                font-family: cartoon;
+                font-weight: 400;
+            }
+            .navbars {
+                margin-left: auto;
+                order: 2;
+                display: inline-block;
+                float: right;
+            }
+            .recommend-display {
+                background-color: rgba(0, 0, 0, 0.7) !important;
+                background-blend-mode: multiply;
+                margin: 10px;
+                z-index: 5;
+                padding: 10px;
+                display: inline-block;
+                border-radius: 25px;
+            }
+            .store-title {
+                font-size: 1.5em;
+                font-weight: bold;
+                margin-top: 10px;
+                margin-right: 10px;
+                margin-bottom: 10px;
+            }
+            .download {
+                background-color: var(--download-color);
+                border: none;
+                display: inline-block;
+                font-family: system-ui;
+                padding: 10px;
+                margin-top: 10px;
+                border-radius: 15px;
+                z-index: 1 !important;
+                overflow: hidden;
+                color: var(--main-text);
+                width: 240px;
+                cursor: pointer;
+                --webkit-animation: scale-down-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+                animation: scale-down-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            }
+            .download:hover {
+                background-color: var(--download-color-hover);
+                -webkit-animation: scale-up-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+                        animation: scale-up-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="menubar">
+            <div class="tab active"><img src="../images/preview/home_1024.png"></div>
+            <div class="tab"><img src="../images/preview/library_1024.png"></div>
+            <div class="tab"><img src="../images/preview/news_1024.png"></div>
+            <div class="tab"><img src="../images/preview/settings_1024.png"></div>
+            <ul class="navbars">
+                <div class="tab" ><img style="transform: rotate(45deg);" src="../images/preview/close_1024.png"></div>
+                <div class="tab"><img src="../images/preview/download_1024.png"></div>
+                <div class="tab"><img src="../images/preview/minimize_1024.png"></div>
+                <div class="tab"><img src="../images/preview/maximize_1024.png"></div>
+                <div class="tab"><img src="../images/preview/close_1024.png"></div>
+            </ul>
+        </div>
+        <div class="container">
+            <h1>Welcome back!</h1>
+            <reg-head>reg-head test element</reg-head>
+            <br>
+            <div class="recommend-display" style="background: url('https://bobuxstation.github.io/Coal-Web/banners/Memeforest.png') no-repeat; background-size: cover;">
+                <img style="width:48px !important; height: 48px !important; border-radius: 15px;" src="https://bobuxstation.github.io/Coal-Web/banners/Memeforest.png">
+                <div class="store-title">Game Test</div>
+                <button class="download">Play</button>
+            </div>
+            <br>
+            <reg-head style="font-size: 22pt !important;">Here are some color palettes used by the style (rest are not shown)</reg-head>
+            <div style="background-color: var(--main-color); padding: 5px;"><reg-head>--main-color</reg-head></div>
+            <div style="background-color: var(--main-hover-color); padding: 5px; border: 1px solid #fff;"><reg-head>--main-hover-color</reg-head></div>
+            <div style="background-color: var(--main-selected-disabled-color); padding: 5px;"><reg-head>--main-selected-disabled-color</reg-head></div>
+            <div style="background-color: var(--play-color); padding: 5px;"><reg-head>--play-color</reg-head></div>
+            <div style="background-color: var(--play-color-hover); padding: 5px;"><reg-head>--play-color-hover</reg-head></div>
+            <div style="background-color: var(--download-color); padding: 5px;"><reg-head>--download-color</reg-head></div>
+            <div style="background-color: var(--download-color-hover); padding: 5px;"><reg-head>--download-color-hover</reg-head></div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,68 @@
+@font-face {
+    font-family: 'Effra';
+    src: url('../../assets/fonts/Effra_Trial_Rg.ttf');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Effra';
+    src: url('../../assets/fonts/Effra_Trial_It.ttf');
+    font-weight: 400;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Effra';
+    src: url('../../assets/fonts/Effra_Trial_Bd.ttf');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Effra';
+    src: url('../../assets/fonts/Effra_Trial_BdIt.ttf');
+    font-weight: 700;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Averta';
+    src: url('../../assets/fonts/averta-reg.woff');
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'Averta';
+    src: url('../../assets/fonts/averta-bold.woff');
+    font-weight: 700;
+}
+@font-face {
+    font-family: 'SF Text';
+    src: url('../../assets/fonts/SFUIText-Regular.ttf');
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'SF Text';
+    src: url('../../assets/fonts/SFUIText-Bold.ttf');
+    font-weight: 700;
+}
+@font-face {
+    font-family: 'cartoon';
+    src: url('../../assets/fonts/TF2.ttf');
+}
+@font-face {
+    font-family: 'TF2 Head Light';
+    src: url('../../assets/fonts/TF2-Regular.otf');
+}
+@font-face {
+    font-family: 'game-serif';
+    src: url('../../assets/fonts/ja-jp.ttf');
+}
+:root {
+    --main-color: #1d1d1d;
+    --main-hover-color: #2e2e2e;
+    --main-selected-disabled-color: #3f3f3f;
+    --main-text: #fff;
+    --play-color: #16c716;
+    --play-color-hover: #2ae42a;
+    --stop-color: #ff0b0b;
+    --stop-color-hover: #ff2323;
+    --download-color: #0362fc;
+    --download-color-hover: #1e71f7;
+}

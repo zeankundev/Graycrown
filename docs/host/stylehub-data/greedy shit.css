@@ -1,0 +1,12 @@
+:root {
+    --main-color: #020020;
+    --main-hover-color: #050044;
+    --main-selected-disabled-color: #070066;
+    --main-text: #e6e6e6;
+    --play-color: #2d8d2d;
+    --play-color-hover: #68f568;
+    --stop-color: #830d0d;
+    --stop-color-hover: #9e2121;
+    --download-color: #003da0;
+    --download-color-hover: #0043af;
+}

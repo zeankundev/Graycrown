@@ -1,0 +1,85 @@
+{
+    "items":[
+        {
+            "name":"Memeforest",
+            "Version": 1,
+            "developer": "ABSTUDIO",
+            "feed":"https://bobuxstation.github.io/Coal-Web/Memeforest/newscoal.html",
+            "info":"Enjoy a world full of memes! You are stranded in an island full of memes, your mission is to fight the bad meme boss (the grubhub guy). Game ver: 1.4 release [Under Wo'Oh update]",
+            "banner":"https://bobuxstation.github.io/Coal-Web/banners/Memeforest.png",
+            "link":"https://bobuxstation.github.io/Coal-Web/Memeforest/index.html"
+        },
+        {
+            "name":"Sunat Hospital",
+            "Version": 1,
+            "developer": "ABSTUDIO",
+            "feed":"false",
+            "info":"Try to survive in a haunted sunat hospital. Can you survive to 6 am or will the sussy animatronics kill you. Game ver: 1.0 Release [Full Game Release]",
+            "banner":"https://bobuxstation.github.io/Coal-Web/banners/sunathospital.jpeg",
+            "link":"https://turbowarp.org/624949249/embed"
+        },
+        {
+            "name":"OtnaHome",
+            "Version": 1,
+            "developer": "ABSTUDIO",
+            "feed":"false",
+            "info":"An epik home simulator where you can eat apple and work all day. But beware of the debt boss! If you eat too much apple and your money goes under 0 the debt boss will come and you have to fight him! Game ver: 1.5 [The big update]",
+            "banner":"https://bobuxstation.github.io/Coal-Web/banners/otnahome.png",
+            "link":"https://turbowarp.org/624892272/embed"
+        },
+        {
+            "name":"Mouse Eater",
+            "Version": 1,
+            "developer": "ABSTUDIO",
+            "feed":"false",
+            "info":"Dont get your mouse pointer eaten by the ball! Game ver: 1.0 [release]",
+            "banner":"https://bobuxstation.github.io/Coal-Web/banners/mouse%20eater.png",
+            "link":"https://turbowarp.org/624951488/embed"
+        },
+        {
+            "name":"Otna Friends",
+            "Version": 1,
+            "developer": "ABSTUDIO",
+            "feed":"false",
+            "info":"A game where you can explore, fight, trade, survive and more with your friends! Game ver: 1.4 [Alpha]",
+            "banner":"https://bobuxstation.github.io/Coal-Web/banners/otnafriend.png",
+            "link":"https://turbowarp.org/479375786/embed"
+        },
+        {
+            "name":"Arkacraft SJE Edition",
+            "Version": 1,
+            "developer": "ABSTUDIO",
+            "feed":"false",
+            "info":"Arkacraft Lite Version! Game ver: 1.0 [release]",
+            "banner":"https://bobuxstation.github.io/Coal-Web/banners/arkacraft.png",
+            "link":"https://turbowarp.org/386958939/embed"
+        },
+        {
+            "name":"Arkacraft Island",
+            "Version": 1,
+            "developer": "ABSTUDIO",
+            "feed":"false",
+            "info":"Arkacraft Islands Releasing On 12 March 2022! Game ver: 1.0 [release]",
+            "banner":"https://bobuxstation.github.io/Coal-Web/banners/arkacraft%20island2.png",
+            "link":"https://turbowarp.org/624892297/embed"
+        },
+        {
+            "name":"Grief Street (BETA)",
+            "Version": 1,
+            "developer": "ABSTUDIO",
+            "feed":"false",
+            "info":"Open World Game",
+            "banner":"https://bobuxstation.github.io/Coal-Web/Untitled.png",
+            "link":""
+        },
+        {
+            "name": "Gartic Phone",
+            "Version": 1,
+            "developer": "Onrizon",
+            "feed": "false",
+            "info": "The online Telephone Game! Play the popular game for free now.",
+            "banner": "https://garticphone.com/images/thumb.png",
+            "link": "https://garticphone.com"
+        }
+    ]
+}
