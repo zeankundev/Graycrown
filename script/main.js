@@ -278,6 +278,7 @@ openMenu(event, 'home', false)
                             if (game.icon == "" || game.icon == undefined) {
                                 game.icon = "../assets/logo_1024.png";
                             }
+                            gameDisplay.style.backgroundImage = `url(${game.icon})`;
                             console.log(`Metadata of game:\n name: ${game.name}\n icon: ${game.icon}\n enableWine: ${game.enableWine}\n exec: ${game.exec}\n args: ${game.args}`)
                             gameDisplay.className = "game-display";
                             gameDisplay.innerHTML = `
