@@ -1,6 +1,7 @@
 const {app, BrowserWindow, ipcMain} = require('electron');
 const fs = require('fs');
 const path = require('path');
+const { URLSearchParams } = require('url');
 const APP_ICON = path.join(__dirname, '/build/icons/512x512.png');
 
 app.on('ready', () => {
@@ -40,6 +41,18 @@ app.on('ready', () => {
         fs.mkdirSync(app.getPath('userData') + '/plugins');
     }
 });
+// define launch protocol
+app.setAsDefaultProtocolClient('graycrown')
+// return OAUTH URL
+app.on('open-url', (e, url) => {
+    const paramss = new URLSearchParams(window.location.href) 
+    console.log(`OK: RECEIVE URL: ${url}`);
+    const auth = paramss.get('code')
+    const method = paramss.get('method')
+    e.preventDefault();
+    const win = BrowserWindow.getAllWindows()[0];
+    win.webContents.send('auth-code', {auth,method})
+})
 // exit all windows onclose
 app.on('window-all-closed', () => {
     app.quit();

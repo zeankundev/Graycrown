@@ -9,6 +9,7 @@ const { platform } = require('node:process')
 const Downloader = require('nodejs-file-downloader');
 const notifier = require('node-notifier');
 const download = require('download');
+const { ipcRenderer } = require('electron');
 const { url } = require('inspector');
 const path = require('path');
 const cssDir = fs.readdirSync(path.join(app.getPath('userData'), 'styles'))
@@ -46,6 +47,8 @@ let cus;
 let downAndI;
 let libText;
 let language;
+let authCode;
+let method;
 let stop;
 let started = false;
 const load = async () => {
@@ -112,6 +115,10 @@ fetch(app.getPath('userData') + '/config.json')
         console.log(e);
     })
 });
+ipcRenderer.on('auth-code', (e, {auth, method}) => {
+    console.log(`GOT CODE: ${auth}`);
+    console.log(`GOT METHOD: ${method}`)
+})
 const configuration = require(app.getPath('userData') + '/config.json')
 document.getElementById('lang').onchange = () => {
     configuration.config.language = document.getElementById('lang').value;
@@ -307,6 +314,7 @@ openMenu(event, 'home', false)
                                         gameButton.innerHTML = stop;
                                         proc.on('error', (err) => {
                                             console.log(err)
+                                            clearInterval(timer)
                                             notifDisplay(err, 'Failed to launch!')
                                             gameButton.className = "play";
                                             gameButton.innerHTML = play;
@@ -326,6 +334,7 @@ openMenu(event, 'home', false)
                                                 gameButton.innerHTML = stop;
                                                 proc.on('error', (err) => {
                                                     console.log(err)
+                                                    clearInterval(timer)
                                                     notifDisplay(err, 'Failed to launch!')
                                                     gameButton.className = "play";
                                                     gameButton.innerHTML = play;
