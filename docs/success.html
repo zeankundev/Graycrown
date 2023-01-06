@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="./style/index.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://kit.fontawesome.com/970a0290cd.js" crossorigin="anonymous"></script>
+        <link rel="icon" href="./assets/images/logo_1024.png">
+        <title>Graycrown</title>
+    </head>
+    <body>
+        <div class="content">
+            <public-announcement>
+                <h2>Alert!!!!!!!!!!</h2>
+                <p>Graycrown is copied without permission and is now subject to termination. I need your help to maintain the open source community alive and free while avoiding trademark infringement.<a href="/publicserviceannouncement.html" target="_blank"> Click here to learn more.</a></p>
+  <br>
+  <p>This message will disappear when the problem has been solved. Thank you!</p>
+            </public-announcement>
+            <header>
+                <img src="./assets/svg/logo.svg" width="200" style="display: inline-block;">
+                <nav style="display: inline-block;">
+                    <a href="index.html">Home</a>
+                    <a href="stylehub.html">StyleHUB</a>
+                </nav>
+            </header>
+            <div class="heading">
+                <br><br><br>
+                <h1 style="font-size: 54pt;" id="name-pub">Success</h1>
+                <h2 id="desc" style="font-family: TF2Sec; font-weight: 400;">Graycrown will auto-open in order to complete the authentication.</h2>
+                <br>
+            </div>
+            <div class="body">
+                <button class="button" onclick="window.location.href = 'https://github.com/zeankundev/graycrown'"><i class="fa-brands fa-github"></i>&nbsp;&nbsp;Github source code</button>
+                <button class="button" onclick="window.location.href = 'https://github.com/zeankundev/graycrown/releases/latest'"><i class="fa-solid fa-download"></i>&nbsp;&nbsp;Download latest release</button>
+                <footer>
+                    <img src="https://avatars.githubusercontent.com/u/58360911?v=4" width="20">
+                    <h5>&copy 2022 by zeankun.dev</h5>
+                </footer>
+            </div>
+        </div>
+        <script>
+            const url = new URL(window.location.href);
+            const code = url.searchParams.get('code');
+            window.location.replace = "graycrown://auth-gh?code=" + code;
+        </script>
+    </body>
+</html>
