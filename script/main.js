@@ -2,9 +2,10 @@ const remote = require('@electron/remote');
 const startup = new Audio('../assets/startup.mp3');
 const buttonClick = new Audio('../assets/button_click.mp3');
 const tabSwitch = new Audio('../assets/button_up.mp3');
-const { setTimeout } = require('node:timers/promises')
 const app = remote.app;
 const fs = require('fs');
+
+const firebase = require('firebase/app')
 const { platform } = require('node:process')
 const Downloader = require('nodejs-file-downloader');
 const notifier = require('node-notifier');
@@ -51,15 +52,30 @@ let authCode;
 let method;
 let stop;
 let started = false;
+firebase.initializeApp({
+    apiKey: "AIzaSyC7q-lBB-Hty_Hhc8iIH40OPfIIDx6NDm4",
+    authDomain: "gray-crown.firebaseapp.com",
+    projectId: "gray-crown",
+    storageBucket: "gray-crown.appspot.com",
+    messagingSenderId: "208892999128",
+    appId: "1:208892999128:web:19bb230590ceaee5b2eead",
+    measurementId: "G-JJD81N852F"
+})
 const load = async () => {
+    console.log('startup being played')
     startup.play();
+    console.log('timing out....')
     await setTimeout(5000);
+    console.log('showing all elements')
     document.getElementById('startup').style.animation = 'fade 0.5s linear normal';
     document.getElementById('api-menu').style.display = 'block';
     document.getElementById('add').style.display = 'inline-block';
     document.getElementById('downloads').style.display = 'inline-block';
+    console.log('delay 490ms for anim')
     await setTimeout(490);
+    console.log(`started = ${started}`)
     started = true;
+    console.log('hiding it...')
     document.getElementById('startup').style.display = 'none';
 }
 load();
@@ -437,7 +453,11 @@ openMenu(event, 'home', false)
                     startBtn.innerHTML = play;
                     startBtn.onclick = function() {
                         buttonClick.play();
-                        if (items.link !== '') window.open(`../views/child.html?uri=${items.link}`, '_blank', `nodeIntegration=true,title=${items.name} - Graycrown,autoHideMenuBar=true`);
+                        if (items.link !== '') window.open(
+                            'child.html?uri=' + items.link,
+                            '_blank',
+                            'icon="../assets/logo_1024.png", nodeIntegration=true, nodeIntegrationInSubFrames=true, nodeIntegrationInWorker=true, contextIsolation=false, webviewTag=true, autoHideMenuBar=true, width=1066, height=600'
+                        )
                         else notifDisplay('Error 407: Missing link argument in JSON file', 'Failed to launch!') 
                     }
                     recommendDisplay.appendChild(startBtn)

@@ -392,8 +392,7 @@ object, iframe {
   justify-content: center;
 }
 .login .center {
-  justify-content: center;
-  display: flex;
+  text-align: center;
 }
 #game-list {
     overflow-y: hidden;

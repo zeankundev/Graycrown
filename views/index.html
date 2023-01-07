@@ -189,7 +189,29 @@
             <h1>Login to Graycrown</h1>
             <br>
             <div class="center">
-                <button class="button">Login with GitHub</button>
+                <input type="text" class="button" placeholder="Username">
+                <br>
+                <input type="password" class="button" placeholder="Password">
+                <br>
+                <button class="button">Login</button>
+                <button class="button">Sign up</button>
+            </div>
+        </div>
+        <div class="login" style="display: none;">
+            <h1>Sign up for Graycrown</h1>
+            <br>
+            <div class="center">
+                <reg-head>If you are under 13, you MUST ask your parent or guardian's permission to sign up for Graycrown. Your account will be permanently banned if you are signing up using a personal email if you are under 13.</reg-head>
+                <br>
+                <input type="email" class="button" placeholder="Email or parent email">
+                <br>
+                <input type="text" class="button" placeholder="Username">
+                <br>
+                <input type="password" class="button" placeholder="Password">
+                <br>
+                <input type="password" class="button" placeholder="Confirm password">
+                <br>
+                <button class="button">Sign up</button>
             </div>
         </div>
         <div class="modal" id="download-modal">
@@ -224,6 +246,7 @@
             </div>
         </div>
         <script src="../script/main.js"></script>
+        <script src="../script/login.js"></script>
         <script src="../script/minesweeper.js"></script>
         <script src="../script/apis/NewTabCreator.js"></script>
     </body>

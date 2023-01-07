@@ -1,0 +1,1 @@
+const { auth } = require('firebase/app')
