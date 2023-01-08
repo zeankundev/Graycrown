@@ -14,14 +14,18 @@
         }
         document.getElementById('pl').addEventListener('click', () => {
             buttonClick.play();
-            window.open(
+            if (link == '') console.log('ignoring to open...');
+            else { window.open(
                 'child.html?uri=' + link,
                 '_blank',
                 'icon="../assets/logo_1024.png", nodeIntegration=true, nodeIntegrationInSubFrames=true, nodeIntegrationInWorker=true, contextIsolation=false, webviewTag=true, autoHideMenuBar=true, width=1066, height=600'
             )
+            console.log('opening ' + link)
+            }
         })
         document.getElementById('bk').onclick = () => {
             tabSwitch.play();
             document.getElementById('game-info').style.display = 'none'
+            link = ''
         }   
     }
