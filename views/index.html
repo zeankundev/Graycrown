@@ -5,23 +5,25 @@
         <link rel="stylesheet" id="css" href="css/default.css">
     </head>
     <body>
-        <div class="menu-tab">
-            <div id="api-menu" style="display: none;">
-                <button class="tab" onclick="openMenu(event, 'home')" id="home-tab"><img id="h" src="../assets/home_1024.png"></button>
-                <button class="tab"onclick="openMenu(event, 'library');" id="library-tab"><img id="l" src="../assets/library_1024.png"></button>
-                <button class="tab" onclick="openMenu(event, 'store'); fetchStores()" id="store-tab"><img id="st" src="../assets/news_1024.png"></button>
-                <button class="tab" onclick="openMenu(event, 'settings')" id="settings-tab"><img id="s" src="../assets/settings_1024.png"></button>
-                <!--<button class="tab" style="display: none;" onclick="openMenu(event, 'minesweeper')" id="minesweeper-tab"><img src="../assets/minesweeper_1024.png"></button>-->
+        <div class="head">
+            <div class="menu-tab">
+                <div id="api-menu">
+                    <button class="tab" onclick="openMenu(event, 'home')" id="home-tab"><img id="h" src="../assets/home_1024.png"></button>
+                    <button class="tab"onclick="openMenu(event, 'library');" id="library-tab"><img id="l" src="../assets/library_1024.png"></button>
+                    <button class="tab" onclick="openMenu(event, 'store'); fetchStores()" id="store-tab"><img id="st" src="../assets/news_1024.png"></button>
+                    <button class="tab" onclick="openMenu(event, 'settings')" id="settings-tab"><img id="s" src="../assets/settings_1024.png"></button>
+                    <!--<button class="tab" style="display: none;" onclick="openMenu(event, 'minesweeper')" id="minesweeper-tab"><img src="../assets/minesweeper_1024.png"></button>-->
+                </div>
+                <div style="display: flex; -webkit-app-region: drag; flex-grow: 1; cursor: url('../assets/default.png'), default !important;"></div>
+                <ul class="navbars" id="general">
+                    <!--<button class="navbutton" id="secret"></button>-->
+                    <button class="navbutton" id="add"><img id="ad" src="../assets/close_1024.png" style="transform: rotate(45deg);"></button>
+                    <button class="navbutton" id="downloads"><img id="down" src="../assets/download_1024.png"></button>
+                        <button class="navbutton" id="minimize"><img id="min" src="../assets/minimize_1024.png"></button>
+                        <button class="navbutton" id="maximize"><img src="../assets/maximize_1024.png" id="img-toggle"></button>
+                        <button class="navbutton" id="close"><img id="cl" src="../assets/close_1024.png"></button>
+                </ul>
             </div>
-            <div style="display: flex; -webkit-app-region: drag; flex-grow: 1; cursor: url('../assets/default.png'), default !important;"></div>
-            <ul class="navbars" id="general">
-                <!--<button class="navbutton" id="secret"></button>-->
-                <button class="navbutton" id="add" style="display: none;"><img id="ad" src="../assets/close_1024.png" style="transform: rotate(45deg);"></button>
-                <button class="navbutton" id="downloads" style="display: none;"><img id="down" src="../assets/download_1024.png"></button>
-                    <button class="navbutton" id="minimize"><img id="min" src="../assets/minimize_1024.png"></button>
-                    <button class="navbutton" id="maximize"><img src="../assets/maximize_1024.png" id="img-toggle"></button>
-                    <button class="navbutton" id="close"><img id="cl" src="../assets/close_1024.png"></button>
-            </ul>
         </div>
         <div class="notification" id="notif">
             <b id="title-text">Notification</b>
@@ -151,7 +153,7 @@
                     </div>
             </div>
         </div>
-        <div class="startup" id="startup">
+        <div class="startup" id="startup" style="display: none;">
             <img class="startup-logo" src="../assets/logo_1024.png" style="width: 150px !important;">
             <br>
             <h1>
@@ -168,21 +170,37 @@
             </reg-head>
             <reg-head><a href="https://paypal.me/ZIsnomo" target="_blank">Donate me on PayPal!</a></reg-head>
         </div>
-        <div class="game-info" style="display: none;">
-            <div class="top-layout">
-                <img src="../assets/back_1024.png" id="back">
-                <h1>Arkacraft SJE Edition</h1>
+        <div class="game-info" id="game-info" style="display: none;">
+            <div class="title">
+                <img src="../assets/back_1024.png" id="bk">
+                <h1 id="title">%title%</h1>
             </div>
-            <div class="bottom-layout">
-                <div class="game-manage">
-                    <button class="play"> Play</button>
-                    <button class="button">Edit Launch Configurations</button>
-                    <button class="button">Wine Management</button>
+            <div class="subclass">
+                <div class="game-manage" style="display: block;">
+                    <button class="play" id="pl"> Play</button>
+                    <div class="information">
+                        <div class="subinfo">
+                            <img src="../assets/developer_1024.png" style="width: 36px !important;" title="Developer">
+                            <div class="part">
+                                <h4>Developer</h4>
+                                <reg-head id="developer">%developer%</reg-head>
+                            </div>
+                        </div>
+                        <div class="subinfo">
+                            <img src="../assets/rss_field_1024.png" style="width: 36px !important;" title="Feed">
+                            <div class="part">
+                                <h4>Game feed</h4>
+                                <reg-head id="feed">Click to open feed!</reg-head>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <br>
-                <h2>Game Feed</h2>
-                <br>
-                <iframe src="https://bobuxstation.github.io/Coal-Web/DownloadGames/Memeforest/index.html" style="height: 1024px !important;"></iframe>
+                <div class="info">
+                    <br>
+                    <h1>About the Game</h1>
+                    <br>
+                    <p id="desc">%desc%</p>
+                </div>
             </div>
         </div>
         <div class="login" style="display: none;">
@@ -245,6 +263,7 @@
                 <button class="button" id="submit" onclick="submit()" style="align-self: center;">Done</button>
             </div>
         </div>
+        <script src="../script/gamemenu.js"></script>
         <script src="../script/main.js"></script>
         <script src="../script/login.js"></script>
         <script src="../script/minesweeper.js"></script>

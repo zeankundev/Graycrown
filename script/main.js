@@ -4,7 +4,7 @@ const buttonClick = new Audio('../assets/button_click.mp3');
 const tabSwitch = new Audio('../assets/button_up.mp3');
 const app = remote.app;
 const fs = require('fs');
-
+const {setTimeout} = require('node:timers/promises')
 const firebase = require('firebase/app')
 const { platform } = require('node:process')
 const Downloader = require('nodejs-file-downloader');
@@ -65,18 +65,8 @@ const load = async () => {
     console.log('startup being played')
     startup.play();
     console.log('timing out....')
-    await setTimeout(5000);
-    console.log('showing all elements')
-    document.getElementById('startup').style.animation = 'fade 0.5s linear normal';
-    document.getElementById('api-menu').style.display = 'block';
-    document.getElementById('add').style.display = 'inline-block';
-    document.getElementById('downloads').style.display = 'inline-block';
-    console.log('delay 490ms for anim')
-    await setTimeout(490);
-    console.log(`started = ${started}`)
+    await setTimeout(1000);
     started = true;
-    console.log('hiding it...')
-    document.getElementById('startup').style.display = 'none';
 }
 load();
 const changeF = (font) => {
@@ -453,11 +443,7 @@ openMenu(event, 'home', false)
                     startBtn.innerHTML = play;
                     startBtn.onclick = function() {
                         buttonClick.play();
-                        if (items.link !== '') window.open(
-                            'child.html?uri=' + items.link,
-                            '_blank',
-                            'icon="../assets/logo_1024.png", nodeIntegration=true, nodeIntegrationInSubFrames=true, nodeIntegrationInWorker=true, contextIsolation=false, webviewTag=true, autoHideMenuBar=true, width=1066, height=600'
-                        )
+                        if (items.link !== '') new GameMenu(items.name, items.banner, items.info, items.developer, items.feed, items.link)
                         else notifDisplay('Error 407: Missing link argument in JSON file', 'Failed to launch!') 
                     }
                     recommendDisplay.appendChild(startBtn)

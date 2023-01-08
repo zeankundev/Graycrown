@@ -16,7 +16,8 @@ app.on('ready', () => {
             nodeIntegrationInWorker: true,
             nodeIntegrationInSubFrames: true,
             enableRemoteModule: true,
-            contextIsolation: false
+            contextIsolation: false,
+            webviewTag: true
         }
     });
     require('@electron/remote/main').initialize()

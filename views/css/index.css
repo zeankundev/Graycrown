@@ -12,7 +12,6 @@
 }
 * {
     margin: 0;
-    overflow: hidden;
     cursor: url('../../assets/default.png'), default;
 }
 @-webkit-keyframes slide-bottom {
@@ -121,6 +120,34 @@
     opacity: 0;
   }
 }
+@keyframes slide-in-blurred-right {
+  0% {
+    transform: translateX(1000px);
+    transform-origin: 0% 50%;
+    filter: blur(40px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    transform-origin: 50% 50%;
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-out-blurred-right {
+  0% {
+    transform: translateX(0);
+    transform-origin: 50% 50%;
+    filter: blur(0px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(1000px);
+    transform-origin: 0% 50%;
+    filter: blur(40);
+    opacity: 0;
+  }
+}
 
 ::-webkit-scrollbar {
   width: 5px;
@@ -219,13 +246,20 @@ reg-head {
     box-shadow: none;
   }
   
-  
+  .head {
+    position: sticky;
+    top: 0;
+    z-index: 99999999999999999999999999999999999999999999999999999999999999;
+  }
   @each $name, $value in $cellColors {
     .cell.adj-#{$name} {
       color: #{$value};
     }
   }
-  
+  .title {
+    margin-bottom: 50vh;
+    padding: 20px;
+  }
   .cell.adj-M {
     font-family: "FontAwesome";
     background-color: #FFCCCC;
@@ -253,6 +287,29 @@ reg-head {
   }
 img {
     width: 24px;
+}
+.information {
+  display: inline-flex;
+
+}
+.game-manage {
+  display: flex;
+}
+.part {
+  display: inline-block;
+}
+.subinfo reg-head {
+  justify-content: center;
+}
+.subinfo {
+  margin-left: 15px;
+  margin-right: 15px;
+  display: inline-block;
+}
+.subclass {
+  background-color: var(--main-hover-color);
+  padding: 20px;
+  min-height: 40vh;
 }
 .tab {
     padding: 10px;
@@ -317,7 +374,7 @@ img {
             opacity: 1;
   }
 }
-h1 {
+h1, h2, h3, h4, h5 {
   font-family: cartoon, game-serif, 'Noto Sans Arabic';
 }
 .navbutton:hover {
@@ -420,13 +477,9 @@ h1 {
     width: 240px;
     transition: all 0.2s ease;
     cursor: url('../../assets/pointer.png'), auto;
-    -webkit-animation: scale-down-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-	        animation: scale-down-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 .play:hover {
     background-color: var(--play-color-hover);
-    -webkit-animation: scale-up-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-	        animation: scale-up-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 .startup-logo {
   display: block;
@@ -509,32 +562,31 @@ a {
     color: var(--main-text);
     width: 240px;
     cursor: url('../../assets/pointer.png'), auto;
-    --webkit-animation: scale-down-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-    animation: scale-down-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 .download:hover {
     background-color: var(--download-color-hover);
-    -webkit-animation: scale-up-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-	        animation: scale-up-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 .game-info {
-  background-image: url('https://bobuxstation.github.io/Coal-Web/banners/arkacraft.png');
   background-color: rgba(0, 0, 0, 0.7);
   background-blend-mode: multiply;
+  animation: slide-in-blurred-right 0.5s ease-in-out both;
   display: block;
   min-height: 100vh;
   overflow-y: scroll;
 }
+.info {
+  padding: 20px;
+}
 .game-info .top-layout {
   display: block;
   padding: 20px;
+  padding-bottom: 25%
 }
 .game-info h1 {
   margin-left: 20px;
 }
 .game-info .bottom-layout {
   background-color: var(--main-hover-color);
-  margin-top: 20%;
   min-height: 80vh;
   padding: 20px;
   z-index: 999999999;
