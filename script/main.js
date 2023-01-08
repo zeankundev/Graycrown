@@ -443,7 +443,7 @@ openMenu(event, 'home', false)
                     startBtn.innerHTML = play;
                     startBtn.onclick = function() {
                         buttonClick.play();
-                        if (items.link !== '') new GameMenu(items.name, items.banner, items.info, items.developer, items.feed, items.link)
+                        if (items.link !== '') spw(items.name, items.banner, items.info, items.developer, items.feed, items.link)
                         else notifDisplay('Error 407: Missing link argument in JSON file', 'Failed to launch!') 
                     }
                     recommendDisplay.appendChild(startBtn)
