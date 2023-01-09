@@ -5,7 +5,6 @@ const tabSwitch = new Audio('../assets/button_up.mp3');
 const app = remote.app;
 const fs = require('fs');
 const {setTimeout} = require('node:timers/promises')
-const firebase = require('firebase/app')
 const { platform } = require('node:process')
 const Downloader = require('nodejs-file-downloader');
 const notifier = require('node-notifier');
