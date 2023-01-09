@@ -51,15 +51,6 @@ let authCode;
 let method;
 let stop;
 let started = false;
-firebase.initializeApp({
-    apiKey: "AIzaSyC7q-lBB-Hty_Hhc8iIH40OPfIIDx6NDm4",
-    authDomain: "gray-crown.firebaseapp.com",
-    projectId: "gray-crown",
-    storageBucket: "gray-crown.appspot.com",
-    messagingSenderId: "208892999128",
-    appId: "1:208892999128:web:19bb230590ceaee5b2eead",
-    measurementId: "G-JJD81N852F"
-})
 const load = async () => {
     console.log('startup being played')
     startup.play();
