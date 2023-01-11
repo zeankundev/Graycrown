@@ -30,3 +30,6 @@ refresh.addEventListener('click', function(e) {
     e.preventDefault();
     webView.src = webView.src
 })
+webview.addEventListener('did-stop-loading', () => {
+    title.innerHTML = webView.src;
+});
