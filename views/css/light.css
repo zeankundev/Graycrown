@@ -58,7 +58,7 @@
     --main-color: #d6d6d6;
     --main-hover-color: #eeeeee;
     --main-selected-disabled-color: #c9c9c9;
-    --main-text: rgb(48, 48, 48);
+    --main-text: #303030;
     --play-color: #16c716;
     --play-color-hover: #2ae42a;
     --stop-color: #ff0b0b;
@@ -67,31 +67,37 @@
     --download-color-hover: #1e71f7;
 }
 #h {
-    content: url('../../assets/home_light_1024.png');
+    content: url('../../assets/new_icons/light/ic_fluent_home_24_regular.svg');
 }
 #l {
-    content: url('../../assets/library_light_1024.png');
+    content: url('../../assets/new_icons/light/ic_fluent_library_24_regular.svg');
 }
 #st {
-    content: url('../../assets/news_light_1024.png');
+    content: url('../../assets/new_icons/light/ic_fluent_shopping_bag_24_regular.svg');
 }
 #s {
-    content: url('../../assets/settings_light_1024.png');
+    content: url('../../assets/new_icons/light/ic_fluent_settings_24_regular.svg');
 }
 #ad {
-    content: url('../../assets/close_light_1024.png');
+    content: url('../../assets/new_icons/light/ic_fluent_dismiss_24_regular.svg');
 }
 #down {
-    content: url('../../assets/download_light_1024.png');
+    content: url('../../assets/new_icons/light/ic_fluent_arrow_download_24_regular.svg');
 }
 #min {
-    content: url('../../assets/minimize_light_1024.png');
+    content: url('../../assets/new_icons/light/ic_fluent_subtract_24_regular.svg');
 }
 #img-toggle {
-    content: url('../../assets/maximize_light_1024.png');
+    content: url('../../assets/new_icons/light/ic_fluent_maximize_24_regular.svg');
 }
 #cl {
-    content: url('../../assets/close_light_1024.png');
+    content: url('../../assets/new_icons/light/ic_fluent_dismiss_24_regular.svg');
+}
+#dv {
+    content: url('../../assets/new_icons/light/ic_fluent_people_24_regular.svg');
+}
+#fd {
+    content: url('../../assets/new_icons/light/ic_fluent_news_24_regular.svg');
 }
 .recommend-display {
     background-color: rgba(0, 0, 0, 0.7) !important;

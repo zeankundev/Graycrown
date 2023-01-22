@@ -65,6 +65,19 @@ const changeF = (font) => {
         h1[x].style.fontFamily = font;
     }
 }
+function formatBytes(bytes) {
+    if (bytes >= 1099511627776) {
+      return (bytes / 1099511627776).toFixed(2) + " TB";
+    } else if (bytes >= 1073741824) {
+      return (bytes / 1073741824).toFixed(2) + " GB";
+    } else if (bytes >= 1048576) {
+      return (bytes / 1048576).toFixed(2) + " MB";
+    } else if (bytes >= 1024) {
+      return (bytes / 1024).toFixed(2) + " KB";
+    } else {
+      return bytes + " B";
+    }
+  }
 function fmtMSS(s){return(s-(s%=60))/60+(9<s?':':':0')+s}
 fetch(app.getPath('userData') + '/config.json')
 .then(response => response.json())
@@ -503,7 +516,8 @@ openMenu(event, 'home', false)
                                     cloneFiles: false,
                                     fileName: store.id,
                                     onProgress: function (percent, chunk, remain) {
-                                        downProgress.innerHTML = `<span>Now downloading ${store.name}.</span>&nbsp;${percent}% | Bytes left: ${remain}`;
+                                        modal.style.display = 'block';
+                                        downProgress.innerHTML = `<span>Now downloading ${store.name}.</span>&nbsp;${percent}% | ${formatBytes(remain)} left`;
                                         bar.value = percent;
                                     }
                                 });

@@ -40,28 +40,28 @@
 }
 @-webkit-keyframes scale-up-center {
   0% {
-    -webkit-transform: scale(1) translateY(0px);
-            transform: scale(1) translateY(0px);
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
   100% {
-    -webkit-transform: scale(1.5) translateY(2px);
-            transform: scale(1.5) translateY(2px);
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
   }
 }
 @keyframes scale-up-center {
   0% {
-    -webkit-transform: scale(1) translateY(0px);
-            transform: scale(1) translateY(0px);
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
   100% {
-    -webkit-transform: scale(1.5) translateY(2px);
-            transform: scale(1.5) translateY(2px);
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
   }
 }
 @-webkit-keyframes scale-down-center {
   0% {
-    -webkit-transform: scale(1.5) translateY(2px);
-            transform: scale(1.5) translateY(2px);
+    -webkit-transform: scale(1.2) translateY(2px);
+            transform: scale(1.2) translateY(2px);
   }
   100% {
     -webkit-transform: scale(1) translateY(0px);
@@ -70,8 +70,8 @@
 }
 @keyframes scale-down-center {
   0% {
-    -webkit-transform: scale(1.5) translateY(2px);
-            transform: scale(1.5) translateY(2px);
+    -webkit-transform: scale(1.2) translateY(2px);
+            transform: scale(1.2) translateY(2px);
   }
   100% {
     -webkit-transform: scale(1) translateY(0px);
@@ -286,7 +286,7 @@ reg-head {
     width: 28px;
   }
 img {
-    width: 24px;
+    width: 20px;
 }
 .information {
   display: inline-flex;
@@ -312,9 +312,10 @@ img {
   min-height: 40vh;
 }
 .tab {
-    padding: 10px;
+    padding: 12px;
     -webkit-appearance: none;
     border: none;
+    outline: var(--main-text);
     outline: none;
     background: none;
 }
@@ -333,7 +334,7 @@ img {
     order: 2;
 }
 .navbutton {
-    padding: 10px;
+    padding: 12px;
     -webkit-appearance: none;
     outline: none;
     border: none;
@@ -397,21 +398,13 @@ object, iframe {
     color: var(--main-text);
     margin-bottom: 10px;
     border: none;
-    /*border-radius: 200px;*/
+    border-radius: 2pt;
     padding: 12px;
-    box-shadow: 0px 10px 0px 0px var(--main-selected-disabled-color);
     font-family: system-ui, 'Noto Sans Arabic';
     cursor: url('../../assets/pointer.png'), auto;
 }
 .button:hover {
-  position: relative;
-  top: 4px;
-  box-shadow: 0px 6px 0px 0px var(--main-selected-disabled-color);
-}
-.button:active {
-  position: relative;
-  top: 9px;
-  box-shadow: 0px 1px 0px 0px var(--main-selected-disabled-color);
+  background-color: var(--main-selected-disabled-color);
 }
 .game-display {
   background-color: rgba(15, 15, 15, 0.7);
@@ -541,8 +534,14 @@ a {
   background-blend-mode: multiply;
   margin: 10px;
   padding: 10px;
+  animation: scale-down-center 0.2s ease-in-out;
   display: inline-block;
   border-radius: 25px;
+}
+.recommend-display:hover {
+  animation: scale-up-center 0.2s ease-in-out;
+  -webkit-transform: scale(1.2);
+            transform: scale(1.2);
 }
 .store-title {
     font-size: 1.5em;
