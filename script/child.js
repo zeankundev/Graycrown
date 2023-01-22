@@ -1,5 +1,6 @@
 const params = new URLSearchParams(location.search)
 const res = params.get('uri');
+const ref = document.getElementById('ref')
 const webView = document.getElementById('webview');
 const title = document.getElementById('title');
 const close = document.getElementById('close');
@@ -30,6 +31,10 @@ refresh.addEventListener('click', function(e) {
     e.preventDefault();
     webView.src = webView.src
 })
+webView.addEventListener('did-start-loading', () => {
+    ref.setAttribute('src', '../assets/new_icons/ic_fluent_dismiss_24_regular.svg')
+})
 webview.addEventListener('did-stop-loading', () => {
     title.innerHTML = webView.src;
+    ref.setAttribute('src' , '../assets/new_icons/ic_fluent_arrow_clockwise_24_regular.svg')
 });
