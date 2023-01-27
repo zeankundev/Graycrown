@@ -478,6 +478,7 @@ openMenu(event, 'home', false)
                         fs.mkdirSync(path.join(app.getPath('userData'), '/downloads'));
                     }
                     downButton.onclick = function() {
+                        modal.style.display = 'block';
                         buttonClick.play();
                         const configDir = app.getPath('userData');
                         let jsonData = require(configDir + '/games.json');
@@ -500,6 +501,7 @@ openMenu(event, 'home', false)
                         let downStatus = document.createElement('div')
                         downStatus.innerHTML = `
                             <hr>
+                            <br>
                             <h2>${store.name}</h2>
                         `;
                         let downProgress = document.createElement('p');
@@ -516,7 +518,6 @@ openMenu(event, 'home', false)
                                     cloneFiles: false,
                                     fileName: store.id,
                                     onProgress: function (percent, chunk, remain) {
-                                        modal.style.display = 'block';
                                         downProgress.innerHTML = `<span>Now downloading ${store.name}.</span>&nbsp;${percent}% | ${formatBytes(remain)} left`;
                                         bar.value = percent;
                                     }
