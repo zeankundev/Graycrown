@@ -23,6 +23,59 @@
     font-style: italic;
 }
 @font-face {
+	font-family: "Typonine Sans";
+  font-weight: 300;
+	src: url("https://s3-ap-southeast-1.amazonaws.com/fonts-singapore.typotheque.com/WF-000099-009168-001726-d89c8c0c02c2fc67ecb5381457679aaf.eot");
+	src: url("https://s3-ap-southeast-1.amazonaws.com/fonts-singapore.typotheque.com/WF-000099-009168-001726-d89c8c0c02c2fc67ecb5381457679aaf.eot?#iefix") format("embedded-opentype"), url("https://s3-ap-southeast-1.amazonaws.com/fonts-singapore.typotheque.com/WF-000099-009168-001726-d89c8c0c02c2fc67ecb5381457679aaf.woff2") format("woff2"), url("https://s3-ap-southeast-1.amazonaws.com/fonts-singapore.typotheque.com/WF-000099-009168-001726-d89c8c0c02c2fc67ecb5381457679aaf.woff") format("woff"), url("https://s3-ap-southeast-1.amazonaws.com/fonts-singapore.typotheque.com/WF-000099-009168-001726-d89c8c0c02c2fc67ecb5381457679aaf.svg#typotheque_webfonts_service") format("svg");
+}
+@font-face {
+	font-family: "Typonine Sans";
+  font-weight: 300;
+  font-style: italic;
+	src: url("https://s3-ap-southeast-1.amazonaws.com/fonts-singapore.typotheque.com/WF-000099-009168-001727-24fbfe1610ced77a4f1c88f01493941b.eot");
+	src: url("https://s3-ap-southeast-1.amazonaws.com/fonts-singapore.typotheque.com/WF-000099-009168-001727-24fbfe1610ced77a4f1c88f01493941b.eot?#iefix") format("embedded-opentype"), url("https://s3-ap-southeast-1.amazonaws.com/fonts-singapore.typotheque.com/WF-000099-009168-001727-24fbfe1610ced77a4f1c88f01493941b.woff2") format("woff2"), url("https://s3-ap-southeast-1.amazonaws.com/fonts-singapore.typotheque.com/WF-000099-009168-001727-24fbfe1610ced77a4f1c88f01493941b.woff") format("woff"), url("https://s3-ap-southeast-1.amazonaws.com/fonts-singapore.typotheque.com/WF-000099-009168-001727-24fbfe1610ced77a4f1c88f01493941b.svg#typotheque_webfonts_service") format("svg");
+}
+@font-face {
+	font-family: "Typonine Sans";
+  font-weight: 400;
+	src: url("https://s3-ap-southeast-1.amazonaws.com/fonts-singapore.typotheque.com/WF-000099-009168-001728-fa1c8d472eabc16b5ce741ad50e737e1.eot");
+	src: url("https://s3-ap-southeast-1.amazonaws.com/fonts-singapore.typotheque.com/WF-000099-009168-001728-fa1c8d472eabc16b5ce741ad50e737e1.eot?#iefix") format("embedded-opentype"), url("https://s3-ap-southeast-1.amazonaws.com/fonts-singapore.typotheque.com/WF-000099-009168-001728-fa1c8d472eabc16b5ce741ad50e737e1.woff2") format("woff2"), url("https://s3-ap-southeast-1.amazonaws.com/fonts-singapore.typotheque.com/WF-000099-009168-001728-fa1c8d472eabc16b5ce741ad50e737e1.woff") format("woff"), url("https://s3-ap-southeast-1.amazonaws.com/fonts-singapore.typotheque.com/WF-000099-009168-001728-fa1c8d472eabc16b5ce741ad50e737e1.svg#typotheque_webfonts_service") format("svg");
+}
+@font-face {
+	font-family: "Typonine Sans";
+  font-weight: 400;
+  font-style: italic;
+	src: url("https://s3-ap-southeast-1.amazonaws.com/fonts-singapore.typotheque.com/WF-000099-009168-001729-0c4797dc21a66dfc0ea4cd4e3a86b7fc.eot");
+	src: url("https://s3-ap-southeast-1.amazonaws.com/fonts-singapore.typotheque.com/WF-000099-009168-001729-0c4797dc21a66dfc0ea4cd4e3a86b7fc.eot?#iefix") format("embedded-opentype"), url("https://s3-ap-southeast-1.amazonaws.com/fonts-singapore.typotheque.com/WF-000099-009168-001729-0c4797dc21a66dfc0ea4cd4e3a86b7fc.woff2") format("woff2"), url("https://s3-ap-southeast-1.amazonaws.com/fonts-singapore.typotheque.com/WF-000099-009168-001729-0c4797dc21a66dfc0ea4cd4e3a86b7fc.woff") format("woff"), url("https://s3-ap-southeast-1.amazonaws.com/fonts-singapore.typotheque.com/WF-000099-009168-001729-0c4797dc21a66dfc0ea4cd4e3a86b7fc.svg#typotheque_webfonts_service") format("svg");
+}
+@font-face {
+	font-family: "Typonine Sans";
+  font-weight: 500;
+	src: url("https://s3-ap-southeast-1.amazonaws.com/fonts-singapore.typotheque.com/WF-000099-009168-001730-1f3d8325cf874996275dbf75bd34b04c.eot");
+	src: url("https://s3-ap-southeast-1.amazonaws.com/fonts-singapore.typotheque.com/WF-000099-009168-001730-1f3d8325cf874996275dbf75bd34b04c.eot?#iefix") format("embedded-opentype"), url("https://s3-ap-southeast-1.amazonaws.com/fonts-singapore.typotheque.com/WF-000099-009168-001730-1f3d8325cf874996275dbf75bd34b04c.woff2") format("woff2"), url("https://s3-ap-southeast-1.amazonaws.com/fonts-singapore.typotheque.com/WF-000099-009168-001730-1f3d8325cf874996275dbf75bd34b04c.woff") format("woff"), url("https://s3-ap-southeast-1.amazonaws.com/fonts-singapore.typotheque.com/WF-000099-009168-001730-1f3d8325cf874996275dbf75bd34b04c.svg#typotheque_webfonts_service") format("svg");
+}
+@font-face {
+	font-family: "Typonine Sans";
+  font-weight: 500;
+  font-style: italic;
+	src: url("https://s3-ap-southeast-1.amazonaws.com/fonts-singapore.typotheque.com/WF-000099-009168-001731-010e4f9a6fa0c9b87d4448a7d69e01c4.eot");
+	src: url("https://s3-ap-southeast-1.amazonaws.com/fonts-singapore.typotheque.com/WF-000099-009168-001731-010e4f9a6fa0c9b87d4448a7d69e01c4.eot?#iefix") format("embedded-opentype"), url("https://s3-ap-southeast-1.amazonaws.com/fonts-singapore.typotheque.com/WF-000099-009168-001731-010e4f9a6fa0c9b87d4448a7d69e01c4.woff2") format("woff2"), url("https://s3-ap-southeast-1.amazonaws.com/fonts-singapore.typotheque.com/WF-000099-009168-001731-010e4f9a6fa0c9b87d4448a7d69e01c4.woff") format("woff"), url("https://s3-ap-southeast-1.amazonaws.com/fonts-singapore.typotheque.com/WF-000099-009168-001731-010e4f9a6fa0c9b87d4448a7d69e01c4.svg#typotheque_webfonts_service") format("svg");
+}
+@font-face {
+	font-family: "Typonine Sans";
+  font-weight: 700;
+	src: url("https://s3-ap-southeast-1.amazonaws.com/fonts-singapore.typotheque.com/WF-000099-009168-001732-d9c8fb1821365c77a627c9ed76da4441.eot");
+	src: url("https://s3-ap-southeast-1.amazonaws.com/fonts-singapore.typotheque.com/WF-000099-009168-001732-d9c8fb1821365c77a627c9ed76da4441.eot?#iefix") format("embedded-opentype"), url("https://s3-ap-southeast-1.amazonaws.com/fonts-singapore.typotheque.com/WF-000099-009168-001732-d9c8fb1821365c77a627c9ed76da4441.woff2") format("woff2"), url("https://s3-ap-southeast-1.amazonaws.com/fonts-singapore.typotheque.com/WF-000099-009168-001732-d9c8fb1821365c77a627c9ed76da4441.woff") format("woff"), url("https://s3-ap-southeast-1.amazonaws.com/fonts-singapore.typotheque.com/WF-000099-009168-001732-d9c8fb1821365c77a627c9ed76da4441.svg#typotheque_webfonts_service") format("svg");
+}
+@font-face {
+	font-family: "Typonine Sans";
+  font-weight: 700;
+  font-style: italic;
+	src: url("https://s3-ap-southeast-1.amazonaws.com/fonts-singapore.typotheque.com/WF-000099-009168-001733-57deeaf00d14dde5f69b8bed1a044189.eot");
+	src: url("https://s3-ap-southeast-1.amazonaws.com/fonts-singapore.typotheque.com/WF-000099-009168-001733-57deeaf00d14dde5f69b8bed1a044189.eot?#iefix") format("embedded-opentype"), url("https://s3-ap-southeast-1.amazonaws.com/fonts-singapore.typotheque.com/WF-000099-009168-001733-57deeaf00d14dde5f69b8bed1a044189.woff2") format("woff2"), url("https://s3-ap-southeast-1.amazonaws.com/fonts-singapore.typotheque.com/WF-000099-009168-001733-57deeaf00d14dde5f69b8bed1a044189.woff") format("woff"), url("https://s3-ap-southeast-1.amazonaws.com/fonts-singapore.typotheque.com/WF-000099-009168-001733-57deeaf00d14dde5f69b8bed1a044189.svg#typotheque_webfonts_service") format("svg");
+}
+
+@font-face {
   font-family: 'TF2Sec';
   src: url('../assets/fonts/TF2-Regular.otf');
 }
@@ -101,7 +154,7 @@
 body {
     color: #fff;
     background-color: #1d1d1d;
-    font-family: 'Effra', sans-serif;
+    font-family: 'Typonine Sans', sans-serif;
     overflow-y: scroll;
 }
 header {
@@ -147,7 +200,7 @@ h1, h2, h3, h4, h5 {
     background-color: #1d1d1d;
     -webkit-appearance: none;
     color: #fff;
-    font-family: 'Effra', sans-serif;
+    font-family: 'Typonine Sans', sans-serif;
     border: none;
     font-weight: bold;
     border-radius: 5px;
@@ -181,7 +234,7 @@ h1, h2, h3, h4, h5 {
 .redir {
   background-color: #0362fc;
   border: none;
-  font-family: Effra;
+  font-family: 'Typonine Sans';
   padding: 10px;
   margin-top: 10px;
   border-radius: 15px;
