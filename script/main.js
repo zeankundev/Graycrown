@@ -401,6 +401,7 @@ openMenu(event, 'home', false)
         document.getElementById(menu).style.display = "block";
         document.getElementsByClassName("container")[0].style.display = "block";
         document.getElementById(menu + '-tab').className = "tab active";
+        document.getElementById(menu + '-txt').style.display = "block";
         console.log("OK: e.currentTarget.className += \" active\"");
         if (started == true) {
             tabSwitch.play();

@@ -317,7 +317,15 @@ img {
     border: none;
     outline: var(--main-text);
     outline: none;
+    display: inline-flex;
+    align-items: center;
+    color: var(--main-text);
     background: none;
+    min-height: 47px;
+}
+.tab strong {
+  margin-left: 1%;
+  font-family: system-ui;
 }
 .active {
     background-color: var(--main-hover-color);
