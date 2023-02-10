@@ -2,6 +2,7 @@ const remote = require('@electron/remote');
 const startup = new Audio('../assets/startup.mp3');
 const buttonClick = new Audio('../assets/button_click.mp3');
 const tabSwitch = new Audio('../assets/button_up.mp3');
+const buttonErr = new Audio('../assets/button_err.mp3')
 const app = remote.app;
 const fs = require('fs');
 const {setTimeout} = require('node:timers/promises')
@@ -59,6 +60,11 @@ const load = async () => {
     started = true;
 }
 load();
+document.onclick = () => {
+    tabSwitch.pause();
+    tabSwitch.currentTime = 0;
+    tabSwitch.play()
+}
 const changeF = (font) => {
     var h1 = document.querySelectorAll('h1');
     for (var x = 0; x < h1.length; x++) {
@@ -321,7 +327,9 @@ openMenu(event, 'home', false)
                                         proc = execFile(game.exec, game.args);
                                         gameButton.className = "stop";
                                         gameButton.innerHTML = stop;
-                                        proc.on('error', (err) => {
+                                        proc.on('error', async (err) => {
+                                            await setTimeout(500)
+                                            buttonErr.play()
                                             console.log(err)
                                             clearInterval(timer)
                                             notifDisplay(err, 'Failed to launch!')
@@ -341,7 +349,9 @@ openMenu(event, 'home', false)
                                                 proc = spawn('wine', [game.exec]);
                                                 gameButton.className = "stop";
                                                 gameButton.innerHTML = stop;
-                                                proc.on('error', (err) => {
+                                                proc.on('error', async (err) => {
+                                                    await setTimeout(500)
+                                                    buttonErr.play()
                                                     console.log(err)
                                                     clearInterval(timer)
                                                     notifDisplay(err, 'Failed to launch!')

@@ -522,13 +522,9 @@ a {
   width: 240px;
   cursor: url('../../assets/pointer.png'), auto;
   transition: all 0.2s ease;
-  -webkit-animation: scale-down-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-        animation: scale-down-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 .stop:hover {
   background-color: var(--stop-color-hover);
-  -webkit-animation: scale-up-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-        animation: scale-up-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 .store-display {
     background: var(--main-color);
