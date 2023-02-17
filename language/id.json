@@ -5,7 +5,7 @@
         "library": "Perpustakaan",
         "store": "Toko",
         "settings": "Pengaturan",
-        "wineSettings": "Pengaturan Wine (Hanya untuk Linux)",
+        "wineSettings": "Pengaturan Wine (Hanya untuk Linux, Mac atau FreeBSD)",
         "downloads": "Unduhan",
         "noDownloads": "Tidak ada unduhan. Coba lagi nanti.",
         "info": "Informasi game",
@@ -19,6 +19,7 @@
         "recForU": "Disarankan untuk Anda",
         "internetDisconnected": "Yahh, gak ada sambungan internet 😥",
         "discL1": "Jangan sedih, temen! Masih ada kok kesempatan! Hanya",
-        "discL2": "sambung ulang internet, dan tekan tombol untuk mengulangi! 😉"
+        "discL2": "sambung ulang internet, dan tekan tombol untuk mengulangi! 😉",
+        "home": "Beranda"
     }
 }

@@ -5,7 +5,7 @@
         "library": "Bibilothek",
         "store": "Geschäft",
         "settings": "Einstellungen",
-        "wineSettings": "Wine-Einstellungen (Nur Linux)",
+        "wineSettings": "Wine-Einstellungen (Nur Linux, Mac oder FreeBSD)",
         "downloads": "Download",
         "noDownloads": "Keine Downloads. Schau bald wieder vorbei!",
         "info": "Spiel Information",
@@ -19,6 +19,7 @@
         "recForU": "Für dich empfohlen",
         "internetDisconnected": "Die Internetverbindung nicht gefunden 😥",
         "discL1": "Keine Sorge, Kumpel! Du hast noch eine Chance! Alles, was Sie tun müssen, ist",
-        "discL2": "verbinden Sie sich erneut mit dem Internet und klicken Sie dann auf die Schaltfläche zum Aktualisieren! 😉"
+        "discL2": "verbinden Sie sich erneut mit dem Internet und klicken Sie dann auf die Schaltfläche zum Aktualisieren! 😉",
+        "home": "Startseite"
     }
 }

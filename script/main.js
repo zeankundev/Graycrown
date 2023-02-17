@@ -61,6 +61,7 @@ const load = async () => {
 }
 load();
 document.onclick = () => {
+    notif.style.display = 'none';
     tabSwitch.pause();
     tabSwitch.currentTime = 0;
     tabSwitch.play()
@@ -106,7 +107,11 @@ fetch(app.getPath('userData') + '/config.json')
     .then((res) => res.json())
     .then(data => {
         document.getElementById('welcome-back').innerHTML = data.translations.welcomeBack
-        document.getElementById('library-text').innerHTML = `${data.translations.library} <reg-head>(${userdata}/games.json)</reg-head>`;
+        document.getElementById('home-txt').innerHTML = data.translations.home
+        document.getElementById('library-txt').innerHTML = data.translations.library
+        document.getElementById('store-txt').innerHTML = data.translations.store
+        document.getElementById('settings-txt').innerHTML = data.translations.settings
+        document.getElementById('library-text').innerHTML = data.translations.library;
         document.getElementById('store-text').innerHTML = data.translations.store
         document.getElementById('settings-text').innerHTML = data.translations.settings
         document.getElementById('wine-settings').innerHTML = data.translations.wineSettings
@@ -155,10 +160,13 @@ document.getElementById('cus-css').onchange = () => {
     })
 }
 async function notifDisplay(txt, title) {
-    notif.style.display = 'block';
+    notif.style.display = 'none';
+    await setTimeout(100)
+    notif.style.display = 'inline-block';
     text.innerHTML = txt;
     titleText.innerHTML = title
-    await setTimeout(4000);
+}
+notif.onclick = () => {
     notif.style.display = 'none';
 }
 var count = 0
@@ -331,10 +339,13 @@ openMenu(event, 'home', false)
                                             await setTimeout(500)
                                             buttonErr.play()
                                             console.log(err)
+                                            if (err.message.includes('ENOENT')) notifDisplay('Double check where you are pointing the game executable to', 'Cannot find executable')
+                                            else if (err.message.includes('EACCES')) notifDisplay(`In order to launch ${game.name}, please rerun Graycrown as admin or by running <pre>sudo</pre> when launching Graycrown`, 'Administrator/sudo required!')
+                                            else notifDisplay(err, 'Failed to launch!')
                                             clearInterval(timer)
-                                            notifDisplay(err, 'Failed to launch!')
                                             gameButton.className = "play";
                                             gameButton.innerHTML = play;
+                                            console.log(err.message)
                                         });
                                         proc.on('exit', () => {
                                             clearInterval(timer)
@@ -352,7 +363,10 @@ openMenu(event, 'home', false)
                                                 proc.on('error', async (err) => {
                                                     await setTimeout(500)
                                                     buttonErr.play()
-                                                    console.log(err)
+                                                    console.log(err.message)
+                                                    if (err.message.includes('ENOENT')) notifDisplay('Double check where you are pointing the game executable to', 'Cannot find executable')
+                                                    else if (err.message.includes('EACCES')) notifDisplay(`In order to launch ${game.name}, please rerun Graycrown as admin or by running <pre>sudo</pre> when launching Graycrown`, 'Administrator/sudo required!')
+                                                    else notifDisplay(err, 'Failed to launch!')
                                                     clearInterval(timer)
                                                     notifDisplay(err, 'Failed to launch!')
                                                     gameButton.className = "play";
@@ -431,7 +445,7 @@ openMenu(event, 'home', false)
         let cssOption = document.createElement('option');
         cssOption.value = path.join(app.getPath('userData'), 'styles', style);
         console.log(cssOption.value)
-        cssOption.innerText = style;
+        cssOption.innerText = style.slice(0, 15) + (style.length > 15 ? '...' : '');
         document.getElementById('cus-css').appendChild(cssOption)
     });
     function recommendGames() {
@@ -500,7 +514,7 @@ openMenu(event, 'home', false)
                         obj['games'].push({
                             "name": store.name,
                             "icon": "",
-                            "exec": configDir + '/downloads/' + store.id,
+                            "exec": path.join(configDir, '/downloads/', store.id),
                             "enableWine": wine
                         });
                         jsonStr = JSON.stringify(obj);
@@ -520,7 +534,7 @@ openMenu(event, 'home', false)
                         bar.setAttribute('min', '0')
                         bar.setAttribute('max', '100')
                         bar.value = 0;
-                        downProgress.innerHTML = "Waiting for download to start...";
+                        downProgress.innerHTML = "Waiting for download to start, please wait...";
                         fetch(store.download)
                             .then(async () => {
                                 const down = new Downloader({
@@ -553,10 +567,14 @@ openMenu(event, 'home', false)
     }
 function spawnWine(processType) {
     const spawn = require('child_process').spawn;
-    try {
-    	spawn('wine' + processType);
-    } catch (e) {
-    	notifDisplay(e, 'Cannot launch Wine process')}
+    const actualProcess = spawn('wine' + processType);
+    actualProcess.on('error', () => {
+        if (process.platform = 'win32') {
+            notifDisplay('You are using Windows, and thus, Wine configuration will not be avaiable', 'Incompatible operating system'); 
+            buttonErr.play()
+        }
+        else {notifDisplay('Double check if you have installed Wine via terminal', 'Wine not installed'); buttonErr.play()}
+    })
     // console.log the child_process output
     spawn.stdout.on('data', (data) => {
         console.log(`stdout: ${data}`);

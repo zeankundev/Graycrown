@@ -305,6 +305,17 @@ img {
   margin-left: 15px;
   margin-right: 15px;
   display: inline-block;
+  background-color: var(--main-selected-disabled-color);
+  padding: 10px;
+  box-shadow: 0px 0px 83px -2px rgba(0,0,0,0.75);
+  border-radius: 15px;
+  transition: all 0.2s ease;
+  transform: scale(1);
+}
+.subinfo:hover {
+  box-shadow: 0px 0px 164px 42px rgba(0,0,0,0.75);
+  transition: all 0.2s ease;
+  transform: scale(1.5);
 }
 .subclass {
   background-color: var(--main-hover-color);
@@ -363,13 +374,17 @@ img {
   padding-left: -5px;
 }
 .notification {
-    background-color: var(--main-color);
-    text-align: center;
-    display: block;
-    margin-top: 15px;
-    animation: notif-popup 0.5s ease-out;
-    padding: 5px;
-    display: none;
+  background-color: var(--main-color);
+  text-align: left;
+  /* display: block; */
+  position: relative;
+  /* align-self: center; */
+  transform: translateY(30px);
+  left: calc(350px - 120pt);
+  animation: notif-popup 0.5s ease-out;
+  padding: 15px;
+  border-radius: 15px;
+  display: none;
 }
 @keyframes notif-popup {
   0% {
@@ -378,13 +393,14 @@ img {
             opacity: 0;
   }
   100% {
-    -webkit-transform: translateY(5px);
-            transform: translateY(5px);
+    -webkit-transform: translateY(30px);
+            transform: translateY(30px);
             opacity: 1;
   }
 }
 h1, h2, h3, h4, h5 {
   font-family: cartoon, game-serif, 'Noto Sans Arabic';
+  font-weight: 400;
 }
 .navbutton:hover {
     background: var(--main-hover-color) !important;
@@ -538,14 +554,19 @@ a {
   background-blend-mode: multiply;
   margin: 10px;
   padding: 10px;
+  transition: all 0.2s ease;
   animation: scale-down-center 0.2s ease-in-out;
   display: inline-block;
   border-radius: 25px;
+  box-shadow: 0px 0px 73px -1px rgba(0,0,0,0.75);
 }
 .recommend-display:hover {
   animation: scale-up-center 0.2s ease-in-out;
   -webkit-transform: scale(1.2);
             transform: scale(1.2);
+            box-shadow: 0px 0px 169px 28px rgba(0,0,0,0.75);
+            transition: all 0.2s ease;
+            
 }
 .store-title {
     font-size: 1.5em;

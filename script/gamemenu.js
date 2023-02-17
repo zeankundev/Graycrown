@@ -6,11 +6,15 @@
         document.getElementById('desc').innerHTML = desc;
         if (feed == "false") document.getElementById('feed').innerHTML = `No Feed!!!`
         else document.getElementById('feed').onclick = () => {
-            window.open(
-                'child.html?uri=' + feed,
-                '_blank',
-                'icon="../assets/logo_1024.png", nodeIntegration=true, nodeIntegrationInSubFrames=true, nodeIntegrationInWorker=true, contextIsolation=false, webviewTag=true, autoHideMenuBar=true, width=1066, height=600'
-            )
+            if (feed == "false") {
+                console.log('ignoring')
+            } else {
+                window.open(
+                    'child.html?uri=' + feed,
+                    '_blank',
+                    'icon="../assets/logo_1024.png", nodeIntegration=true, nodeIntegrationInSubFrames=true, nodeIntegrationInWorker=true, contextIsolation=false, webviewTag=true, autoHideMenuBar=true, width=1066, height=600'
+                )
+            }
         }
         document.getElementById('pl').addEventListener('click', () => {
             buttonClick.play();
