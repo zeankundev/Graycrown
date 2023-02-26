@@ -186,7 +186,7 @@ body {
     background: var(--main-color);
     color: var(--main-text);
     cursor: url('../../assets/default.png'), default;
-    font-family: system-ui, 'Noto Sans Arabic';
+    font-family: 'Segoe UI Variable Small', system-ui, 'Noto Sans Arabic';
     -webkit-font-smoothing: antialiased;
     user-select: none;
 }
@@ -336,7 +336,7 @@ img {
 }
 .tab strong {
   margin-left: 1%;
-  font-family: system-ui;
+  font-family: 'Segoe UI Variable Small', system-ui;
 }
 .active {
     background-color: var(--main-hover-color);
@@ -424,7 +424,7 @@ object, iframe {
     border: none;
     border-radius: 2pt;
     padding: 12px;
-    font-family: system-ui, 'Noto Sans Arabic';
+    font-family: 'Segoe UI Variable Small', system-ui, 'Noto Sans Arabic';
     cursor: url('../../assets/pointer.png'), auto;
 }
 .button:hover {
@@ -452,7 +452,7 @@ object, iframe {
   padding: 5px;
   font-size: 15pt;
   outline: none;
-  font-family: system-ui;
+  font-family: 'Segoe UI Variable Small', system-ui;
 }
 .login {
   background-color: var(--main-hover-color);
@@ -487,7 +487,7 @@ h1 {
     background-color: var(--play-color);
     border: none;
     display: inline-block;
-    font-family: system-ui, 'Noto Sans Arabic';
+    font-family: 'Segoe UI Variable Small', system-ui, 'Noto Sans Arabic';
     padding: 10px;
     border-radius: 15px;
     color: var(--main-text);
@@ -531,7 +531,7 @@ a {
   background-color: var(--stop-color);
   border: none;
   display: inline-block;
-  font-family: system-ui, 'Noto Sans Arabic';
+  font-family: 'Segoe UI Variable Small', system-ui, 'Noto Sans Arabic';
   padding: 10px;
   border-radius: 15px;
   color: var(--main-text);
@@ -579,7 +579,7 @@ a {
     background-color: var(--download-color);
     border: none;
     display: inline-block;
-    font-family: system-ui, 'Noto Sans Arabic';
+    font-family: 'Segoe UI Variable Small', system-ui, 'Noto Sans Arabic';
     padding: 10px;
     margin-top: 10px;
     border-radius: 15px;
