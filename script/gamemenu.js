@@ -3,10 +3,10 @@
         document.getElementById('title').innerHTML = name;
         document.getElementById('developer').innerHTML = developer;
         document.getElementById('game-info').style.backgroundImage = `url(${banner})`;
-        document.getElementById('desc').innerHTML = desc;
+        document.getElementById('desc').innerText = desc;
         if (feed == "false") document.getElementById('feed').innerHTML = `No Feed!!!`
         else document.getElementById('feed').onclick = () => {
-            if (feed == "false") {
+            if (feed == "false" || feed == false || feed == '') {
                 console.log('ignoring')
             } else {
                 window.open(
@@ -31,5 +31,6 @@
             tabSwitch.play();
             document.getElementById('game-info').style.display = 'none'
             link = ''
+            feed = ''
         }   
     }
