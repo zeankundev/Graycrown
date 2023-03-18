@@ -476,6 +476,7 @@ object, iframe {
 .game-title {
     font-size: 1.5em;
     font-weight: bold;
+    color: #fff;
     margin-top: 10px;
     margin-right: 10px;
     margin-bottom: 10px;
@@ -512,7 +513,7 @@ h1 {
   display: flex;
   justify-content: center;
 }
-.startup reg-head {
+.startup p {
   display: flex;
   justify-content: center;
   text-align: center;
@@ -526,6 +527,7 @@ a {
   background-color: var(--main-color);
   z-index: 99999;
   min-height: 100vh;
+  padding-top: 2px;
 }
 .stop {
   background-color: var(--stop-color);

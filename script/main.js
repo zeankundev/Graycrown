@@ -53,11 +53,19 @@ let method;
 let stop;
 let started = false;
 const load = async () => {
-    console.log('startup being played')
+    document.getElementById('api-menu').style.display = 'none';
+    document.getElementById('add').style.display = 'none';
+    document.body.style.overflowY = 'hidden'
+    document.getElementById('downloads').style.display = 'none';
     startup.play();
-    console.log('timing out....')
-    await setTimeout(1000);
-    started = true;
+    await setTimeout(5000);
+    document.getElementById('startup').style.animation = 'fade 0.5s linear normal';
+    document.getElementById('api-menu').style.display = 'block';
+    document.getElementById('add').style.display = 'inline-block';
+    document.getElementById('downloads').style.display = 'inline-block';
+    await setTimeout(490);
+    document.getElementById('startup').style.display = 'none';
+    document.body.style.overflowY = 'auto'
 }
 load();
 document.onclick = () => {
