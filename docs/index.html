@@ -5,22 +5,21 @@
         <link rel="stylesheet" href="https://fonts.typotheque.com/WF-000099-009168.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://kit.fontawesome.com/970a0290cd.js" crossorigin="anonymous"></script>
+        <script src="./js/countdown.js"></script>
         <link rel="icon" href="./assets/images/logo_1024.png">
         <title>Graycrown</title>
     </head>
     <body>
         <div class="content">
-            <public-announcement>
-                <h2>Alert!!!!!!!!!!</h2>
-                <p>Graycrown is copied without permission and is now subject to termination. I need your help to maintain the open source community alive and free while avoiding trademark infringement.<a href="/publicserviceannouncement.html" target="_blank"> Click here to learn more.</a></p>
-  <br>
-  <p>This message will disappear when the problem has been solved. Thank you!</p>
-            </public-announcement>
             <header>
                 <img src="./assets/svg/logo.svg" width="200" style="display: inline-block;">
                 <nav style="display: inline-block;">
                     <a href="#">Home</a>
                     <a href="stylehub.html">StyleHUB</a>
+                    <div class="countdown" onclick="window.location.href = './publicserviceannouncement/html'">
+                        <i class="fa-solid fa-clock"></i>
+                        <h3 id="countdown-summary">${days}d ${hours}h ${minutes}m ${seconds}s before clone deletion</h3>
+                    </div>
                 </nav>
             </header>
             <div class="heading">

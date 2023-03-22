@@ -174,7 +174,7 @@ a {
     margin-bottom: 2px;
     display: inline-block;
 }
-h1, h2, h3, h4, h5 {
+h1, h2 {
     font-family: 'TF2';
 }
 .content {
@@ -191,7 +191,8 @@ h1, h2, h3, h4, h5 {
     background-blend-mode: multiply;
     background-size: cover;
     background-position: center;
-    padding-bottom: 35%;
+    padding-bottom: 10%;
+    padding-top: 10%;
 }
 .button {
     animation: scale-down-center 0.3s ease-out;
@@ -253,4 +254,14 @@ public-announcement {
   text-align: center;
   padding: 15px;
   top: 0;
+}
+.countdown {
+  display: inline-block;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px;
+}
+.countdown h3 {
+  display: inline-block;
+  font-weight: 500;
 }
