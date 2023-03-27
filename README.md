@@ -1,3 +1,4 @@
+![graycrown logo](https://zeankundev.github.io/graycrown/assets/svg/logo.svg)
 # Graycrown
 <div style="text-align: center;">
 <a href="https://www.producthunt.com/posts/graycrown?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-graycrown" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=363490&theme=dark" alt="Graycrown - Simple&#0044;&#0032;easy&#0032;and&#0032;fun&#0032;game&#0032;launcher&#0046; | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
@@ -10,6 +11,8 @@ After AB Studios has issued cease and desist letter to me, I have no choice but 
 Yes, it's the old Coal I made, but with a different name
 
 # Dang, how to run this shiny branded launcher?
+**EDIT PER 28/03/23:** You can run Graycrown and debug it with KDevelop. [Click here to learn how.](https://github.com/zeankundev/graycrown/wiki/Running-or-contributing-to-Graycrown-with-KDevelop)
+
 Easy, just have Node.js installed and npm.
 Then run these commands
 ```
