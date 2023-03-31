@@ -33,7 +33,7 @@ app.on('ready', () => {
         fs.writeFileSync(app.getPath('userData') + '/games.json', '{ "games": [] }');
     }
     if (!fs.existsSync(app.getPath('userData') + '/config.json')) {
-        fs.writeFileSync(app.getPath('userData') + '/config.json', '{"config":{"language":"en","custom":"https://bobuxstation.github.io/Coal-Web/games.json","styleURL":"css/default.css"}}');
+        fs.writeFileSync(app.getPath('userData') + '{"config":{"language":"en","custom":"https://bobuxstation.github.io/Coal-Web/games.json","styleURL":"css/default.css", "startup": "default"}}');
     }
     if (!fs.existsSync(app.getPath('userData') + '/styles')) {
         fs.mkdirSync(app.getPath('userData') + '/styles');

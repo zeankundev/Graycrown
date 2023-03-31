@@ -1,5 +1,5 @@
 const remote = require('@electron/remote');
-const startup = new Audio('../assets/startup.mp3');
+const startup = new Audio('../assets/supercell.mp3');
 const buttonClick = new Audio('../assets/button_click.mp3');
 const tabSwitch = new Audio('../assets/button_up.mp3');
 const buttonErr = new Audio('../assets/button_err.mp3')
@@ -310,102 +310,107 @@ openMenu(event, 'home', false)
                     .then(data => {
                         let gameList = document.getElementById("game-list-alt");
                         gameList.innerHTML = "";
-                        data.games.forEach(game => {
-                            let gameDisplay = document.createElement("div");
-                            //if game.icon is empty, use default icon
-                            if (game.icon == "" || game.icon == undefined) {
-                                game.icon = "../assets/logo_1024.png";
-                            }
-                            console.log(`Metadata of game:\n name: ${game.name}\n icon: ${game.icon}\n enableWine: ${game.enableWine}\n exec: ${game.exec}\n args: ${game.args}`)
-                            gameDisplay.className = "game-display";
-                            gameDisplay.innerHTML = `
-                                <img style="width: 48px !important; height:48px !important; border-radius:15px;" src="${game.icon}">
-                                <div class="game-title">${game.name.slice(0, 15) + (game.name.length > 15 ? '...' : '')}</div>
-                            `;
-                            gameDisplay.style.backgroundImage = `url(${game.icon})`;
-                            let secElapsed = document.createElement("p")
-                            secElapsed.style.display = 'none';
-                            let seconds = 0
-                            let gameButton = document.createElement("button");
-                            gameButton.className = "play";
-                            gameButton.innerHTML = `<span>${play}</span>`;
-                            gameButton.onclick = function() {
-                                buttonClick.play();
-                                if (gameButton.className == "play") {
-                                    seconds = 0;
-                                    secElapsed.style.display = 'block';
-                                    const timer = setInterval(function() {
-                                        seconds++
-                                        secElapsed.innerHTML = `${fmtMSS(seconds)} elapsed. <br>`
-                                        if (seconds > 59) notifDisplay('You have exceeded the maximum time of 1 minute.', 'Please take a rest')
-                                    }, 1000)
-                                    if (game.enableWine != true) {
-                                        proc = execFile(game.exec, game.args);
-                                        gameButton.className = "stop";
-                                        gameButton.innerHTML = stop;
-                                        proc.on('error', async (err) => {
-                                            await setTimeout(500)
-                                            buttonErr.play()
-                                            console.log(err)
-                                            if (err.message.includes('ENOENT')) notifDisplay('Double check where you are pointing the game executable to', 'Cannot find executable')
-                                            else if (err.message.includes('EACCES')) notifDisplay(`In order to launch ${game.name}, please rerun Graycrown as admin or by running <pre>sudo</pre> when launching Graycrown`, 'Administrator/sudo required!')
-                                            else notifDisplay(err, 'Failed to launch!')
-                                            clearInterval(timer)
-                                            gameButton.className = "play";
-                                            gameButton.innerHTML = play;
-                                            console.log(err.message)
-                                        });
-                                        proc.on('exit', () => {
-                                            clearInterval(timer)
-                                            gameButton.className = "play";
-                                            gameButton.innerHTML = play;
-                                        })
-                                    } else {
-                                        if (platform == 'win32') notifDisplay('Wine is only available for Mac or Linux', 'Your OS is unsupported');
-                                        else {
-                                            var cmdExist = require('command-exists');
-                                            if (cmdExist('wine')) {
-                                                proc = spawn('wine', [game.exec]);
-                                                gameButton.className = "stop";
-                                                gameButton.innerHTML = stop;
-                                                proc.on('error', async (err) => {
-                                                    await setTimeout(500)
-                                                    buttonErr.play()
-                                                    console.log(err.message)
-                                                    if (err.message.includes('ENOENT')) notifDisplay('Double check where you are pointing the game executable to', 'Cannot find executable')
-                                                    else if (err.message.includes('EACCES')) notifDisplay(`In order to launch ${game.name}, please rerun Graycrown as admin or by running <pre>sudo</pre> when launching Graycrown`, 'Administrator/sudo required!')
-                                                    else notifDisplay(err, 'Failed to launch!')
-                                                    clearInterval(timer)
-                                                    notifDisplay(err, 'Failed to launch!')
-                                                    gameButton.className = "play";
-                                                    gameButton.innerHTML = play;
-                                                });
-                                                proc.on('exit', () => {
-                                                    clearInterval(timer)
-                                                    gameButton.className = "play";
-                                                    gameButton.innerHTML = play;
-                                                })
-                                            } else {
-                                                notifDisplay('Wine cannot be searched. Close Graycrown, install wine, then try again.', 'Unsupported!')
+                        if (data.games.length === 0) {
+                            gameList.innerHTML = "You do not have any games. Get some games!"
+                        }
+                        else {
+                            data.games.forEach(game => {
+                                let gameDisplay = document.createElement("div");
+                                //if game.icon is empty, use default icon
+                                if (game.icon == "" || game.icon == undefined) {
+                                    game.icon = "../assets/logo_1024.png";
+                                }
+                                console.log(`Metadata of game:\n name: ${game.name}\n icon: ${game.icon}\n enableWine: ${game.enableWine}\n exec: ${game.exec}\n args: ${game.args}`)
+                                gameDisplay.className = "game-display";
+                                gameDisplay.innerHTML = `
+                                    <img style="width: 48px !important; height:48px !important; border-radius:15px;" src="${game.icon}">
+                                    <div class="game-title">${game.name.slice(0, 15) + (game.name.length > 15 ? '...' : '')}</div>
+                                `;
+                                gameDisplay.style.backgroundImage = `url(${game.icon})`;
+                                let secElapsed = document.createElement("p")
+                                secElapsed.style.display = 'none';
+                                let seconds = 0
+                                let gameButton = document.createElement("button");
+                                gameButton.className = "play";
+                                gameButton.innerHTML = `<span>${play}</span>`;
+                                gameButton.onclick = function() {
+                                    buttonClick.play();
+                                    if (gameButton.className == "play") {
+                                        seconds = 0;
+                                        secElapsed.style.display = 'block';
+                                        const timer = setInterval(function() {
+                                            seconds++
+                                            secElapsed.innerHTML = `${fmtMSS(seconds)} elapsed. <br>`
+                                            if (seconds > 59) notifDisplay('You have exceeded the maximum time of 1 minute.', 'Please take a rest')
+                                        }, 1000)
+                                        if (game.enableWine != true) {
+                                            proc = execFile(game.exec, game.args);
+                                            gameButton.className = "stop";
+                                            gameButton.innerHTML = stop;
+                                            proc.on('error', async (err) => {
+                                                await setTimeout(500)
+                                                buttonErr.play()
+                                                console.log(err)
+                                                if (err.message.includes('ENOENT')) notifDisplay('Double check where you are pointing the game executable to', 'Cannot find executable')
+                                                else if (err.message.includes('EACCES')) notifDisplay(`In order to launch ${game.name}, please rerun Graycrown as admin or by running <pre>sudo</pre> when launching Graycrown`, 'Administrator/sudo required!')
+                                                else notifDisplay(err, 'Failed to launch!')
+                                                clearInterval(timer)
+                                                gameButton.className = "play";
+                                                gameButton.innerHTML = play;
+                                                console.log(err.message)
+                                            });
+                                            proc.on('exit', () => {
+                                                clearInterval(timer)
+                                                gameButton.className = "play";
+                                                gameButton.innerHTML = play;
+                                            })
+                                        } else {
+                                            if (platform == 'win32') notifDisplay('Wine is only available for Mac or Linux', 'Your OS is unsupported');
+                                            else {
+                                                var cmdExist = require('command-exists');
+                                                if (cmdExist('wine')) {
+                                                    proc = spawn('wine', [game.exec]);
+                                                    gameButton.className = "stop";
+                                                    gameButton.innerHTML = stop;
+                                                    proc.on('error', async (err) => {
+                                                        await setTimeout(500)
+                                                        buttonErr.play()
+                                                        console.log(err.message)
+                                                        if (err.message.includes('ENOENT')) notifDisplay('Double check where you are pointing the game executable to', 'Cannot find executable')
+                                                        else if (err.message.includes('EACCES')) notifDisplay(`In order to launch ${game.name}, please rerun Graycrown as admin or by running <pre>sudo</pre> when launching Graycrown`, 'Administrator/sudo required!')
+                                                        else notifDisplay(err, 'Failed to launch!')
+                                                        clearInterval(timer)
+                                                        notifDisplay(err, 'Failed to launch!')
+                                                        gameButton.className = "play";
+                                                        gameButton.innerHTML = play;
+                                                    });
+                                                    proc.on('exit', () => {
+                                                        clearInterval(timer)
+                                                        gameButton.className = "play";
+                                                        gameButton.innerHTML = play;
+                                                    })
+                                                } else {
+                                                    notifDisplay('Wine cannot be searched. Close Graycrown, install wine, then try again.', 'Unsupported!')
+                                                }
                                             }
                                         }
-                                    }
-                                } else {
-                                    const { spawn } = require('child_process');
-                                    console.log("KILLING PROCESS")
-                                    try {
-                                        proc.kill();
-                                    }
-                                    catch (e) {
-                                        console.log(e);
-                                        notifDisplay('Failed to kill process. Try again.', 'Cannot end process')
+                                    } else {
+                                        const { spawn } = require('child_process');
+                                        console.log("KILLING PROCESS")
+                                        try {
+                                            proc.kill();
+                                        }
+                                        catch (e) {
+                                            console.log(e);
+                                            notifDisplay('Failed to kill process. Try again.', 'Cannot end process')
+                                        }
                                     }
                                 }
-                            }
-                            gameDisplay.appendChild(secElapsed)
-                            gameDisplay.appendChild(gameButton);
-                            gameList.appendChild(gameDisplay);
-                        });
+                                gameDisplay.appendChild(secElapsed)
+                                gameDisplay.appendChild(gameButton);
+                                gameList.appendChild(gameDisplay);
+                            });
+                        }
                     })
                     .catch((e) => {
                         throw new Error("GRAYCROWN_JSON_DAEMON: Hey! You can't do that! You are deleting the core of Graycrown! Reinstall Graycrown to fix this problem, or restart Graycrown.");

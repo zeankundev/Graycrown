@@ -105,6 +105,11 @@
                             <option value="css/default.css">Default Theme</option>
                             <option value="css/light.css">Light Theme</option>
                         </select>
+                        <p>Startup style</p>
+                        <select id="cus-startup" class="button">
+                            <option value="default">Default startup</option>
+                            <option value="supercell">Supercell</option>
+                        </select>
                         <br>
                         <p>Custom recommendation JSON URL:</p>
                         <input type="text" id="cus-json" class="text" style="background-color: var(--main-color); width: 20%;" value="https://gray-crown.web.app/host/Game.json">
@@ -165,7 +170,7 @@
             </div>
         </div>
         <div class="startup" id="startup">
-            <img class="startup-logo" src="../assets/logo_1024.png" style="width: 150px !important;">
+            <img class="startup-logo" id="startup-logo" src="../assets/logo_1024.png" style="width: 150px !important;">
             <br>
             <h1>
                 Graycrown
@@ -267,6 +272,9 @@
                 <br>
                 <label for="exec">Game executable: </label>
                 <input id="exec" type="text" class="text" />
+                <br>
+                <label for="env">Environment variables: </label>
+                <input id="env" type="text" class="text" />
                 <br>
                 <input type="checkbox" id="is-wine" >
                 <label for="is-wine"> Is it a Wine game?</label>
