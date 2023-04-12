@@ -12,9 +12,13 @@ class Tab {
         tab.id = `${this.divId}-tab`;
         tab.setAttribute("onclick", `openMenu(event, '${this.divId}')`);
         let img = document.createElement('img');
+        let strong = document.createElement('strong');
+        strong.innerHTML = title
         img.src = image;
         img.alt = imageAlt;
         tab.appendChild(img)
+        tab.innerHTML += '&nbsp;';
+        tab.appendChild(strong)
         tabCont.appendChild(tab)
     }
     buildDiv(inner) {

@@ -196,7 +196,7 @@ body {
     background: var(--main-color);
     color: var(--main-text);
     cursor: url('../../assets/default.png'), default;
-    font-family: 'Segoe UI Variable Small', system-ui, 'Noto Sans Arabic';
+    font-family: 'Segoe UI Variable Display', system-ui, 'Noto Sans Arabic';
     -webkit-font-smoothing: antialiased;
     user-select: none;
 }
@@ -434,7 +434,7 @@ object, iframe {
     border: none;
     border-radius: 2pt;
     padding: 12px;
-    font-family: 'Segoe UI Variable Small', system-ui, 'Noto Sans Arabic';
+    font-family: 'Segoe UI Variable Display', system-ui, 'Noto Sans Arabic';
     cursor: url('../../assets/pointer.png'), auto;
 }
 .button:hover {
@@ -498,7 +498,7 @@ h1 {
     background-color: var(--play-color);
     border: none;
     display: inline-block;
-    font-family: 'Segoe UI Variable Small', system-ui, 'Noto Sans Arabic';
+    font-family: 'Segoe UI Variable Display', system-ui, 'Noto Sans Arabic';
     padding: 10px;
     border-radius: 15px;
     color: var(--main-text);
@@ -544,7 +544,7 @@ a {
   background-color: var(--stop-color);
   border: none;
   display: inline-block;
-  font-family: 'Segoe UI Variable Small', system-ui, 'Noto Sans Arabic';
+  font-family: 'Segoe UI Variable Display', system-ui, 'Noto Sans Arabic';
   padding: 10px;
   border-radius: 15px;
   color: var(--main-text);
@@ -592,7 +592,7 @@ a {
     background-color: var(--download-color);
     border: none;
     display: inline-block;
-    font-family: 'Segoe UI Variable Small', system-ui, 'Noto Sans Arabic';
+    font-family: 'Segoe UI Variable Display', system-ui, 'Noto Sans Arabic';
     padding: 10px;
     margin-top: 10px;
     border-radius: 15px;
@@ -663,4 +663,45 @@ select, input, textarea, #add-game-form button {
   width: 100%;
   display: flex;
   flex-grow: 1;
+}
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes textAnim {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  20% {
+    transform: scale(1.1) rotate(2deg);
+  }
+  40% {
+    transform: scale(1.1) rotate(-2deg);
+  }
+  60% {
+    transform: scale(1.1) rotate(2deg);
+  }
+  80% {
+    transform: scale(1.1) rotate(-2deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
+.fun {
+  text-align: center;
+  padding-top: 20px;
+  animation: fadeIn 1s;
+  background-image: url('https://srv1.portal.p-cd.net/850p/2015/10/14/161538-1444766920-832664.jpg');
+  background-size: 70%;
+  min-height: 80vh;
+}
+.fun p {
+  font-weight: bolder;
+  font-size: 36pt;
+  animation: textAnim 1s ease infinite;
+  -webkit-text-stroke: 2px #000;
+}
+.fun .styleable {
+  color: #00cbf1;
 }

@@ -5,6 +5,7 @@ const tabSwitch = new Audio('../assets/button_up.mp3');
 const buttonErr = new Audio('../assets/button_err.mp3')
 const app = remote.app;
 const fs = require('fs');
+const os = require('os')
 const {setTimeout} = require('node:timers/promises')
 const { platform } = require('node:process')
 const Downloader = require('nodejs-file-downloader');
@@ -30,6 +31,7 @@ const modal = document.getElementById('download-modal');
 const downList = document.getElementById('download-list');
 const closeModal = document.getElementById('close-modal');
 const { spawn,execFile } = require('child_process');
+const easter = document.getElementById('secret')
 // translation area
 var heads = document.getElementsByTagName('h1')
 const welcomeBack = document.getElementById('welcome-back');
@@ -65,6 +67,7 @@ const load = async () => {
     document.getElementById('downloads').style.display = 'inline-block';
     await setTimeout(490);
     document.getElementById('startup').style.display = 'none';
+    document.getElementById('username').innerHTML = os.userInfo().username
     document.body.style.overflowY = 'auto'
 }
 load();
@@ -178,11 +181,26 @@ notif.onclick = () => {
     notif.style.display = 'none';
 }
 var count = 0
+easter.onclick = async function() {
+    count++
+    console.log('set count to: ' + count)
+    if (count == 10) {
+        const theAudio = new Audio('../assets/winxp.mp3')
+        console.log('OK')
+        count = 0;
+        document.getElementById('fun').style.display = 'block'
+        await setTimeout(1000)
+        theAudio.play()
+        await setTimeout(7000)
+        document.getElementById('fun').style.display = 'none'
+    }
+    await setTimeout(2000)
+    lol()
+}
 function lol() {
     count = 0
     console.log('reset count to ' + count)
 }
-
 const getWin = () => remote.BrowserWindow.getFocusedWindow();
 var logic = 0;
 const closeWin = () => {

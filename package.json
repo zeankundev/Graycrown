@@ -69,6 +69,7 @@
     "node-notifier": "^10.0.1",
     "nodejs-file-downloader": "^4.10.2",
     "open": "^8.4.0",
+    "openai": "^3.2.1",
     "shell": "^0.5.1",
     "webpack": "^5.74.0"
   }
