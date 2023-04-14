@@ -180,23 +180,46 @@ async function notifDisplay(txt, title) {
 notif.onclick = () => {
     notif.style.display = 'none';
 }
-var count = 0
-easter.onclick = async function() {
-    count++
-    console.log('set count to: ' + count)
-    if (count == 10) {
-        const theAudio = new Audio('../assets/winxp.mp3')
-        console.log('OK')
-        count = 0;
-        document.getElementById('fun').style.display = 'block'
-        await setTimeout(1000)
-        theAudio.play()
-        await setTimeout(7000)
-        document.getElementById('fun').style.display = 'none'
-    }
-    await setTimeout(2000)
-    lol()
+let clickCount = 0;
+let isBlocked = false;
+
+const cooldownDuration = 5000; // 5 seconds
+const clickLimit = 10;
+
+function block() {
+  console.log('blocked!');
+  isBlocked = true;
+  setTimeout(() => {
+    console.log('unblocked!');
+    isBlocked = false;
+  }, cooldownDuration);
 }
+
+async function handleClick() {
+  if (isBlocked) {
+    notifDisplay('ur ears are gonna hurt if u do it again not gonna lie<br>pls dont blame me if u are now deaf bc of that', 'pls stop it')
+  }
+
+  clickCount++;
+  console.log('set click count to: ' + clickCount);
+
+  if (clickCount >= clickLimit) {
+    const theAudio = new Audio('../assets/winxp.mp3');
+    document.getElementById('fun').style.display = 'block';
+    await setTimeout(1000);
+    theAudio.play();
+    await setTimeout(7000);
+    document.getElementById('fun').style.display = 'none';
+    clickCount = 0;
+    block();
+  }
+
+  await setTimeout(2000);
+  lol();
+}
+
+easter.onclick = handleClick;
+
 function lol() {
     count = 0
     console.log('reset count to ' + count)
