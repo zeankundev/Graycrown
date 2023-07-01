@@ -57,6 +57,7 @@ let started = false;
 const load = async () => {
     document.getElementById('api-menu').style.display = 'none';
     document.getElementById('add').style.display = 'none';
+    document.getElementById('gctv-mode').style.display = 'none';
     document.body.style.overflowY = 'hidden'
     document.getElementById('downloads').style.display = 'none';
     startup.play();
@@ -64,6 +65,7 @@ const load = async () => {
     document.getElementById('startup').style.animation = 'fade 0.5s linear normal';
     document.getElementById('api-menu').style.display = 'block';
     document.getElementById('add').style.display = 'inline-block';
+    document.getElementById('gctv-mode').style.display = 'inline-block';
     document.getElementById('downloads').style.display = 'inline-block';
     await setTimeout(490);
     document.getElementById('startup').style.display = 'none';
@@ -71,6 +73,12 @@ const load = async () => {
     document.body.style.overflowY = 'auto'
 }
 load();
+document.getElementById('gctv-mode').onclick = () => {
+    notifDisplay(`
+    GraycrownTV is not fully developed yet. Make sure to stay tuned <br>
+    on Graycrown's Twitter, <b>@GraycrownApp</b> for updates and info.
+    `, 'Work-in-progress')
+}
 document.onclick = () => {
     notif.style.display = 'none';
     tabSwitch.pause();

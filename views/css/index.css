@@ -413,6 +413,9 @@ h1, h2, h3, h4, h5 {
   font-family: cartoon, game-serif, 'Noto Sans Arabic';
   font-weight: 700;
 }
+#title-text {
+  margin-bottom: 5px;
+}
 .navbutton:hover {
     background: var(--main-hover-color) !important;
 }
