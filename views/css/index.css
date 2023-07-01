@@ -16,25 +16,25 @@
 }
 @-webkit-keyframes slide-bottom {
   0% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
+    -webkit-transform: translateX(-150px);
+            transform: translateX(-150px);
             opacity: 0;
   }
   100% {
-    -webkit-transform: translateY(50px);
-            transform: translateY(50px);
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
             opacity: 1;
   }
 }
 @keyframes slide-bottom {
   0% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
+    -webkit-transform: translateX(-150px);
+            transform: translateX(-150px);
             opacity: 0;
   }
   100% {
-    -webkit-transform: translateY(50px);
-            transform: translateY(50px);
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
             opacity: 1;
   }
 }
@@ -199,6 +199,7 @@ body {
     font-family: 'Segoe UI Variable Display', system-ui, 'Noto Sans Arabic';
     -webkit-font-smoothing: antialiased;
     user-select: none;
+    overflow-y: hidden !important;
 }
 reg-head {
   font-family: 'TF2 Head Light', sans-serif;
@@ -629,18 +630,18 @@ a {
   z-index: 999999999;
 }
 .modal {
-    background-color: var(--main-color);
-    width: fit-content;
-    display: none;
-    -webkit-animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-	  animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-    position: absolute;
-    top: 3%;
-    left: 40%;
-    padding: 10px;
-    border-radius: 15px;
-    z-index: 9;
-    align-items: center;
+  background-color: var(--main-color);
+  width: fit-content;
+  display: none;
+  -webkit-animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  position: absolute;
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.3);
+  top: 6.5%;
+  height: 88.8vh;
+  padding: 17px;
+  z-index: 9;
+  align-items: center;
 }
 select, input, textarea, #add-game-form button {
     background-color: var(--main-color);

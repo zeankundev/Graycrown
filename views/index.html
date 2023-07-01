@@ -5,6 +5,14 @@
         <link rel="stylesheet" id="css" href="css/default.css">
     </head>
     <body>
+        <div class="modal" id="download-modal">
+            <h1 id="downloads-text">Downloads</h1>
+            <span class="close" id="close-modal">&times;</span>
+            <br>
+            <div id="download-list">
+                <span id="no-downloads" id="no-downloads">No downloads. Check back soon!</span>
+            </div>
+        </div>
         <div class="head">
             <div class="menu-tab">
                 <div id="api-menu">
@@ -98,6 +106,7 @@
                             <option value="nl">Nederlands</option>
                             <option value="sw">Kiswalihi</option>
                             <option value="jp">日本語</option>
+			    <option value="ru">Русский</option>
                         </select>
                         <br>
                         <p>Styling</p>
@@ -249,14 +258,6 @@
                 <input type="password" class="button" placeholder="Confirm password">
                 <br>
                 <button class="button">Sign up</button>
-            </div>
-        </div>
-        <div class="modal" id="download-modal">
-            <h1 id="downloads-text">Downloads</h1>
-            <span class="close" id="close-modal">&times;</span>
-            <br>
-            <div id="download-list">
-                <span id="no-downloads" id="no-downloads">No downloads. Check back soon!</span>
             </div>
         </div>
         <div class="modal" id="add-form">
