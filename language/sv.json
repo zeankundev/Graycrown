@@ -1,0 +1,25 @@
+{
+    "code": "sv",
+    "translations": {
+        "welcomeBack": "Välkommen tillbaka!",
+        "library": "Bibliotek",
+        "store": "Butik",
+        "settings": "Inställningar",
+        "wineSettings": "Vinställningar (endast Linux, Mac eller FreeBSD)",
+        "downloads": "Nedladdningar",
+        "noDownloads": "Inga nedladdningar. Kolla tillbaka snart!",
+        "info": "Spelinformation",
+        "play": "Spela",
+        "stop": "Stoppa spel",
+        "downloadAndInstall": "Ladda ner och installera",
+        "refreshStore": "Uppdatera butiken",
+        "wineConfig": "Vin-konfiguration",
+        "toLibrary": "Gå till biblioteket!",
+        "refInternet": "Uppdatera internetanslutningen",
+        "recForU": "Rekommenderat för dig",
+        "internetDisconnected": "Internetanslutningen bortkopplad 😥",
+        "discL1": "Oroa dig inte, kompis! Du har fortfarande en chans! Allt du behöver göra är att",
+        "discL2": "ansluta till internet igen och klicka på knappen för att uppdatera! 😉",
+        "home": "Hem"
+    }
+}

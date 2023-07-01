@@ -411,7 +411,7 @@ img {
 }
 h1, h2, h3, h4, h5 {
   font-family: cartoon, game-serif, 'Noto Sans Arabic';
-  font-weight: 400;
+  font-weight: 700;
 }
 .navbutton:hover {
     background: var(--main-hover-color) !important;
