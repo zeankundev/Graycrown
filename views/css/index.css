@@ -296,6 +296,26 @@ reg-head {
   input[type="number"] {
     width: 28px;
   }
+  input[type="checkbox"] {
+    width: 25px;
+    transform: scale(1);
+    height: 25px;
+    appearance: none;
+    vertical-align: middle;
+    background-color: var(--main-color);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: 2px solid #333;
+    border-radius: 4px;
+    outline: none;
+    transition: transform 0.2s;
+  }
+  input[type="checkbox"]:active {
+    transform: scale(0.8);
+  }
+  input[type="checkbox"]:checked {
+    background-color: var(--download-color);
+  }
 img {
     width: 20px;
 }
@@ -634,7 +654,7 @@ a {
 }
 .modal {
   background-color: var(--main-color);
-  width: fit-content;
+  width: 22%;
   display: none;
   -webkit-animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
   animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
@@ -708,4 +728,41 @@ select, input, textarea, #add-game-form button {
 }
 .fun .styleable {
   color: #00cbf1;
+}
+/* CSS */
+.icon-preview {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-preview img {
+  width: 230px;
+  height: 230px;
+  border-radius: 60px;
+}
+
+.icon-add-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  border-radius: 60px;
+  width: 100%;
+  height: 100%;
+  transition: all 0.2s ease;
+  border: 2px dashed white;
+  background-color: rgba(255, 255, 255, 0.3);
+  text-align: center;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.icon-preview:hover .icon-add-icon {
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease;
+  justify-content: center;
 }

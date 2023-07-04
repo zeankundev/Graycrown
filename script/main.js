@@ -13,6 +13,7 @@ const notifier = require('node-notifier');
 const download = require('download');
 const { ipcRenderer } = require('electron');
 const { url } = require('inspector');
+const addIcon = document.getElementById('icon-add')
 const path = require('path');
 const cssDir = fs.readdirSync(path.join(app.getPath('userData'), 'styles'))
 const pluginDir = fs.readdirSync(path.join(app.getPath('userData', 'plugins')))
@@ -52,6 +53,7 @@ let libText;
 let language;
 let authCode;
 let method;
+let iconPath;
 let stop;
 let started = false;
 const load = async () => {
@@ -271,6 +273,40 @@ window.onclick = function(event) {
         document.getElementById('add-form').style.display = "none";
     }
 }
+addIcon.onclick = () => {
+    const dialog = remote.dialog
+
+    dialog.showOpenDialog({
+        title: 'Open Graycrown Icon',
+        properties: ['openFile'],
+        filters: [
+            {name: 'Icons', extensions: ['jpg', 'png', 'jpeg', 'ico', 'bmp']}
+        ]
+    }).then(result => {
+        const filePaths = result.filePaths;
+        iconPath = filePaths
+        if (filePaths == '' || null) {
+            document.getElementById('actual-preview').setAttribute('src', '../assets/logo_1024.png')
+        } else {
+            document.getElementById('actual-preview').setAttribute('src', filePaths)
+        }
+    });
+}
+document.getElementById('search-exec').onclick = () => {
+    const dialog = remote.dialog
+
+    dialog.showOpenDialog({
+        title: 'Open Graycrown Icon',
+        properties: ['openFile'],
+        filters: [
+            {name: 'Icons', extensions: ['exe', 'bat', 'msixbundle']},
+            {name: 'Linux binaries', extensions: ['*']}
+        ]
+    }).then(result => {
+        const filePaths = result.filePaths.map(path => path.replace(/\\/g, '\\\\'));
+        document.getElementById('exec').value = filePaths
+    });
+}
 document.getElementById('submit').onclick = () => {
         const configDir = app.getPath('userData');
         let jsonData = require(configDir + '/games.json');
@@ -279,7 +315,7 @@ document.getElementById('submit').onclick = () => {
             let id = "false";
             obj['games'].push({
                 "name": document.getElementById('name').value,
-                "icon": document.getElementById('icon').value,
+                "icon": iconPath,
                 "exec": document.getElementById('exec').value,
                 "enableWine": document.getElementById('is-wine').checked
               });
@@ -288,7 +324,7 @@ document.getElementById('submit').onclick = () => {
               obj['games'].push({
                 "id": document.getElementById('id').value,
                 "name": document.getElementById('name').value,
-                "icon": document.getElementById('icon').value,
+                "icon": iconPath,
                 "exec": document.getElementById('exec').value,
                 "enableWine": document.getElementById('is-wine').checked
               });
@@ -300,6 +336,8 @@ document.getElementById('submit').onclick = () => {
                  console.log(err); 
                 }
             });
+            iconPath = ''
+            document.getElementById('actual-preview').setAttribute('src', '../assets/logo_1024.png')
 }
 openMenu(event, 'home', false)
 // check available games in the games.json file

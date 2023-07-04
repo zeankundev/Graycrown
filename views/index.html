@@ -267,20 +267,20 @@
             <span class="close" id="close-modal-add">&times;</span>
             <br>
             <div id="add-in-form">
-                <label for="name">Game name: </label>
-                <input id="name" type="text" class="text" />
+                <div class="icon-preview" id="icon-add">
+                    <img src="../assets/logo_1024.png" id="actual-preview">
+                    <div class="icon-add-icon">
+                        Add an icon
+                    </div>
+                </div>
+                <input id="name" type="text" class="text" placeholder="Game name"/>
                 <br>
-                <label for="id">Game ID: </label>
-                <input id="id" type="text" class="text" />
+                <input id="id" type="text" class="text" placeholder="Game ID" />
                 <br>
-                <label for="icon">Icon: </label>
-                <input id="icon" type="text" class="text" />
+                <input id="exec" type="text" class="text" placeholder="Game executable"/>
+                <button class="button" id="search-exec"><img src="../assets/new_icons/ic_fluent_open_folder_24_regular.svg"></button>
                 <br>
-                <label for="exec">Game executable: </label>
-                <input id="exec" type="text" class="text" />
-                <br>
-                <label for="env">Environment variables: </label>
-                <input id="env" type="text" class="text" />
+                <input id="env" type="text" class="text" placeholder="Environment variables (broken)"/>
                 <br>
                 <input type="checkbox" id="is-wine" >
                 <label for="is-wine"> Is it a Wine game?</label>
