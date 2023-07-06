@@ -495,9 +495,17 @@ object, iframe {
   font-family: 'Segoe UI Variable Small', system-ui;
 }
 .login {
-  background-color: var(--main-hover-color);
-  z-index: 99999;
-  min-height: 100vh;
+  background: var(--main-hover-color);
+  overflow-y: auto;
+  padding: 20px;
+  margin: 5px;
+  border-radius: 10px;
+  position: absolute;
+  top: 52px;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
 }
 .login h1 {
   font-size: 48pt;
@@ -638,8 +646,11 @@ a {
   background-blend-mode: multiply;
   animation: slide-in-blurred-right 0.5s ease-in-out both;
   display: block;
+  margin: 5px;
+  margin-top: 0px;
   min-height: 100vh;
   overflow-y: scroll;
+  border-radius: 10px;
 }
 .info {
   padding: 20px;

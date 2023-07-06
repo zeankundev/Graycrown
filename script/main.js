@@ -418,8 +418,12 @@ openMenu(event, 'home', false)
                                 secElapsed.style.display = 'none';
                                 let seconds = 0
                                 let gameButton = document.createElement("button");
+                                let optionsMenu = document.createElement('button')
                                 gameButton.className = "play";
                                 gameButton.innerHTML = `<span>${play}</span>`;
+                                optionsMenu.className = 'download'
+                                optionsMenu.style = "width: 40px !important; margin-left: 5px;"
+                                optionsMenu.innerHTML = '<img style="width: 16px !important; height: 16px !important;" src="../assets/new_icons/ic_fluent_apps_list_detail_24_regular.svg">'
                                 gameButton.onclick = function() {
                                     buttonClick.play();
                                     if (gameButton.className == "play") {
@@ -495,6 +499,7 @@ openMenu(event, 'home', false)
                                 }
                                 gameDisplay.appendChild(secElapsed)
                                 gameDisplay.appendChild(gameButton);
+                                gameDisplay.appendChild(optionsMenu)
                                 gameList.appendChild(gameDisplay);
                             });
                         }
@@ -679,4 +684,19 @@ function spawnWine(processType) {
     spawn.stdout.on('data', (data) => {
         console.log(`stdout: ${data}`);
     });
+}
+let currentSpeed = 1.0;
+
+function readAloud(text) {
+  const utterance = new SpeechSynthesisUtterance();
+
+  console.log(window.speechSynthesis.getVoices()[0])
+
+  // Set the voice and speed
+  utterance.voice = window.speechSynthesis.getVoices()[0];
+  utterance.rate = currentSpeed;
+
+  // Speak the text
+  utterance.text = text
+  window.speechSynthesis.speak(utterance);
 }
