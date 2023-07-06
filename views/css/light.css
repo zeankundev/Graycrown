@@ -105,6 +105,9 @@
 #gctv {
     content: url('../../assets/new_icons/light/ic_fluent_tv_24_regular.svg');
 }
+#mswp {
+    content: url('../../assets/new_icons/light/ic_fluent_flag_24_regular.svg');
+}
 .recommend-display {
     background-color: rgba(0, 0, 0, 0.7) !important;
     background-blend-mode: multiply;

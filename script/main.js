@@ -700,3 +700,6 @@ function readAloud(text) {
   utterance.text = text
   window.speechSynthesis.speak(utterance);
 }
+const unlockMine = () => {
+    document.getElementById('minesweeper-tab').style.display = ''
+}

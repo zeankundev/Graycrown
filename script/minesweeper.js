@@ -221,7 +221,7 @@ class Minesweeper {
         if (!cell.isFlagged) {
           cell.isFlagged = true;
           cellElement.classList.add("flagged");
-          cellElement.innerHTML = '<img src="../assets/minesweeper_1024.png">'
+          cellElement.innerHTML = '<img src="../assets/new_icons/ic_fluent_flag_24_regular.svg">'
           mineCount.textContent = parseFloat(mineCount.textContent) - 1;
           if (cell.isMine) {
             this.minesFound++;

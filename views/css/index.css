@@ -648,7 +648,7 @@ a {
   display: block;
   margin: 5px;
   margin-top: 0px;
-  min-height: 100vh;
+  max-height: 91.5vh;
   overflow-y: scroll;
   border-radius: 10px;
 }
