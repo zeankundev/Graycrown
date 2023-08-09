@@ -363,8 +363,6 @@ img {
     align-items: center;
     color: var(--main-text);
     background: none;
-    margin: 5px;
-    border-radius: 10px;
     min-height: 47px;
 }
 .tab strong {
@@ -378,10 +376,8 @@ img {
 
 .container {
     background: var(--main-hover-color);
-    overflow-y: auto;
+    overflow-y: scroll;
     padding: 20px;
-    margin: 5px;
-    border-radius: 10px;
 }
 .navbars {
     margin-left: auto;
@@ -391,8 +387,6 @@ img {
     padding: 12px;
     -webkit-appearance: none;
     outline: none;
-    margin: 5px;
-    border-radius: 10px;
     border: none;
     background: var(--main-color);
 }
@@ -447,7 +441,7 @@ h1, h2, h3, h4, h5 {
 }
 .container {
     position: absolute;
-    top: 52px;
+    top: 47px;
     right: 0;
     left: 0;
     bottom: 0;
@@ -648,7 +642,7 @@ a {
   display: block;
   margin: 5px;
   margin-top: 0px;
-  max-height: 91.5vh;
+  max-height: 100vh;
   overflow-y: scroll;
   border-radius: 10px;
 }
