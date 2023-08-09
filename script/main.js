@@ -127,7 +127,7 @@ fetch(app.getPath('userData') + '/config.json')
     fetch(`../language/${data.config.language}.json`)
     .then((res) => res.json())
     .then(data => {
-        document.getElementById('welcome-back').innerHTML = data.translations.welcomeBack
+        document.getElementById('welcome-back').innerHTML = data.translations.home
         document.getElementById('home-txt').innerHTML = data.translations.home
         document.getElementById('library-txt').innerHTML = data.translations.library
         document.getElementById('store-txt').innerHTML = data.translations.store

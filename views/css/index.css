@@ -430,8 +430,8 @@ img {
   }
 }
 h1, h2, h3, h4, h5 {
-  font-family: cartoon, game-serif, 'Noto Sans Arabic';
-  font-weight: 700;
+  font-family: cartoon, 'Noto Sans Korean',  'Noto Sans Arabic', 'Noto Sans Japanese';
+  font-weight: 900;
 }
 #title-text {
   margin-bottom: 5px;
