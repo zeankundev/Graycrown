@@ -154,7 +154,7 @@
 body {
     color: #fff;
     background-color: #1d1d1d;
-    font-family: 'Typonine Sans', sans-serif;
+    font-family: 'Whitney', sans-serif;
     overflow-y: scroll;
 }
 header {
@@ -201,7 +201,7 @@ h1, h2 {
     background-color: #1d1d1d;
     -webkit-appearance: none;
     color: #fff;
-    font-family: 'Typonine Sans', sans-serif;
+    font-family: 'Whitney', sans-serif;
     border: none;
     font-weight: bold;
     border-radius: 5px;
