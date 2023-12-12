@@ -430,7 +430,8 @@ img {
   }
 }
 h1, h2, h3, h4, h5 {
-  font-family: cartoon, 'Noto Sans Korean',  'Noto Sans Arabic', 'Noto Sans Japanese';
+  font-family: cartoon, 'Noto Sans Korean',  'Noto Sans Arabic', 'Noto Sans Japanese', system-ui;
+  text-transform: uppercase;
   font-weight: 900;
 }
 #title-text {
@@ -640,11 +641,9 @@ a {
   background-blend-mode: multiply;
   animation: slide-in-blurred-right 0.5s ease-in-out both;
   display: block;
-  margin: 5px;
   margin-top: 0px;
   max-height: 100vh;
   overflow-y: scroll;
-  border-radius: 10px;
 }
 .info {
   padding: 20px;

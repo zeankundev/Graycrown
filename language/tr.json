@@ -1,0 +1,25 @@
+{
+    "code": "tr",
+    "translations": {
+        "welcomeBack": "Başlangıç",
+        "library": "Kütüphane",
+        "store": "Mağaza",
+        "settings": "Ayarlar",
+        "wineSettings": "Wine Ayarları (Sadece Linux, Mac veya FreeBSD)",
+        "downloads": "İndirmeler",
+        "noDownloads": "İndirme yok. Yakında kontrol edin!",
+        "info": "Oyun Bilgisi",
+        "play": "Oyna",
+        "stop": "Oyunu Durdur",
+        "downloadAndInstall": "İndir ve Yükle",
+        "refreshStore": "Mağazayı Yenile",
+        "wineConfig": "Wine Yapılandırması",
+        "toLibrary": "Kütüphaneye Git!",
+        "refInternet": "İnternet Bağlantısını Yenile",
+        "recForU": "Sana Tavsiye Edilenler",
+        "internetDisconnected": "İnternet Bağlantısı Kesildi 😥", 
+        "discL1": "Endişelenme dostum! Hala bir şansın var! Yapman gereken tek şey",
+        "discL2": "internet bağlantını yeniden kurmak ve ardından yenileme düğmesine tıklamak! 😉",
+        "home": "Başlangıç"
+    }
+}

@@ -296,7 +296,7 @@ document.getElementById('search-exec').onclick = () => {
     const dialog = remote.dialog
 
     dialog.showOpenDialog({
-        title: 'Open Graycrown Icon',
+        title: 'Open Executable',
         properties: ['openFile'],
         filters: [
             {name: 'Icons', extensions: ['exe', 'bat', 'msixbundle']},
@@ -589,7 +589,7 @@ openMenu(event, 'home', false)
         })
     }
     function fetchStores() {
-        fetch('https://zeankundev.github.io/cdn/Store.json', {cache: 'no-store'})
+        fetch('https://raw.githubusercontent.com/SerialDesignatorN/cdn/main/Store.json', {cache: 'no-store'})
             .then(response => response.json())
             .then(data => {
                 let storeList = document.getElementById("store-list");
