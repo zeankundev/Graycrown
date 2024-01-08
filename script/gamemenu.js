@@ -4,6 +4,7 @@
         document.getElementById('developer').innerHTML = developer;
         document.getElementById('game-info').style.backgroundImage = `url(${banner})`;
         document.getElementById('desc').innerText = desc;
+        document.getElementById('pl').innerText = play;
         if (feed == '' || feed == "false" || feed == false) document.getElementById('feed').innerHTML = `No Feed!!!`
         else document.getElementById('feed').onclick = () => {
             if (feed == "false" || feed == false || feed == '') {

@@ -107,6 +107,32 @@ function formatBytes(bytes) {
     }
   }
 function fmtMSS(s){return(s-(s%=60))/60+(9<s?':':':0')+s}
+function getLocal(key) {
+    const defaultLanguage = 'en'; // Set your default language here (e.g., English)
+
+    return fs.readFile(app.getPath('userData') + '/config.json', 'utf-8')
+        .then(configData => JSON.parse(configData))
+        .then(parsedConfigData => {
+            if (!parsedConfigData || !parsedConfigData.config || !parsedConfigData.config.language) {
+                return defaultLanguage;
+            }
+
+            const language = parsedConfigData.config.language;
+
+            return fs.readFile(`../language/${language}.json`, 'utf-8')
+                .then(langData => JSON.parse(langData))
+                .then(parsedLangData => {
+                    // If the key is not found in the language data, default to the default language
+                    return parsedLangData.translations && parsedLangData.translations[key]
+                        ? parsedLangData.translations[key]
+                        : defaultLanguage;
+                });
+        })
+        .catch(error => {
+            console.error(error);
+            return defaultLanguage;
+        });
+}
 fetch(app.getPath('userData') + '/config.json')
 .then(response => response.json())
 .then(data => {
@@ -413,7 +439,7 @@ openMenu(event, 'home', false)
                                     <img style="width: 48px !important; height:48px !important; border-radius:15px;" src="${game.icon}">
                                     <div class="game-title">${game.name.slice(0, 15) + (game.name.length > 15 ? '...' : '')}</div>
                                 `;
-                                gameDisplay.style.backgroundImage = `url(${game.icon})`;
+                                gameDisplay.style.backgroundImage = `url('${game.icon}')`;
                                 let secElapsed = document.createElement("p")
                                 secElapsed.style.display = 'none';
                                 let seconds = 0
