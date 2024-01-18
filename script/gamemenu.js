@@ -1,3 +1,4 @@
+    const windowObject = new GCWindowIntitializer()
     function spw(name, banner, desc, developer, feed, link) {
         document.getElementById('game-info').style.display = 'block'
         document.getElementById('title').innerHTML = name;
@@ -10,22 +11,17 @@
             if (feed == "false" || feed == false || feed == '') {
                 console.log('ignoring')
             } else {
-                window.open(
-                    'child.html?uri=' + feed,
-                    '_blank',
-                    'icon="../assets/logo_1024.png", nodeIntegration=true, nodeIntegrationInSubFrames=true, nodeIntegrationInWorker=true, contextIsolation=false, webviewTag=true, autoHideMenuBar=true, width=1066, height=600'
-                )
+                const windowObject = new GCWindowIntitializer(feed)
+                windowObject.OpenWindow()
             }
         }
         document.getElementById('pl').addEventListener('click', () => {
             buttonClick.play();
             if (link == '') console.log('ignoring to open...');
-            else { window.open(
-                'child.html?uri=' + link,
-                '_blank',
-                'icon="../assets/logo_1024.png", nodeIntegration=true, nodeIntegrationInSubFrames=true, nodeIntegrationInWorker=true, contextIsolation=false, webviewTag=true, autoHideMenuBar=true, width=1066, height=600'
-            )
-            console.log('opening ' + link)
+            else { 
+                const windowObject = new GCWindowIntitializer(link)
+                windowObject.OpenWindow()
+                console.log('opening ' + link)
             }
         })
         document.getElementById('bk').onclick = () => {

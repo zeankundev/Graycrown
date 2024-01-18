@@ -34,7 +34,7 @@ refresh.addEventListener('click', function(e) {
 webView.addEventListener('did-start-loading', () => {
     ref.setAttribute('src', '../assets/new_icons/ic_fluent_dismiss_24_regular.svg')
 })
-webview.addEventListener('did-stop-loading', () => {
+webView.addEventListener('did-stop-loading', () => {
     title.innerHTML = webView.src;
     ref.setAttribute('src' , '../assets/new_icons/ic_fluent_arrow_clockwise_24_regular.svg')
 });
