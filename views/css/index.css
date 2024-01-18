@@ -368,6 +368,7 @@ img {
 .tab strong {
   margin-left: 1%;
   font-family: 'Segoe UI Variable Small', system-ui;
+  min-width: max-content;
 }
 .active {
     background-color: var(--main-hover-color);
