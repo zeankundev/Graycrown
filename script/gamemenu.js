@@ -1,4 +1,3 @@
-    const windowObject = new GCWindowIntitializer()
     function spw(name, banner, desc, developer, feed, link) {
         document.getElementById('game-info').style.display = 'block'
         document.getElementById('title').innerHTML = name;
