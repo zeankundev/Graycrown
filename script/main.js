@@ -56,6 +56,22 @@ let method;
 let iconPath;
 let stop;
 let started = false;
+fs.readdir(app.getPath('userData') + '/plugins', (err, files) => {
+    if (err) {
+      console.error('Error reading folder:', err);
+      return;
+    }
+    console.log(files)
+    const jsFiles = files.filter(file => path.extname(file) === '.js');
+  
+    jsFiles.forEach(jsFile => {
+      const scriptTag = document.createElement('script');
+      scriptTag.src = path.join(app.getPath('userData') + '/plugins', jsFile);
+      document.body.appendChild(scriptTag)
+      console.log(scriptTag);
+      // You can now use the scriptTag variable to dynamically inject it into your HTML or do whatever you need.
+    });
+  });
 const load = async () => {
     document.getElementById('api-menu').style.display = 'none';
     document.getElementById('add').style.display = 'none';
@@ -309,7 +325,8 @@ addIcon.onclick = () => {
             {name: 'Icons', extensions: ['jpg', 'png', 'jpeg', 'ico', 'bmp']}
         ]
     }).then(result => {
-        const filePaths = result.filePaths;
+        const filePaths = result.filePaths.map(path => path.replace(/\\/g, '\\\\'));
+        console.log(filePaths)
         iconPath = filePaths
         if (filePaths == '' || null) {
             document.getElementById('actual-preview').setAttribute('src', '../assets/logo_1024.png')
@@ -439,7 +456,7 @@ openMenu(event, 'home', false)
                                     <img style="width: 48px !important; height:48px !important; border-radius:15px;" src="${game.icon}">
                                     <div class="game-title">${game.name.slice(0, 15) + (game.name.length > 15 ? '...' : '')}</div>
                                 `;
-                                gameDisplay.style.backgroundImage = `url('${game.icon}')`;
+                                gameDisplay.style.backgroundImage = `url("${game.icon}")`;
                                 let secElapsed = document.createElement("p")
                                 secElapsed.style.display = 'none';
                                 let seconds = 0
