@@ -488,7 +488,7 @@ object, iframe {
   padding: 5px;
   font-size: 15pt;
   outline: none;
-  font-family: 'Segoe UI Variable Small', system-ui;
+  font-family: 'Segoe UI Variable Display', system-ui;
 }
 .login {
   background: var(--main-hover-color);
