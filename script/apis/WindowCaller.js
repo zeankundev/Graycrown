@@ -1,4 +1,4 @@
-class GCWindowIntitializer {
+class GCWindowInitializer {
     constructor(url, width, height) {
         this.link = url
         if (width != null || width == '') this.width = width;

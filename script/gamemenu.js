@@ -10,7 +10,7 @@
             if (feed == "false" || feed == false || feed == '') {
                 console.log('ignoring')
             } else {
-                const windowObject = new GCWindowIntitializer(feed)
+                const windowObject = new GCWindowInitializer(feed)
                 windowObject.OpenWindow()
             }
         }
@@ -18,7 +18,7 @@
             buttonClick.play();
             if (link == '') console.log('ignoring to open...');
             else { 
-                const windowObject = new GCWindowIntitializer(link)
+                const windowObject = new GCWindowInitializer(link)
                 windowObject.OpenWindow()
                 console.log('opening ' + link)
             }
