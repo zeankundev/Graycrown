@@ -43,6 +43,8 @@ const settings = document.getElementById('settings');
 const wineSettings = document.getElementById('wine-settings');
 const downloadsText = document.getElementById('downloads-text');
 const noDownloads = document.getElementById('no-downloads');
+
+let DOWNLOAD_URI = 'https://chocobartech.github.io/GCExtensionRepositoryList'
 // end of translation area
 // fetch json of corresponding language
 let lang;
@@ -632,17 +634,17 @@ openMenu(event, 'home', false)
         })
     }
     function fetchStores() {
-        fetch('https://raw.githubusercontent.com/SerialDesignatorN/cdn/main/Store.json', {cache: 'no-store'})
+        fetch(`${DOWNLOAD_URI}/extensions.json`, {cache: 'no-store'})
             .then(response => response.json())
             .then(data => {
                 let storeList = document.getElementById("store-list");
                 storeList.innerHTML = '';
-                data.store.forEach(store => {
+                data.extensions.forEach(store => {
                     let storeDisplay = document.createElement("div");
                     storeDisplay.className = "store-display";
                     storeDisplay.innerHTML = `
                         <div class="store-title">${store.name}</div>
-                        <div class="store-description">${store.summary.slice(0, 25) + (store.summary.length > 25 ? '...' : '')}</div>
+                        <div class="store-description">${store.description.slice(0, 25) + (store.description.length > 25 ? '...' : '')}</div>
                     `;
                     let downButton = document.createElement("button");
                     downButton.className = "download";
@@ -654,21 +656,6 @@ openMenu(event, 'home', false)
                         modal.style.display = 'block';
                         buttonClick.play();
                         const configDir = app.getPath('userData');
-                        let jsonData = require(configDir + '/games.json');
-                        var obj = (jsonData);
-                        let wine = false;
-                        if (process.platform == 'win32') wine = false;
-                        else wine = true;
-                        obj['games'].push({
-                            "name": store.name,
-                            "icon": "",
-                            "exec": path.join(configDir, '/downloads/', store.id),
-                            "enableWine": wine
-                        });
-                        jsonStr = JSON.stringify(obj);
-                        const gameListDir = configDir + "/games.json";
-                        console.log(jsonStr)
-                        fs.writeFile(gameListDir, jsonStr, (err) => { if (err) { console.log(err); }});
                         
                         downList.innerHTML = "";
                         let downStatus = document.createElement('div')
@@ -683,13 +670,13 @@ openMenu(event, 'home', false)
                         bar.setAttribute('max', '100')
                         bar.value = 0;
                         downProgress.innerHTML = "Waiting for download to start, please wait...";
-                        fetch(store.download)
+                        fetch(`${DOWNLOAD_URI}/extensions/${store.file}`)
                             .then(async () => {
                                 const down = new Downloader({
-                                    url: store.download,
-                                    directory: path.join(app.getPath('userData'), '/downloads'),
+                                    url: `${DOWNLOAD_URI}/extensions/${store.file}`,
+                                    directory: path.join(app.getPath('userData'), '/plugins'),
                                     cloneFiles: false,
-                                    fileName: store.id,
+                                    fileName: store.file,
                                     onProgress: function (percent, chunk, remain) {
                                         downProgress.innerHTML = `<span>Now downloading ${store.name}.</span>&nbsp;${percent}% | ${formatBytes(remain)} left`;
                                         bar.value = percent;
