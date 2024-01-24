@@ -3,7 +3,7 @@
     "translations": {
         "welcomeBack": "Başlangıç",
         "library": "Kütüphane",
-        "store": "Mağaza",
+        "store": "Eklentiler",
         "settings": "Ayarlar",
         "wineSettings": "Wine Ayarları (Sadece Linux, Mac veya FreeBSD)",
         "downloads": "İndirmeler",
@@ -12,7 +12,7 @@
         "play": "Oyna",
         "stop": "Oyunu Durdur",
         "downloadAndInstall": "İndir ve Yükle",
-        "refreshStore": "Mağazayı Yenile",
+        "refreshStore": "Eklentileryı Yenile",
         "wineConfig": "Wine Yapılandırması",
         "toLibrary": "Kütüphaneye Git!",
         "refInternet": "İnternet Bağlantısını Yenile",

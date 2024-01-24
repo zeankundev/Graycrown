@@ -3,7 +3,7 @@
     "translations": {
         "welcomeBack": "Startbildschrim",
         "library": "Bibilothek",
-        "store": "Geschäft",
+        "store": "Plugins",
         "settings": "Einstellungen",
         "wineSettings": "Wine-Einstellungen (Nur Linux, Mac oder FreeBSD)",
         "downloads": "Download",
@@ -12,7 +12,7 @@
         "play": "Spielen",
         "stop": "Spiel beenden",
         "downloadAndInstall": "Herunterladen und installieren",
-        "refreshStore": "Geschäft aktualisieren",
+        "refreshStore": "Plugins aktualisieren",
         "wineConfig": "Wine-Konfiguration",
         "toLibrary": "Zum Bibilothek!",
         "refInternet": "Internet-Verbindung aktualisieren",

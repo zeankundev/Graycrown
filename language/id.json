@@ -3,7 +3,7 @@
     "translations": {
         "welcomeBack": "Beranda",
         "library": "Perpustakaan",
-        "store": "Toko",
+        "store": "Plugin",
         "settings": "Pengaturan",
         "wineSettings": "Pengaturan Wine (Hanya untuk Linux, Mac atau FreeBSD)",
         "downloads": "Unduhan",
@@ -12,7 +12,7 @@
         "play": "Mainkan",
         "stop": "Hentikan permainan",
         "downloadAndInstall": "Unduh dan pasang",
-        "refreshStore": "Segarkan Toko",
+        "refreshStore": "Segarkan Plugin",
         "wineConfig": "Konfigurasi Wine",
         "toLibrary": "Ke perpustakaan",
         "refInternet": "Segarkan sambungan internet",

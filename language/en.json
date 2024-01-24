@@ -3,7 +3,7 @@
     "translations": {
         "welcomeBack": "Home",
         "library": "Library",
-        "store": "Store",
+        "store": "Plugins",
         "settings": "Settings",
         "wineSettings": "Wine Settings (Linux, Mac or FreeBSD only)",
         "downloads": "Downloads",
@@ -12,7 +12,7 @@
         "play": "Play",
         "stop": "Stop Game",
         "downloadAndInstall": "Download and Install",
-        "refreshStore": "Refresh Store",
+        "refreshStore": "Refresh Plugins",
         "wineConfig": "Wine Configuration",
         "toLibrary": "Go to library!",
         "refInternet": "Refresh internet connection",

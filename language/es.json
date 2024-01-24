@@ -3,7 +3,7 @@
     "translations": {
         "welcomeBack": "¡Bienvenido de nuevo!",
         "library": "Biblioteca",
-        "store": "Tienda",
+        "store": "Complementos",
         "settings": "Ajustes",
         "wineSettings": "Ajustes de Wine (solo Linux)",
         "downloads": "Descargas",
@@ -12,7 +12,7 @@
         "play": "Tocar",
         "stop": "Detener el juego",
         "downloadAndInstall": "Descargar e instalar",
-        "refreshStore": "Actualizar tienda",
+        "refreshStore": "Actualizar complomentos",
         "wineConfig": "Configuración del Wine",
         "toLibrary": "Ir a la biblioteca",
         "refInternet": "Actualizar conexión a internet",
