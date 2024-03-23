@@ -1,3 +1,8 @@
+<div align="center">
+  <b>Graycrown is being rewritten in React and Typescript. If you want the legacy Graycrown, rewind to version 1.2.2</b>
+</div>
+<br>
+
 ![graycrown logo](https://zeankundev.github.io/Graycrown/assets/svg/logo.svg)
 # Graycrown
 <div style="text-align: center;">
