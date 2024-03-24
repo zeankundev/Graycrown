@@ -1,0 +1,76 @@
+/*
+ * @NOTE: Prepend a `~` to css file paths that are in your node_modules
+ *        See https://github.com/webpack-contrib/sass-loader#imports
+ */
+@font-face {
+  font-family: 'cartoon';
+  src: url('../../assets/fonts/TF2.ttf');
+}
+@font-face {
+  font-family: 'TF2 Head Light';
+  src: url('../../assets/fonts/TF2-Regular.otf');
+}
+@font-face {
+  font-family: 'game-serif';
+  src: url('../../assets/fonts/ja-jp.ttf');
+}
+* {
+  margin: 0;
+}
+body {
+  position: relative;
+  color: var(--main-text);
+  height: 100vh;
+  background: var(--main-color);
+  font-family: 'Segoe UI Variable Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  overflow-y: hidden;
+  display: flex;
+}
+h1, h2{
+  font-family: 'cartoon', 'game-serif', sans-serif;
+}
+h3, h4, h5 {
+  font-family: 'TF2 Head Light', system-ui, sans-serif;
+  font-weight: 400;
+}
+.gcui-topbar {
+  display: flex;
+  flex-direction: row;
+}
+.gcui-tabs {
+  display: flex;
+  padding: 10px;
+  background-color: var(--main-hover-color);
+  max-width: fit-content;
+}
+.gcui-tab-link {
+  text-decoration: none;
+  color: var(--main-text);
+  max-width: fit-content;
+  cursor: default;
+}
+.gcui-main {
+  background-color: var(--main-hover-color);
+  padding: 10px;
+  display: flex;
+  width: calc(100vw - 20px);
+  height: 100vh;
+}
+.gcui-draggable {
+  -webkit-app-region: drag;
+  display: inline-flex;
+  flex: 1;
+}
+.gcui-window-tools {
+  display: flex;
+  align-items: center;
+}
+.gcui-window-button {
+  display: inline-flex;
+  padding: 8px;
+  flex: 1;
+  margin-left: 10px;
+}
+.gcui-window-button:hover {
+  background-color: var(--main-hover-color);
+}
