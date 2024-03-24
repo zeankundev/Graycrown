@@ -37,23 +37,31 @@ h3, h4, h5 {
   display: flex;
   flex-direction: row;
 }
+.gcui-tab-collection {
+  display: flex;
+  flex-direction: row;
+}
 .gcui-tabs {
   display: flex;
   padding: 10px;
-  background-color: var(--main-hover-color);
+  background-color: var(--main-color);
   max-width: fit-content;
+}
+.gcui-tabs.active {
+  background-color: var(--main-hover-color) !important;
 }
 .gcui-tab-link {
   text-decoration: none;
+  user-select: none;
   color: var(--main-text);
   max-width: fit-content;
   cursor: default;
 }
 .gcui-main {
   background-color: var(--main-hover-color);
-  padding: 10px;
+  padding: 20px;
   display: flex;
-  width: calc(100vw - 20px);
+  width: calc(100vw - 40px);
   height: 100vh;
 }
 .gcui-draggable {

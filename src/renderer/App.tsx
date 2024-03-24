@@ -8,10 +8,13 @@ import {
   Home20Regular,
   Dismiss24Regular,
   Square24Regular,
-  Subtract24Regular
+  Subtract24Regular,
+  Library20Regular,
+  Library20Filled
 } from '@fluentui/react-icons'
 import TabButton from './modules/TabButton';
 import Home from './pages/Home';
+import Library from './pages/Library'
 import WindowToolsButton from './modules/WIndowToolsButton';
 const app = remote.app
 
@@ -23,6 +26,7 @@ export default function App() {
         <div className='gcui-topbar'>
           <div className='gcui-tab-collection'>
             <TabButton path='/' reg={Home20Regular} filled={Home20Filled} name='Home'/>
+            <TabButton path='/library' reg={Library20Regular} filled={Library20Filled} name='Library' />
           </div>
           <div className='gcui-draggable'></div>
           <div className='gcui-window-tools'>
@@ -34,6 +38,7 @@ export default function App() {
         <div className='gcui-main'>
           <Switch>
             <Route component={Home} path='/' exact />
+            <Route component={Library} path='/library' />
           </Switch>
         </div>
       </BrowserRouter>
