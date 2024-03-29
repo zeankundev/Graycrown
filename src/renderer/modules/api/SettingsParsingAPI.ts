@@ -59,7 +59,7 @@ export default class GCSettingsAPI {
         return this.language;
     }
 
-    public getHomePageRepository(): String {
+    public getHomePageRepository(): RequestInfo {
         return this.homePageRepository;
     }
 

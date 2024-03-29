@@ -82,3 +82,27 @@ h3, h4, h5 {
 .gcui-window-button:hover {
   background-color: var(--main-hover-color);
 }
+.gcui-recommend-fragment {
+  padding: 10px;
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-blend-mode: multiply;
+  display: inline-flex;
+  flex-direction: column;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+.gcui-fragmented-p {
+  font-size: 15pt;
+  font-weight: bold;
+  user-select: none;
+}
+.gcui-image-generic {
+  width: 30px;
+  height: 30px;
+  display: block;
+  user-select: none;
+  image-rendering: optimizeQuality;
+  image-resolution: 1;
+  object-fit: cover;
+}
